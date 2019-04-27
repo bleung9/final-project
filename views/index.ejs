@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/normalize.css' />
-  </head>
-  <body>
-    <nav>
-      <% include ./partials/_navbar %>
-    </nav>
-    <h1>Welcome to <%= title %> Home</h1>
-    
-    <h2>What is Final Project</h2>
-    <div class="description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-        Consectetur adipiscing elit pellentesque habitant morbi tristique senectus. 
-        Condimentum lacinia quis vel eros donec. Eleifend donec pretium vulputate sapien nec sagittis. 
-        Velit egestas dui id ornare arcu odio ut sem nulla.
-    </div>
 
-    <h2>Features</h2>
-    <div class="features">
-      List some features here:
-      connect by personality
-      filter by parameters
-      match by questions
-    </div>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <style>
+    /* Set the size of the div element that contains the map */
+    #map {
+      height: 400px;
+      /* The height is 400 pixels */
+      width: 100%;
+      /* The width is the width of the web page */
+    }
+  </style>
+</head>
 
-  </body>
+<body>
+  <nav>
+    <% include ./partials/_navbar %>
+  </nav>
+  <h1>Welcome to <%= title %> Home</h1>
+
+  <h2>What is Final Project</h2>
+  <div class="description">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua.
+    Consectetur adipiscing elit pellentesque habitant morbi tristique senectus.
+    Condimentum lacinia quis vel eros donec. Eleifend donec pretium vulputate sapien nec sagittis.
+    Velit egestas dui id ornare arcu odio ut sem nulla.
+  </div>
+
+  <h2>Features</h2>
+  <div class="features">
+    List some features here:
+    connect by personality
+    filter by parameters
+    match by questions
+  </div>
+  <form action="/register" method="GET">
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+</body>
+
 </html>
