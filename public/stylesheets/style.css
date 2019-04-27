@@ -1,8 +1,14 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+#navbar {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgb(81, 201, 185);
+  height: 8rem;
 }
 
-a {
-  color: #00B7FF;
+body {
+  padding-top: 8rem;
+  margin-left: 0;
 }
