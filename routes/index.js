@@ -16,4 +16,9 @@ router.get('/login', function(req, res, next) {
   res.send("Add login view");
 });
 
+// Login
+router.post('/login', function(req, res, next) {
+  // need to implement this
+})
+
 module.exports = router;
