@@ -25,10 +25,18 @@ router.post('/register', function(req, res) {
     email: req.body.email,
     passwordHash: req.body.password
   }
+  // store new user in database
+  //retrieve that new user's id
   models.User.create(newUser).then(()=> {
-    res.redirect('/');
+    models.User.findOne({
+      where: {email: newUser.email},
+    }).then(user => {
+      let userId = user.get('id')
+      console.log('this is the userId',userId)
+      res.redirect(`/users/${userId}/create`);
+    })
   })
-});
+})
 
 // Login page
 router.get('/login', function(req, res, next) {
