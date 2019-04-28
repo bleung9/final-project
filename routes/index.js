@@ -53,4 +53,9 @@ router.get('/questionnaire', function(req, res, next) {
   res.send('questionnaire view');
 });
 
+// Test chat page
+router.get('/chat', function(req, res, next) {
+  res.render('chat');
+});
+
 module.exports = router;
