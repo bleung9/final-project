@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 // User logged in profile
-router.get('/userid', function (req, res, next) {
+router.get('/:id/show', function (req, res, next) {
   res.send('User profile here');
 });
 
