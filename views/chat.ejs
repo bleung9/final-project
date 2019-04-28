@@ -30,8 +30,8 @@
   Talk.ready.then(function() {
       var me = new Talk.User({
           id: "123456",
-          name: "Alice",
-          email: "alice@example.com",
+          name: "<%= nameme %>",
+          email: "<%= emailme %>",
           photoUrl: "https://demo.talkjs.com/img/alice.jpg",
           welcomeMessage: "Hey there! How are you? :-)"
       });
@@ -41,8 +41,8 @@
       });
       var other = new Talk.User({
           id: "654321",
-          name: "<%= name %>",
-          email: "S<%= email %>",
+          name: "<%= nameother %>",
+          email: "<%= emailother %>",
           photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
           welcomeMessage: "Hey, how can I help?"
       });
@@ -50,6 +50,9 @@
       var conversation = talkSession.getOrCreateConversation(Talk.oneOnOneId(me, other))
       conversation.setParticipant(me);
       conversation.setParticipant(other);
+      conversation.setAttributes({
+        subject: "This totally legit algorithm thinks we're a match!"
+      });
       var inbox = talkSession.createInbox({selected: conversation});
       inbox.mount(document.getElementById("talkjs-container"));
   });
