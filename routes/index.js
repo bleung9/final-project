@@ -53,7 +53,7 @@ router.get('/questionnaire', function(req, res, next) {
   res.send('questionnaire view');
 });
 
-// Test chat page
+// Test chat page, this will be hidden behind a user eventually
 router.get('/chat', function(req, res, next) {
   models.User.findAll({
     // return all users

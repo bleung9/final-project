@@ -23,7 +23,7 @@
   </script>
   
   <!-- container element in which TalkJS will display a chat UI -->
-  <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px"><i>Loading chat...</i></div>
+  <div id="talkjs-container" style="width: 90%; margin: 30px; height: 400px"><i>Loading chat...</i></div>
   
   <!-- TalkJS initialization code, which we'll customize in the next steps -->
   <script>
@@ -53,7 +53,10 @@
       conversation.setAttributes({
         subject: "This totally legit algorithm thinks we're a match!"
       });
-      var inbox = talkSession.createInbox({selected: conversation});
+      var inbox = talkSession.createInbox({
+        selected: conversation,
+        messageSuggestion: "Hey, this is a preset message suggestion."
+      });
       inbox.mount(document.getElementById("talkjs-container"));
   });
   </script>
