@@ -2,12 +2,12 @@
 // 2 Do you smoke (Y/N)
 // 3 Do you mind pets? (Y/N)
 // 4 Are you a night owl? (Y/N)
-// 5 Do you prefer to have the house at a hot or cold temperature? (H/C)
-// 6 On a scale of 1-10, how important is it that your space is always kept clean?
-// 7 On a scale of 1-10, how much do you mind that your roommate frequently has frds/SO?
-// 8 On a scale of 1-10, how much do you like Pikachu?
-// 9 On a scale of 1-10, how much did you like Avengers: Endgame?
-// 10 On a scale of 1-10, how flat do you think the Earth is?
+// 5 Do you mind living with someone of the opposite gender? (Y/N)
+// 6 Do you prefer to have the house at a hot or cold temperature? (H/C)
+// 7 On a scale of 1-10, how important is it that your space is always kept clean?
+// 8 On a scale of 1-10, how much do you mind that your roommate frequently has frds/SO?
+// 9 On a scale of 1-10, how much do you like Pikachu?
+// 10 On a scale of 1-10, how much did you like Avengers: Endgame?
 
 function distance(question_id, answer) {
   return answers[question_id - 1] - answer;
@@ -35,48 +35,52 @@ let compatibility_list = { "ESFP": ["ESFJ", "ESTP", "ISFP"],
                       "INFP": ["INFJ", "ISFJ", "ENFJ"], 
 }
 
-let answers = ["INTJ", "y", "y", "y", "h", 10, 10, 10, 10, 10]
+let answers = ["INTJ", "y", "y", "y", "y", "h", 10, 10, 10, 10, 10]
 let personality = answers[0]
 let existing = [ {user_id: 1, question_id: 1, answer: "INTP"}, 
                  {user_id: 1, question_id: 2, answer: "y"}, 
                  {user_id: 1, question_id: 3, answer: "y"},
                  {user_id: 1, question_id: 4, answer: "n"}, 
-                 {user_id: 1, question_id: 5, answer: "c"}, 
-                 {user_id: 1, question_id: 6, answer: 5}, 
-                 {user_id: 1, question_id: 7, answer: 8}, 
-                 {user_id: 1, question_id: 8, answer: 10}, 
-                 {user_id: 1, question_id: 9, answer: 7}, 
-                 {user_id: 1, question_id: 10, answer: 5}, 
+                 {user_id: 1, question_id: 5, answer: "y"}, 
+                 {user_id: 1, question_id: 6, answer: "c"}, 
+                 {user_id: 1, question_id: 7, answer: 5}, 
+                 {user_id: 1, question_id: 8, answer: 8}, 
+                 {user_id: 1, question_id: 9, answer: 10}, 
+                 {user_id: 1, question_id: 10, answer: 7}, 
+                 {user_id: 1, question_id: 11, answer: 5}, 
                  {user_id: 2, question_id: 1, answer: "ENTJ"},
                  {user_id: 2, question_id: 2, answer: "y"}, 
                  {user_id: 2, question_id: 3, answer: "n"},
                  {user_id: 2, question_id: 4, answer: "y"}, 
-                 {user_id: 2, question_id: 5, answer: "h"}, 
-                 {user_id: 2, question_id: 6, answer: 1}, 
-                 {user_id: 2, question_id: 7, answer: 7}, 
-                 {user_id: 2, question_id: 8, answer: 10}, 
-                 {user_id: 2, question_id: 9, answer: 5}, 
-                 {user_id: 2, question_id: 10, answer: 3},
+                 {user_id: 2, question_id: 5, answer: "n"}, 
+                 {user_id: 2, question_id: 6, answer: "h"}, 
+                 {user_id: 2, question_id: 7, answer: 1}, 
+                 {user_id: 2, question_id: 8, answer: 7}, 
+                 {user_id: 2, question_id: 9, answer: 10}, 
+                 {user_id: 2, question_id: 10, answer: 5}, 
+                 {user_id: 2, question_id: 11, answer: 3},
                  {user_id: 3, question_id: 1, answer: "EFTP"}, 
                  {user_id: 3, question_id: 2, answer: "y"}, 
                  {user_id: 3, question_id: 3, answer: "y"},
                  {user_id: 3, question_id: 4, answer: "y"}, 
-                 {user_id: 3, question_id: 5, answer: "y"}, 
-                 {user_id: 3, question_id: 6, answer: 5}, 
-                 {user_id: 3, question_id: 7, answer: 9}, 
-                 {user_id: 3, question_id: 8, answer: 10}, 
-                 {user_id: 3, question_id: 9, answer: 1}, 
-                 {user_id: 3, question_id: 10, answer: 3}, 
+                 {user_id: 2, question_id: 5, answer: "n"}, 
+                 {user_id: 3, question_id: 6, answer: "h"}, 
+                 {user_id: 3, question_id: 7, answer: 5}, 
+                 {user_id: 3, question_id: 8, answer: 9}, 
+                 {user_id: 3, question_id: 9, answer: 10}, 
+                 {user_id: 3, question_id: 10, answer: 1}, 
+                 {user_id: 3, question_id: 11, answer: 3}, 
                  {user_id: 4, question_id: 1, answer: "ESFP"},
                  {user_id: 4, question_id: 2, answer: "n"}, 
                  {user_id: 4, question_id: 3, answer: "n"},
                  {user_id: 4, question_id: 4, answer: "y"}, 
-                 {user_id: 4, question_id: 5, answer: "h"}, 
-                 {user_id: 4, question_id: 6, answer: 10}, 
+                 {user_id: 4, question_id: 5, answer: "n"}, 
+                 {user_id: 4, question_id: 6, answer: "h"}, 
                  {user_id: 4, question_id: 7, answer: 10}, 
                  {user_id: 4, question_id: 8, answer: 10}, 
-                 {user_id: 4, question_id: 9, answer: 8}, 
-                 {user_id: 4, question_id: 10, answer: 9} ];
+                 {user_id: 4, question_id: 9, answer: 10}, 
+                 {user_id: 4, question_id: 10, answer: 8}, 
+                 {user_id: 4, question_id: 11, answer: 9} ];
 
 let rank = {};
 
