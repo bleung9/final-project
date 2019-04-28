@@ -40,4 +40,9 @@ router.post('/login', function(req, res, next) {
   // need to implement this
 })
 
+// Questionnaire, will only be accessible if user logged in! /:id/profile/create
+router.get('/questionnaire', function(req, res, next) {
+  res.send('questionnaire view');
+});
+
 module.exports = router;
