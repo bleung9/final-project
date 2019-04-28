@@ -55,7 +55,16 @@ router.get('/questionnaire', function(req, res, next) {
 
 // Test chat page
 router.get('/chat', function(req, res, next) {
-  res.render('chat');
+  var user;
+  models.User.findOne({
+    where: {lastName: 'Cena'},
+  }).then(user => {
+    console.log(user.dataValues)
+    res.render('chat', { 
+      name: user.dataValues.firstName,
+      email: user.dataValues.email,
+     });
+  })
 });
 
 module.exports = router;
