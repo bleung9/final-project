@@ -6,7 +6,6 @@ module.exports = {
         lastName: 'Cena',
         email: 'demo@demo.com',
         password: 'abc123',
-        personality: 'ENJF',
         createdAt: new Date(),
         updatedAt: new Date() 
       },{
@@ -14,7 +13,6 @@ module.exports = {
         lastName: 'Nash',
         email: 'demo2@demo.com',
         password: 'abc124',
-        personality: 'INJP',
         createdAt: new Date(),
         updatedAt: new Date() 
       }], {});
