@@ -7,8 +7,8 @@ router.get('/', function(req, res, next) {
 });
 
 // User logged in profile
-router.get('/:id/show', function (req, res, next) {
-  res.send('User profile here');
+router.get('/:id/create', function (req, res, next) {
+  res.render('questionnaire');
 });
 
 // User matches

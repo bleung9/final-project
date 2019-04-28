@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Roomate questionare</title>
+  </head>
+
+  <body style="font-size:20px; padding:50px;">
+    <h1>Please tell us a little bit about you:</h1>
+    <form action="/register" method="POST">
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">Which one is your 16 personality</label>
+        <p>If you don't know then go on</p>
+        <a href="https://www.16personalities.com/free-personality-test">Click me</a>
+
+        <select multiple class="form-control" id="exampleFormControlSelect2" name = "personality">
+          <option value="INTJ">INTJ</option>
+          <option value="INTP">INTP</option>
+          <option value="ENTJ">ENTJ</option>
+          <option value="ENTP">ENTP</option>
+          <option value="INFJ">INFJ</option>
+          <option value="INFP">INFP</option>
+          <option value="ENFJ">ENFJ</option>
+          <option value="ENFP">ENFP</option>
+          <option value="ISTJ">ISTJ</option>
+          <option value="ISFJ">ISFJ</option>
+          <option value="ESTJ">ESTJ</option>
+          <option value="ESFJ">ESFJ</option>
+          <option value="ISTP">ISTP</option>
+          <option value="ISFP">ISFP</option>
+          <option value="ESTP">ESTP</option>
+          <option value="ESFP">ESFP</option>
+        </select>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Continue</button>
+    </form>
+  </body>
+</html>
