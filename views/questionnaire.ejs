@@ -1,44 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Roomate questionare</title>
-  </head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-  <body style="font-size:20px; padding:50px;">
-    <h1>Please tell us a little bit about you:</h1>
-    <form >
-      <div class="form-group">
-        <label for="exampleFormControlSelect2">Which one is your 16 personality</label>
-        <p>If you don't know then go on</p>
-        <a href="https://www.16personalities.com/free-personality-test">Click me</a>
+  <title>Roomate questionare</title>
+  <style>
+    /* Set the size of the div element that contains the map */
+    #map {
+      height: 400px;
+      /* The height is 400 pixels */
+      width: 100%;
+      /* The width is the width of the web page */
+    }
+  </style>
+</head>
 
-        <select multiple class="form-control" id="exampleFormControlSelect2" name = "personality">
-          <option value="INTJ">INTJ</option>
-          <option value="INTP">INTP</option>
-          <option value="ENTJ">ENTJ</option>
-          <option value="ENTP">ENTP</option>
-          <option value="INFJ">INFJ</option>
-          <option value="INFP">INFP</option>
-          <option value="ENFJ">ENFJ</option>
-          <option value="ENFP">ENFP</option>
-          <option value="ISTJ">ISTJ</option>
-          <option value="ISFJ">ISFJ</option>
-          <option value="ESTJ">ESTJ</option>
-          <option value="ESFJ">ESFJ</option>
-          <option value="ISTP">ISTP</option>
-          <option value="ISFP">ISFP</option>
-          <option value="ESTP">ESTP</option>
-          <option value="ESFP">ESFP</option>
-        </select>
-      </div>
-      
-      <button type="submit" class="btn btn-primary">Continue</button>
-    </form>
-  </body>
+<body style="font-size:20px; padding:50px;">
+  <h1>Please tell us a little bit about you:</h1>
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Which one is your 16 personality</label>
+      <p>If you don't know then go on</p>
+      <a href="https://www.16personalities.com/free-personality-test">Click me</a>
+
+      <select multiple class="form-control" id="exampleFormControlSelect2" name="personality">
+        <option value="INTJ">INTJ</option>
+        <option value="INTP">INTP</option>
+        <option value="ENTJ">ENTJ</option>
+        <option value="ENTP">ENTP</option>
+        <option value="INFJ">INFJ</option>
+        <option value="INFP">INFP</option>
+        <option value="ENFJ">ENFJ</option>
+        <option value="ENFP">ENFP</option>
+        <option value="ISTJ">ISTJ</option>
+        <option value="ISFJ">ISFJ</option>
+        <option value="ESTJ">ESTJ</option>
+        <option value="ESFJ">ESFJ</option>
+        <option value="ISTP">ISTP</option>
+        <option value="ISFP">ISFP</option>
+        <option value="ESTP">ESTP</option>
+        <option value="ESFP">ESFP</option>
+      </select>
+
+    </div>
+    <h1>Which neighbourhood do you want to live in?</h1>
+    <div class = "desiredPlaces">
+      <ol id="desired">
+
+      </ol>
+    </div>
+    <div id="map"></div>
+
+
+    <script>
+
+      function initMap() {
+        const toronto = { lat: 43.6529, lng: -79.3849 };
+        let map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: toronto
+        });
+
+        map.data.loadGeoJson('https://raw.githubusercontent.com/jasonicarter/toronto-geojson/master/toronto_crs84.geojson');
+        
+
+        map.data.setStyle(function(feature) {
+          var color = 'gray';
+          if (feature.getProperty('isColorful')) {
+            color = feature.getProperty('color');
+          }
+          return ({
+            fillColor: color,
+            strokeColor: color,
+            strokeWeight: 2
+          });
+        });
+
+        map.data.addListener('click', function(event) {
+          if (event.feature.getProperty('isColorful')){
+            event.feature.setProperty('isColorful', false);
+            let place = document.getElementById(event.feature.l.AREA_NAME)
+            place.remove()
+          } else {
+            let places = document.getElementById('desired')
+            var place = document.createElement('li');
+            place.setAttribute('id',event.feature.l.AREA_NAME);
+            places.appendChild(place);  
+            place.innerHTML=event.feature.l.AREA_NAME
+            console.log(event.feature.l.AREA_NAME)
+            event.feature.setProperty('isColorful', true);
+          }
+        });
+
+        map.data.addListener('mouseover', function(event) {
+          map.data.revertStyle();
+          map.data.overrideStyle(event.feature, {strokeWeight: 8});
+        });
+
+        map.data.addListener('mouseout', function(event) {
+          map.data.revertStyle();
+        });
+        // map.data.setStyle({
+        //   fillColor: 'green',
+        //   strokeWeight: 1
+        // });
+
+        // var rectangle = new google.maps.Rectangle({
+        //   strokeColor: '#FF0000',
+        //   strokeOpacity: 0.8,
+        //   strokeWeight: 2,
+        //   fillColor: '#FF0000',
+        //   fillOpacity: 0.35,
+        //   map: map,
+        //   bounds: {
+        //     north: 43.64376,
+        //     south: 43.640188 ,
+        //     east: -79.381673,
+        //     west: -79.393818
+        //   }
+        // });
+
+        // map.addListener('click', function (e) {
+        //   placeMarkerAndPanTo(e.latLng, map);
+        // });
+      }
+
+      function placeMarkerAndPanTo(latLng, map) {
+        var marker = new google.maps.Marker({
+          position: latLng,
+          map: map
+        });
+        map.panTo(latLng);
+      }
+    </script>
+    <!--Load the API from the specified URL
+          * The async attribute allows the browser to render the page while the API loads
+          * The key parameter will contain your own API key (which is not needed for this tutorial)
+          * The callback parameter executes the initMap() function
+          -->
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoAdVYZtu3IXtTHJCS4wZ5JuphD3mzf3Q&callback=initMap">
+      </script>
+
+    <button type="submit" class="btn btn-primary">Continue</button>
+  </form>
+</body>
+
 </html>
