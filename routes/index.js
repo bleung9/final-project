@@ -45,8 +45,33 @@ router.get('/login', function(req, res, next) {
 
 // Login
 router.post('/login', function(req, res, next) {
-  // need to implement this
-})
+  // query database, loop through users see if email is equal in loop AND password equal in loop is true)
+  // if true then set req.session.userid = results of loop[i].id
+  //redirect
+  // else return 403, user or password incorrect.
+  models.User.findAll({
+    // return all users
+  }).then(results => {
+    for (let i = 0; i < results.length; i++) {
+      console.log(results[i].dataValues.email)
+      if (req.body.email === results[i].dataValues.email && req.body.password === results[i].dataValues.password) {
+        console.log("Match found");
+        res.redirect('/');
+        break;
+      }
+    }
+  })
+  // .then(results => {
+  //   for (let i = 0; i < results.length; i++) {
+  //    if (//email == result email && password = result password  === true) {
+  //       req.session.userId = results[i].id;
+  //       console.log("MATCH");
+  //       return res.redirect('/');
+  //     };
+  //   });
+  //   return res.status(403).send('Email and/or password is incorrect').end();
+  // });
+});
 
 // Questionnaire, will only be accessible if user logged in! /:id/profile/create
 router.get('/questionnaire', function(req, res, next) {
