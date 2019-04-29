@@ -40,7 +40,7 @@ router.post('/register', function(req, res) {
 
 // Login page
 router.get('/login', function(req, res, next) {
-  res.send("Add login view");
+  res.render('login');
 });
 
 // Login
