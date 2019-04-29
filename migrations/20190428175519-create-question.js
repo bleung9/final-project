@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.TEXT
       },
       answers: {
-        type: Sequelize.ARRAY
+        type: Sequelize.ARRAY(Sequelize.STRING)
       },
       createdAt: {
         allowNull: false,
