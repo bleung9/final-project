@@ -55,7 +55,7 @@ router.post('/login', function(req, res, next) {
       if (req.body.email === results[i].dataValues.email && req.body.password === results[i].dataValues.password) {
         console.log("Match found");
         res.cookie('email', req.body.email);
-        res.redirect('/');
+        res.redirect('/users/:id/matches');
         break;
       };
     };

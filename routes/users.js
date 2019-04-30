@@ -12,8 +12,8 @@ router.get('/:id/create', function (req, res, next) {
 });
 
 // User matches
-router.get('/userid/matches', function (req, res, next) {
-  res.send('User matches here');
+router.get('/:id/matches', function (req, res, next) {
+  res.render('match');
 });
 
 /*
