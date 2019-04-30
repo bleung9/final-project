@@ -62,14 +62,6 @@ router.post('/login', function(req, res, next) {
       }
     }
   })
-  // .then(results => {
-  //   for (let i = 0; i < results.length; i++) {
-  //    if (//email == result email && password = result password  === true) {
-  //       req.session.userId = results[i].id;
-  //       console.log("MATCH");
-  //       return res.redirect('/');
-  //     };
-  //   });
   //   return res.status(403).send('Email and/or password is incorrect').end();
   // });
 });

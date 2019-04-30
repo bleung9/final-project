@@ -10,11 +10,27 @@
   <nav>
     <% include ./partials/_navbar %>
   </nav>
-  <form method="POST" action="/login">
+  <!-- <form method="POST" action="/login">
     <h4>Login</h4>
     <label>Email<input type="text" placeholder="Email" name="email"></label>
     <label>Password<input type="password" placeholder="Password" name="password"></label>
     <p><input type="submit" value="Login"></p>
     <p>Not registered? Make an account now! <a href="/register">Register now</a></p>
-  </form>
+  </form> -->
+  <% if (email){ %>
+    <form class="form-inline" action="/logout" method="POST">
+      <div class="form-group mb-2">
+        <h5>Logged in as <%= email %></h5>
+        <button type="submit" class="btn btn-primary">Logout</button>
+      </div>
+    </form>
+  <% } else { %>
+    <form class="form-inline" action="/login" method="POST">
+      <div class="form-group mb-2">
+        <label for="longURL">Username:</label>
+        <input class="form-control" type="text" name="username">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </form>
+  <% } %>
 </body>
