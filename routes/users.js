@@ -15,7 +15,8 @@ router.get('/:id/create', function (req, res, next) {
 });
 
 router.post('/:id/create', function (req, res, next) {
-  res.render('/');
+  let id = req.params.id
+  res.redirect(`/users/${id}/matches`);
 });
 
 // User matches
