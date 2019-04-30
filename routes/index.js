@@ -42,13 +42,6 @@ router.post('/register', function(req, res) {
   })
 })
 
-// Login page
-router.get('/login', function(req, res, next) {
-  res.render('login', { 
-    title: 'Final Project',
-    email: null 
-  });
-});
 
 // Login
 router.post('/login', function(req, res, next) {

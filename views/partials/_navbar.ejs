@@ -3,20 +3,21 @@
   <div class="inner">
     <img src="/images/testlogo.png" alt="Project logo" width="25px" height="25px">
     
-    <nav id="nav">
-      <a href='/'>Home</a>
-      <a href='/register'>Register</a>
-      <a href='/login'>Login</a>
-    </nav>
-
-    <% if (email){ %>
-    <form class="form-inline" action="/logout" method="POST">
-      <div class="form-group mb-2">
-        <button type="submit" class="btn btn-primary">Logout</button>
-      </div>
-    </form>
-  </div>
-  <% } else { %> 
+    <nav>
+      <% if (email){ %>
+      <form class="form-inline" action="/logout" method="POST">
+        <div class="form-group mb-2">
+          <button type="submit" class="btn btn-primary">Logout</button>
+        </div>
+      </form>
     </div>
+  <% } else { %> 
+    <form method="POST" action="/login">
+      <label>Email<input type="text" placeholder="Email" name="email"></label>
+      <label>Password<input type="password" placeholder="Password" name="password"></label>
+      <p><input type="submit" value="Login"></p>
+      <p>Not registered? Make an account now! <a href="/register">Register now</a></p>
+    </form>  
+  </div>
   <% } %>
 </nav>
