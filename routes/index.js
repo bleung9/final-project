@@ -70,6 +70,7 @@ router.post('/login', function(req, res, next) {
 // Logout
 router.post('/logout', function(req, res, next) {
   res.clearCookie('email');
+  res.clearCookie('firstName');
   res.redirect('/');
 })
 
