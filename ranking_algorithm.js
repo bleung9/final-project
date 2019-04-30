@@ -10,7 +10,7 @@
 // 10 On a scale of 1-10, how much did you like Avengers: Endgame?
 
 function distance(question_id, answer) {
-  return answers[question_id - 1] - answer;
+  return Number(answers[question_id - 1]) - Number(answer);
 }
 
 function binaryOption(question_id, answer) {
@@ -25,7 +25,7 @@ let compatibility_list = { "ESFP": ["ESFJ", "ESTP", "ISFP"],
                       "ISTP": ["ISFP", "INFP", "ESFP"], 
                       "ISFJ": ["ESFJ", "ISFP", "ISTJ"], 
                       "ISFP": ["ESFP", "ISFJ", "ESFJ"], 
-                      "ENGJ": ["INTJ", "ENTP", "ENFJ"], 
+                      "ENTJ": ["INTJ", "ENTP", "ENFJ"], 
                       "ENTP": ["ENTJ", "ENFP", "ENFJ"], 
                       "ENFJ": ["ENFJ", "INFJ", "ENFP"], 
                       "ENFP": ["ENTJ", "INTJ", "INTP"], 
@@ -35,7 +35,7 @@ let compatibility_list = { "ESFP": ["ESFJ", "ESTP", "ISFP"],
                       "INFP": ["INFJ", "ISFJ", "ENFJ"], 
 }
 
-let answers = ["INTJ", "y", "y", "y", "y", "h", 10, 10, 10, 10, 10]
+let answers = ["INTJ", "y", "y", "y", "y", "h", 10, 10, 10, 10]
 let personality = answers[0]
 let existing = [ {user_id: 1, question_id: 1, answer: "INTP"}, 
                  {user_id: 1, question_id: 2, answer: "y"}, 
@@ -47,7 +47,6 @@ let existing = [ {user_id: 1, question_id: 1, answer: "INTP"},
                  {user_id: 1, question_id: 8, answer: 8}, 
                  {user_id: 1, question_id: 9, answer: 10}, 
                  {user_id: 1, question_id: 10, answer: 7}, 
-                 {user_id: 1, question_id: 11, answer: 5}, 
                  {user_id: 2, question_id: 1, answer: "ENTJ"},
                  {user_id: 2, question_id: 2, answer: "y"}, 
                  {user_id: 2, question_id: 3, answer: "n"},
@@ -58,7 +57,6 @@ let existing = [ {user_id: 1, question_id: 1, answer: "INTP"},
                  {user_id: 2, question_id: 8, answer: 7}, 
                  {user_id: 2, question_id: 9, answer: 10}, 
                  {user_id: 2, question_id: 10, answer: 5}, 
-                 {user_id: 2, question_id: 11, answer: 3},
                  {user_id: 3, question_id: 1, answer: "EFTP"}, 
                  {user_id: 3, question_id: 2, answer: "y"}, 
                  {user_id: 3, question_id: 3, answer: "y"},
@@ -69,7 +67,6 @@ let existing = [ {user_id: 1, question_id: 1, answer: "INTP"},
                  {user_id: 3, question_id: 8, answer: 9}, 
                  {user_id: 3, question_id: 9, answer: 10}, 
                  {user_id: 3, question_id: 10, answer: 1}, 
-                 {user_id: 3, question_id: 11, answer: 3}, 
                  {user_id: 4, question_id: 1, answer: "ESFP"},
                  {user_id: 4, question_id: 2, answer: "n"}, 
                  {user_id: 4, question_id: 3, answer: "n"},
@@ -79,8 +76,7 @@ let existing = [ {user_id: 1, question_id: 1, answer: "INTP"},
                  {user_id: 4, question_id: 7, answer: 10}, 
                  {user_id: 4, question_id: 8, answer: 10}, 
                  {user_id: 4, question_id: 9, answer: 10}, 
-                 {user_id: 4, question_id: 10, answer: 8}, 
-                 {user_id: 4, question_id: 11, answer: 9} ];
+                 {user_id: 4, question_id: 10, answer: 8} ];
 
 let rank = {};
 
