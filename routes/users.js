@@ -24,7 +24,7 @@ router.get('/:id/matches', function (req, res, next) {
           emailother: user[0].dataValues.email,
           nameme: user[1].dataValues.lastName,
           emailme: user[1].dataValues.email,
-          email: null
+          email: req.cookies.email
          });
   });
 });
