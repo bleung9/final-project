@@ -38,6 +38,11 @@ function startDB() {
       // }
 
       // user tries to access his ranking list
+      // let answers =  ["ISTJ", "y", "n", "y", "n", "h", 3, 1, 10, 7];
+      models.Responses.findAll().then(function(data) {
+        
+      })
+
 
 
     })
