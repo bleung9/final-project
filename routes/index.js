@@ -6,12 +6,18 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Final Project' });
+  res.render('index', { 
+    title: 'Final Project',
+    email: null 
+  });
 });
 
 // Register page
 router.get('/register', function(req, res, next) {
-  res.render('register', { title: 'Final Project' });
+  res.render('register', { 
+    title: 'Final Project',
+    email: null 
+  });
 });
 
 router.post('/register', function(req, res) {
@@ -38,7 +44,10 @@ router.post('/register', function(req, res) {
 
 // Login page
 router.get('/login', function(req, res, next) {
-  res.render('login');
+  res.render('login', { 
+    title: 'Final Project',
+    email: null 
+  });
 });
 
 // Login
@@ -71,7 +80,10 @@ router.post('/logout', function(req, res, next) {
 
 // Questionnaire, will only be accessible if user logged in! /:id/profile/create
 router.get('/questionnaire', function(req, res, next) {
-  res.send('questionnaire view');
+  res.send('questionnaire view', { 
+    title: 'Final Project',
+    email: null 
+  });
 });
 
 // Test chat page, this will be hidden behind a user eventually
@@ -84,7 +96,8 @@ router.get('/chat', function(req, res, next) {
           nameother: user[0].dataValues.lastName,
           emailother: user[0].dataValues.email,
           nameme: user[1].dataValues.lastName,
-          emailme: user[1].dataValues.email
+          emailme: user[1].dataValues.email,
+          email: null
          });
   });
 });

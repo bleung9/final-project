@@ -9,11 +9,14 @@
       <a href='/login'>Login</a>
     </nav>
 
+    <% if (email){ %>
     <form class="form-inline" action="/logout" method="POST">
       <div class="form-group mb-2">
         <button type="submit" class="btn btn-primary">Logout</button>
       </div>
-    </form>    
-    
+    </form>
   </div>
+  <% } else { %> 
+    </div>
+  <% } %>
 </nav>

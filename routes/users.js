@@ -13,7 +13,8 @@ router.get('/:id/create', function (req, res, next) {
 
 // User matches
 router.get('/:id/matches', function (req, res, next) {
-  res.render('match');
+  let templateVars = {email: req.cookies.email};
+  res.render('match', templateVars);
 });
 
 /*
