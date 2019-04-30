@@ -13,13 +13,55 @@
   <h1>Welcome to Matches Home</h1>
 
   <h2>Here are your matches!</h2>
-  <div class="description">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua.
-    Consectetur adipiscing elit pellentesque habitant morbi tristique senectus.
-    Condimentum lacinia quis vel eros donec. Eleifend donec pretium vulputate sapien nec sagittis.
-    Velit egestas dui id ornare arcu odio ut sem nulla.
-  </div>
+  <div>
+      <h2>Test Chat</h2>
+  <!-- minified snippet to load TalkJS without delaying your page -->
+  <script>
+    (function(t,a,l,k,j,s){
+    s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
+    ;k=t.Promise;t.Talk={v:1,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
+    .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
+    </script>
+    
+    <!-- container element in which TalkJS will display a chat UI -->
+    <div id="talkjs-container" style="width: 90%; margin: 30px; height: 400px"><i>Loading chat...</i></div>
+    
+    <!-- TalkJS initialization code, which we'll customize in the next steps -->
+    <script>
+    Talk.ready.then(function() {
+        var me = new Talk.User({
+            id: "123456",
+            name: "<%= nameme %>",
+            email: "<%= emailme %>",
+            photoUrl: "https://demo.talkjs.com/img/alice.jpg",
+            welcomeMessage: "Hey there! How are you? :-)"
+        });
+        window.talkSession = new Talk.Session({
+            appId: "tCnvhS5o",
+            me: me
+        });
+        var other = new Talk.User({
+            id: "654321",
+            name: "<%= nameother %>",
+            email: "<%= emailother %>",
+            photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
+            welcomeMessage: "Hey, how can I help?"
+        });
+    
+        var conversation = talkSession.getOrCreateConversation(Talk.oneOnOneId(me, other))
+        conversation.setParticipant(me);
+        conversation.setParticipant(other);
+        conversation.setAttributes({
+          subject: "This totally legit algorithm thinks we're a match!"
+        });
+        var inbox = talkSession.createInbox({
+          selected: conversation,
+          messageSuggestion: "Hey, this is a preset message suggestion."
+        });
+        inbox.mount(document.getElementById("talkjs-container"));
+    });
+    </script>
+    </div>
 
 </body>
 

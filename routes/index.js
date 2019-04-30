@@ -79,22 +79,4 @@ router.get('/questionnaire', function(req, res, next) {
   });
 });
 
-// Test chat page, this will be hidden behind a user eventually
-router.get('/chat', function(req, res, next) {
-  models.User.findAll({
-    // return all users
-  }).then(user => {
-    // console.log("User is", user[0])
-    res.render('chat', { 
-          nameother: user[0].dataValues.lastName,
-          emailother: user[0].dataValues.email,
-          nameme: user[1].dataValues.lastName,
-          emailme: user[1].dataValues.email,
-          email: null
-         });
-  });
-});
-
-
-
 module.exports = router;

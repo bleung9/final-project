@@ -14,7 +14,18 @@ router.get('/:id/create', function (req, res, next) {
 // User matches
 router.get('/:id/matches', function (req, res, next) {
   let templateVars = {email: req.cookies.email};
-  res.render('match', templateVars);
+  models.User.findAll({
+    // return all users
+  }).then(user => {
+    // console.log("User is", user[0])
+    res.render('match', { 
+          nameother: user[0].dataValues.lastName,
+          emailother: user[0].dataValues.email,
+          nameme: user[1].dataValues.lastName,
+          emailme: user[1].dataValues.email,
+          email: null
+         });
+  });
 });
 
 /*
