@@ -15,6 +15,19 @@ router.get('/:id/create', function (req, res, next) {
 });
 
 router.post('/:id/create', function (req, res, next) {
+  let rb = req.body;
+  let response = [rb.personality, rb.smoke]
+  console.log(response)
+
+  models.Responses.create(response).then(()=> {
+    models.User.findOne({
+      where: {email: newUser.email},
+    }).then(user => {
+      let userId = user.get('id')
+      console.log('this is the userId',userId)
+      res.redirect(`/users/${userId}/create`);
+    })
+  })
   let id = req.params.id
   res.redirect(`/users/${id}/matches`);
 });
