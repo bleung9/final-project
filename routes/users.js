@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var models = require('../models');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -18,8 +19,19 @@ router.post('/:id/create', function (req, res, next) {
 });
 
 // User matches
-router.get('/userid/matches', function (req, res, next) {
-  res.send('User matches here');
+router.get('/:id/matches', function (req, res, next) {
+  models.User.findAll({
+    // return all users
+  }).then(user => {
+    // console.log("User is", user[0])
+    res.render('match', { 
+          nameother: user[0].dataValues.lastName,
+          emailother: user[0].dataValues.email,
+          nameme: user[1].dataValues.lastName,
+          emailme: user[1].dataValues.email,
+          email: req.cookies.email
+         });
+  });
 });
 
 /*

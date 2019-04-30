@@ -354,7 +354,7 @@ template {
   top: 0;
   width: 100%;
   background-color: #00a087;
-  height: 8rem;
+  height: 12rem;
   padding: 0px 2rem;
   z-index: 100;
 }
@@ -367,4 +367,8 @@ template {
 body {
   padding-top: 8rem;
   margin-left: 0;
+}
+
+#login {
+  /* put styling for login form here */
 }
