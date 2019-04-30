@@ -58,10 +58,10 @@ router.post('/login', function(req, res, next) {
         res.cookie('email', req.body.email);
         res.redirect('/');
         break;
-      }
-    }
+      };
+    };
     return res.status(403).send('Email and/or password is incorrect').end();
-  }) 
+  });
 });
 
 // Questionnaire, will only be accessible if user logged in! /:id/profile/create
