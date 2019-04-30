@@ -3,44 +3,112 @@
 
 <head>
   <title><%= title %></title>
-  <link rel='stylesheet' href='/stylesheets/normalize.css' />
-  <style>
-    /* Set the size of the div element that contains the map */
-    #map {
-      height: 400px;
-      /* The height is 400 pixels */
-      width: 100%;
-      /* The width is the width of the web page */
-    }
-  </style>
-        var toronto = { lat: 43.6529, lng: -79.3849 };
+  
+  <link rel='stylesheet' href='/stylesheets/hero.css' />
+  <link rel='stylesheet' href= '/stylesheets/container.css' />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
 </head>
 
 <body>
   <nav>
-    <% include ./partials/_navbar %>
+    <!-- <% include ./partials/_navbar %> -->
   </nav>
-  <h1>Welcome to <%= title %> Home</h1>
+  <style>
 
-  <h2>What is Final Project</h2>
-  <div class="description">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua.
-    Consectetur adipiscing elit pellentesque habitant morbi tristique senectus.
-    Condimentum lacinia quis vel eros donec. Eleifend donec pretium vulputate sapien nec sagittis.
-    Velit egestas dui id ornare arcu odio ut sem nulla.
+  </style>
+  <div class="hero-full-screen">
+
+    <div class="top-content-section">
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li class="menu-text"><img src="http://placehold.it/75x30" alt="logo"></li>
+            <li><a href="#">One</a></li>
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="middle-content-section">
+      <h1>Super Compelling Headline</h1>
+      <button class="button large">Button</button>
+      <button class="button large">Button</button>
+    </div>
+
+    <div class="bottom-content-section" data-magellan data-threshold="0">
+      <a href="#main-content-section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          viewBox="0 0 24 24">
+          <path
+            d="M24 12c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12zm-18.005-1.568l1.415-1.414 4.59 4.574 4.579-4.574 1.416 1.414-5.995 5.988-6.005-5.988z" />
+          </svg></a>
+    </div>
+
   </div>
 
-  <h2>Features</h2>
-  <div class="features">
-    List some features here:
-    connect by personality
-    filter by parameters
-    match by questions
+  <div id="main-content-section" data-magellan-target="main-content-section">
+    <!-- your content goes here -->
+  
+    <div class="marketing-site-features">
+        <h2 class="marketing-site-features-headline">Welcome to <%= title %> Home</h2>
+        <p class="marketing-site-features-subheadline subheader">Lorem ipsum dolor sit amet, consectetur adipisicing elit quaerat eos words and phrases.</p>
+        <div class="row">
+          <div class="small-12 medium-3 columns">
+            <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+            <h4 class="marketing-site-features-title">Special Snowflake</h4>
+            <p class="marketing-site-features-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+          <div class="small-12 medium-3 columns">
+            <i class="fa fa-angellist" aria-hidden="true"></i>
+            <h4 class="marketing-site-features-title">Friendly Forms </h4>
+            <p class="marketing-site-features-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+          <div class="small-12 medium-3 columns">
+            <i class="fa fa-bullseye" aria-hidden="true"></i>
+            <h4 class="marketing-site-features-title">Special Snowflake</h4>
+            <p class="marketing-site-features-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+          <div class="small-12 medium-3 columns">
+            <i class="fa fa-battery-full" aria-hidden="true"></i>
+            <h4 class="marketing-site-features-title">Lithium Ion</h4>
+            <p class="marketing-site-features-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+        </div>
+      </div>
+      
+      
+    <h2>What is Final Project</h2>
+    <div class="description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna
+      aliqua.
+      Consectetur adipiscing elit pellentesque habitant morbi tristique senectus.
+      Condimentum lacinia quis vel eros donec. Eleifend donec pretium vulputate sapien nec sagittis.
+      Velit egestas dui id ornare arcu odio ut sem nulla.
+    </div>
+
+    <h2>Features</h2>
+    <div class="features">
+      List some features here:
+      connect by personality
+      filter by parameters
+      match by questions
+    </div>
+    <form action="/register" method="GET">
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
   </div>
-  <form action="/register" method="GET">
-    <button type="submit" class="btn btn-primary">Register</button>
-  </form>
+
+
+<!-- jQuery must be imported before Foundation -->
+<script src="js/jquery.min.js"></script>
+<!-- this will include every plugin and utility required by Foundation -->
+<script src="js/foundation.min.js"></script>
+
 </body>
+
+
 
 </html>
