@@ -23,8 +23,7 @@ router.post('/register', function(req, res) {
     personality: req.body.personality,
     gender: req.body.gender,
     email: req.body.email,
-    password: req.body.password,
-    passwordHash: req.body.password
+    password: req.body.password
   }
   // store new user in database
   //retrieve that new user's id
