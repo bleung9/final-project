@@ -21,8 +21,9 @@ router.post('/register', function(req, res) {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     personality: req.body.personality,
-    password: req.body.password,
+    gender: req.body.gender,
     email: req.body.email,
+    password: req.body.password,
     passwordHash: req.body.password
   }
   // store new user in database
