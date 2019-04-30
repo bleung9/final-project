@@ -8,7 +8,13 @@ router.get('/', function(req, res, next) {
 
 // User logged in profile
 router.get('/:id/create', function (req, res, next) {
-  res.render('questionnaire');
+  let tempVars = {id: req.params.id}
+  console.log("req",req.params.id)
+  res.render('questionnaire', tempVars);
+});
+
+router.post('/:id/create', function (req, res, next) {
+  res.render('/');
 });
 
 // User matches

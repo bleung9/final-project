@@ -24,7 +24,15 @@
       </div>
       
       <div class="form-group">
-        <label for="email1">Email address:</label>
+        <label for="gender">Gender</label>
+        <select multiple class="form-control" id="exampleFormControlSelect2" name = "gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>  
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email address:</label>
         <input type="email" class="form-control" name ="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
@@ -33,38 +41,7 @@
         <label for="password">Password</label>
         <input type="password" class="form-control" name ="password" id="exampleInputPassword1" placeholder="Set a Password">
       </div>
-      <div class="form-group">
-        <label for="gender">Gender</label>
-        <select multiple class="form-control" id="exampleFormControlSelect2" name = "gender">
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>  
-      </div>
-
-      <div class="form-group">
-        <label for="exampleFormControlSelect2">Which one is your 16 personality</label>
-        <p>If you don't know then go on</p>
-        <a href="https://www.16personalities.com/free-personality-test">Click me</a>
-
-        <select multiple class="form-control" id="exampleFormControlSelect2" name = "personality">
-          <option value="INTJ">INTJ</option>
-          <option value="INTP">INTP</option>
-          <option value="ENTJ">ENTJ</option>
-          <option value="ENTP">ENTP</option>
-          <option value="INFJ">INFJ</option>
-          <option value="INFP">INFP</option>
-          <option value="ENFJ">ENFJ</option>
-          <option value="ENFP">ENFP</option>
-          <option value="ISTJ">ISTJ</option>
-          <option value="ISFJ">ISFJ</option>
-          <option value="ESTJ">ESTJ</option>
-          <option value="ESFJ">ESFJ</option>
-          <option value="ISTP">ISTP</option>
-          <option value="ISFP">ISFP</option>
-          <option value="ESTP">ESTP</option>
-          <option value="ESFP">ESFP</option>
-        </select>
-      </div>
+      
       <button type="submit" class="btn btn-primary">Continue</button>
     </form>
   </body>

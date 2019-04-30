@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-  <title>Roomate questionare</title>
+  <title>Roommate questionnaire</title>
   <style>
     /* Set the size of the div element that contains the map */
     #map {
@@ -23,9 +23,9 @@
 
 <body style="font-size:20px; padding:50px;">
   <h1>Please tell us a little bit about you:</h1>
-  <form>
+  <form action= "/users/<%= id %>/create" method="POST"> 
     <div class="form-group">
-      <label for="exampleFormControlSelect2">Which one is your 16 personality</label>
+      <label for="exampleFormControlSelect2">Q1: Which one is your 16 personality</label>
       <p>If you don't know then go on</p>
       <a href="https://www.16personalities.com/free-personality-test">Click me</a>
 
@@ -48,108 +48,212 @@
         <option value="ESFP">ESFP</option>
       </select>
 
-    </div>
-    <h1>Which neighbourhood do you want to live in?</h1>
-    <div class = "desiredPlaces">
-      <ol id="desired">
+      <div>
+        <p>Q2: Do you smoke?</p>
+        <div>
+          <input type="radio" id="Yes" name="smoke" value="Yes" checked>
+          <label for="smoke">Yes</label>
+        </div>
 
-      </ol>
-    </div>
-    <div id="map"></div>
+        <div>
+          <input type="radio" id="No" name="smoke" value="No">
+          <label for="smoke">No</label>
+        </div>
+      </div>
+
+      <div>
+        <p>Q3: Do you mind pets? </p>
+        <div>
+          <input type="radio" id="Yes" name="pets" value="Yes" checked>
+          <label for="pets?">Yes</label>
+        </div>
+
+        <div>
+          <input type="radio" id="No" name="pets" value="No">
+          <label for="pets?">No</label>
+        </div>
+      </div>
+
+      <div>
+        <p>Q4: Are you a night owl? </p>
+        <div>
+          <input type="radio" id="Yes" name="night" value="Yes" checked>
+          <label for="night?">Yes</label>
+        </div>
+
+        <div>
+          <input type="radio" id="No" name="night" value="No">
+          <label for="night?">No</label>
+        </div>
+      </div>
+
+      <div>
+        <p>Q5: Do you mind living with someone of the opposite gender? </p>
+        <div>
+          <input type="radio" id="Yes" name="oppositeGender" value="Yes" checked>
+          <label for="gender?">Yes</label>
+        </div>
+
+        <div>
+          <input type="radio" id="No" name="oppositeGender" value="No">
+          <label for="gender?">No</label>
+        </div>
+      </div>
+
+      <div>
+        <p>Q6: Do you prefer to have the house at a warmer or colder temperature?</p>
+        <div>
+          <input type="radio" id="Yes" name="temperature?" value="Yes" checked>
+          <label for="hot?">warmer</label>
+        </div>
+
+        <div>
+          <input type="radio" id="No" name="temperature?" value="No">
+          <label for="hot?">colder</label>
+        </div>
+      </div>
+
+      <div>
+
+        <label for="cleaniness-select">Q7: On a scale of 1-10, how important is it that your space is always kept
+          clean?:</label>
+  
+        <select id="cleaniness-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
+      <div>
+
+        <label for="pet-select">Q8: On a scale of 1-10, how much do you mind that your roommate frequently has frds/SO
+          over?:</label>
+        <select id="cleaniness-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
 
 
-    <script>
 
-      function initMap() {
-        const toronto = { lat: 43.6529, lng: -79.3849 };
-        let map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 14,
-          center: toronto
-        });
 
-        map.data.loadGeoJson('https://raw.githubusercontent.com/jasonicarter/toronto-geojson/master/toronto_crs84.geojson');
-        
+      <h1>Which neighbourhood do you want to live in?</h1>
+      <div class="desiredPlaces">
+        <ol id="desired">
 
-        map.data.setStyle(function(feature) {
-          var color = 'gray';
-          if (feature.getProperty('isColorful')) {
-            color = feature.getProperty('color');
-          }
-          return ({
-            fillColor: color,
-            strokeColor: color,
-            strokeWeight: 2
+        </ol>
+      </div>
+      <div id="map"></div>
+
+
+      <script>
+
+        function initMap() {
+          const toronto = { lat: 43.6529, lng: -79.3849 };
+          let map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 14,
+            center: toronto
           });
-        });
 
-        map.data.addListener('click', function(event) {
-          if (event.feature.getProperty('isColorful')){
-            event.feature.setProperty('isColorful', false);
-            let place = document.getElementById(event.feature.l.AREA_NAME)
-            place.remove()
-          } else {
-            let places = document.getElementById('desired')
-            var place = document.createElement('li');
-            place.setAttribute('id',event.feature.l.AREA_NAME);
-            places.appendChild(place);  
-            place.innerHTML=event.feature.l.AREA_NAME
-            console.log(event.feature.l.AREA_NAME)
-            event.feature.setProperty('isColorful', true);
-          }
-        });
+          map.data.loadGeoJson('https://raw.githubusercontent.com/jasonicarter/toronto-geojson/master/toronto_crs84.geojson');
 
-        map.data.addListener('mouseover', function(event) {
-          map.data.revertStyle();
-          map.data.overrideStyle(event.feature, {strokeWeight: 8});
-        });
 
-        map.data.addListener('mouseout', function(event) {
-          map.data.revertStyle();
-        });
-        // map.data.setStyle({
-        //   fillColor: 'green',
-        //   strokeWeight: 1
-        // });
+          map.data.setStyle(function (feature) {
+            var color = 'gray';
+            if (feature.getProperty('isColorful')) {
+              color = feature.getProperty('color');
+            }
+            return ({
+              fillColor: color,
+              strokeColor: color,
+              strokeWeight: 2
+            });
+          });
 
-        // var rectangle = new google.maps.Rectangle({
-        //   strokeColor: '#FF0000',
-        //   strokeOpacity: 0.8,
-        //   strokeWeight: 2,
-        //   fillColor: '#FF0000',
-        //   fillOpacity: 0.35,
-        //   map: map,
-        //   bounds: {
-        //     north: 43.64376,
-        //     south: 43.640188 ,
-        //     east: -79.381673,
-        //     west: -79.393818
-        //   }
-        // });
+          map.data.addListener('click', function (event) {
+            if (event.feature.getProperty('isColorful')) {
+              event.feature.setProperty('isColorful', false);
+              let place = document.getElementById(event.feature.l.AREA_NAME)
+              place.remove()
+            } else {
+              let places = document.getElementById('desired')
+              var place = document.createElement('li');
+              place.setAttribute('id', event.feature.l.AREA_NAME);
+              places.appendChild(place);
+              place.innerHTML = event.feature.l.AREA_NAME
+              console.log(event.feature.l.AREA_NAME)
+              event.feature.setProperty('isColorful', true);
+            }
+          });
 
-        // map.addListener('click', function (e) {
-        //   placeMarkerAndPanTo(e.latLng, map);
-        // });
-      }
+          map.data.addListener('mouseover', function (event) {
+            map.data.revertStyle();
+            map.data.overrideStyle(event.feature, { strokeWeight: 8 });
+          });
 
-      function placeMarkerAndPanTo(latLng, map) {
-        var marker = new google.maps.Marker({
-          position: latLng,
-          map: map
-        });
-        map.panTo(latLng);
-      }
-    </script>
-    <!--Load the API from the specified URL
+          map.data.addListener('mouseout', function (event) {
+            map.data.revertStyle();
+          });
+          // map.data.setStyle({
+          //   fillColor: 'green',
+          //   strokeWeight: 1
+          // });
+
+          // var rectangle = new google.maps.Rectangle({
+          //   strokeColor: '#FF0000',
+          //   strokeOpacity: 0.8,
+          //   strokeWeight: 2,
+          //   fillColor: '#FF0000',
+          //   fillOpacity: 0.35,
+          //   map: map,
+          //   bounds: {
+          //     north: 43.64376,
+          //     south: 43.640188 ,
+          //     east: -79.381673,
+          //     west: -79.393818
+          //   }
+          // });
+
+          // map.addListener('click', function (e) {
+          //   placeMarkerAndPanTo(e.latLng, map);
+          // });
+        }
+
+        function placeMarkerAndPanTo(latLng, map) {
+          var marker = new google.maps.Marker({
+            position: latLng,
+            map: map
+          });
+          map.panTo(latLng);
+        }
+      </script>
+      <!--Load the API from the specified URL
           * The async attribute allows the browser to render the page while the API loads
           * The key parameter will contain your own API key (which is not needed for this tutorial)
           * The callback parameter executes the initMap() function
           -->
 
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoAdVYZtu3IXtTHJCS4wZ5JuphD3mzf3Q&callback=initMap">
-      </script>
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoAdVYZtu3IXtTHJCS4wZ5JuphD3mzf3Q&callback=initMap">
+        </script>
 
-    <button type="submit" class="btn btn-primary">Continue</button>
+      <button type="submit" class="btn btn-primary">Continue</button>
   </form>
 </body>
 
