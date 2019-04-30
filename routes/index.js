@@ -53,15 +53,17 @@ router.post('/login', function(req, res, next) {
     // return all users
   }).then(results => {
     for (let i = 0; i < results.length; i++) {
-      console.log(results[i].dataValues.email)
+      console.log(results[i].dataValues)
       if (req.body.email === results[i].dataValues.email && req.body.password === results[i].dataValues.password) {
         console.log("Match found");
         res.cookie('email', req.body.email);
+        res.cookie('firstName', results[i].firstName);
         res.redirect('/users/:id/matches');
         break;
-      };
-    };
-    return res.status(403).send('Email and/or password is incorrect').end();
+      } else {
+        res.status(403).send('Email and/or password is incorrect').end();
+      }
+    }; 
   });
 });
 
