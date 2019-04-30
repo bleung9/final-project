@@ -43,7 +43,6 @@ router.get('/login', function(req, res, next) {
 
 // Login
 router.post('/login', function(req, res, next) {
-  let templateVars = {email: req.cookies["email"]};
   // query database, loop through users see if email is equal in loop AND password equal in loop is true)
   // if true then set req.session.userid = results of loop[i].id
   //redirect
@@ -63,6 +62,12 @@ router.post('/login', function(req, res, next) {
     return res.status(403).send('Email and/or password is incorrect').end();
   });
 });
+
+// Logout
+router.post('/logout', function(req, res, next) {
+  res.clearCookie('email');
+  res.redirect('/');
+})
 
 // Questionnaire, will only be accessible if user logged in! /:id/profile/create
 router.get('/questionnaire', function(req, res, next) {

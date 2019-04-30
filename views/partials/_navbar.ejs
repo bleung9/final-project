@@ -1,10 +1,19 @@
 <nav id="navbar">
+  
   <div class="inner">
     <img src="/images/testlogo.png" alt="Project logo" width="25px" height="25px">
+    
     <nav id="nav">
       <a href='/'>Home</a>
       <a href='/register'>Register</a>
       <a href='/login'>Login</a>
     </nav>
+
+    <form class="form-inline" action="/logout" method="POST">
+      <div class="form-group mb-2">
+        <button type="submit" class="btn btn-primary">Logout</button>
+      </div>
+    </form>    
+    
   </div>
 </nav>
