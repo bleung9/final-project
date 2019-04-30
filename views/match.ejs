@@ -30,7 +30,7 @@
     <script>
     Talk.ready.then(function() {
         var me = new Talk.User({
-            id: "123456",
+            id: "123456", // need to set to logged in user's id
             name: "<%= nameme %>",
             email: "<%= emailme %>",
             photoUrl: "https://demo.talkjs.com/img/alice.jpg",
@@ -41,7 +41,7 @@
             me: me
         });
         var other = new Talk.User({
-            id: "654321",
+            id: "654321", // need to set to matched user's id
             name: "<%= nameother %>",
             email: "<%= emailother %>",
             photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
