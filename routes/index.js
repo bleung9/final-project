@@ -45,10 +45,6 @@ router.post('/register', function(req, res) {
 
 // Login
 router.post('/login', function(req, res, next) {
-  // query database, loop through users see if email is equal in loop AND password equal in loop is true)
-  // if true then set req.session.userid = results of loop[i].id
-  //redirect
-  // else return 403, user or password incorrect.
   models.User.findAll({
     // return all users
   }).then(results => {
