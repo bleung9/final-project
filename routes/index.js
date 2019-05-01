@@ -8,7 +8,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { 
     title: 'Final Project',
-    email: req.cookies.email 
+    email: req.cookies.email,
+    id: req.cookies.id
   });
 });
 
@@ -55,6 +56,7 @@ router.post('/login', function(req, res, next) {
         console.log("Match found");
         res.cookie('email', req.body.email);
         res.cookie('firstName', results[i].firstName);
+        res.cookie('id', results[i].dataValues.id)
         res.redirect(`/users/${results[i].dataValues.id}/matches`);
         break;
       } 
@@ -67,6 +69,7 @@ router.post('/login', function(req, res, next) {
 router.post('/logout', function(req, res, next) {
   res.clearCookie('email');
   res.clearCookie('firstName');
+  res.clearCookie('id');
   res.redirect('/');
 })
 

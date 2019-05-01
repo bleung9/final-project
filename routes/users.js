@@ -86,7 +86,7 @@ router.get('/:id/matches', async function (req, res, next) {
       }
     });
     to_sort.sort(helpers.sorting);
-    res.render('match', { user: to_sort , email: "placeholder@gmail.com"});
+    res.render('match', { user: to_sort, email: req.cookies.email, id: req.cookies.id});
 
     // console.log("User is", user[0])
     // res.render('match', {
