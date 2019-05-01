@@ -8,15 +8,14 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { 
     title: 'Final Project',
-    email: null 
+    email: req.cookies.email 
   });
 });
 
 // Register page
 router.get('/register', function(req, res, next) {
   res.render('register', { 
-    title: 'Final Project',
-    email: null 
+    title: 'Final Project'
   });
 });
 
