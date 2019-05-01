@@ -89,7 +89,6 @@ function startDB() {
 
       // user tries to access his ranking list
       let logged_in_user = 1 // this will actually be user_id based on email cookies in Users table
-      models.Responses
       let user_answers =  ["ISTJ", "y", "y", "y", "n", "h", 3, 1, 10, 7];
       models.Responses.findAll().then(async function(data) {
         let rankings = {};
@@ -118,8 +117,8 @@ function startDB() {
           promises.push(models.User.findOne({ where: { id: keys[i] } }))
         }
         let users = await Promise.all(promises);
-        users.forEach(user => to_sort.push({ user, rank: rankings[user.id] }));
-        console.log("sorted", to_sort[0]);
+        users.forEach(user => to_sort.push({ user: user.dataValues, rank: rankings[user.id] }));
+        console.log(to_sort);
       });
 
     })
