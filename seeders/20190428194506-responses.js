@@ -188,7 +188,7 @@ module.exports = {
           to_insert.push(insert(user_id, question_id, rating));
         } else if (question_id === 11) {
           let neigh = neighborhoods[Math.floor(Math.random() * 140]);
-          to_insert.push(insert(user_id, question_id, neigh));        }
+          to_insert.push(insert(user_id, question_id, neigh));        
       }
     }
     return queryInterface.bulkInsert('Responses', to_insert, {});
