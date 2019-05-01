@@ -172,7 +172,7 @@ module.exports = {
     for (let i = 0; i < 10; i++) {
       let user_id = i + 1;
       // 10 questions per user to generate random answers for
-      for (let j = 1; j <= 10; j++) {
+      for (let j = 1; j <= 11; j++) {
         let question_id = j;
         if (question_id === 1) {
           let personality = personalities[Math.floor(Math.random() * 16)];
