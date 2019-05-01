@@ -44,7 +44,6 @@ router.post('/register', function(req, res) {
   })
 })
 
-
 // Login
 router.post('/login', function(req, res, next) {
   models.User.findAll({
