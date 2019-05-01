@@ -80,15 +80,13 @@ router.get('/:id/matches', async function (req, res, next) {
       promises.push(models.User.findOne({ where: { id: keys[i] } }))
     }
     let users = await Promise.all(promises);
-    // console.log("users[0]", users[0]);
-    console.log("size", users.length);
     users.forEach(function(user) {
       if (rankings[user.id] < 1000) {
         to_sort.push({ "user": user.dataValues, rank: rankings[user.id] });
       }
     });
     to_sort.sort(helpers.sorting);
-    res.render('match', { user: to_sort , email: "fuckyou"});
+    res.render('match', { user: to_sort , email: "placeholder@gmail.com"});
 
     // console.log("User is", user[0])
     // res.render('match', {
