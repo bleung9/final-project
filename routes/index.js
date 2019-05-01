@@ -28,7 +28,8 @@ router.post('/register', function(req, res) {
     email: req.body.email,
     password: req.body.password
   }
-
+  res.cookie('email', req.body.email);
+  res.cookie('firstName', req.body.firstName);
   console.log("am i being fucking called???")
   // store new user in database
   //retrieve that new user's id
