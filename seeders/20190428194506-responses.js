@@ -187,7 +187,7 @@ module.exports = {
           let rating = Math.floor(Math.random() * 10) + 1;
           to_insert.push(insert(user_id, question_id, rating));
         } else if (question_id === 11) {
-          let neigh = neighborhoods[Math.floor(Math.random() * 140];
+          let neigh = neighborhoods[Math.floor(Math.random() * 140)];
           to_insert.push(insert(user_id, question_id, neigh));        
       }
     }
