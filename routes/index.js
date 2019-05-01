@@ -8,15 +8,15 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { 
     title: 'Final Project',
-    email: null 
+    email: req.cookies.email,
+    id: req.cookies.id
   });
 });
 
 // Register page
 router.get('/register', function(req, res, next) {
   res.render('register', { 
-    title: 'Final Project',
-    email: null 
+    title: 'Final Project'
   });
 });
 
@@ -28,6 +28,9 @@ router.post('/register', function(req, res) {
     email: req.body.email,
     password: req.body.password
   }
+  res.cookie('email', req.body.email);
+  res.cookie('firstName', req.body.firstName);
+  console.log("am i being fucking called???")
   // store new user in database
   //retrieve that new user's id
   models.User.create(newUser).then(()=> {
@@ -48,17 +51,17 @@ router.post('/login', function(req, res, next) {
     // return all users
   }).then(results => {
     for (let i = 0; i < results.length; i++) {
-      console.log(results[i].dataValues)
+      // console.log(results[i].dataValues)
       if (req.body.email === results[i].dataValues.email && req.body.password === results[i].dataValues.password) {
         console.log("Match found");
         res.cookie('email', req.body.email);
         res.cookie('firstName', results[i].firstName);
-        res.redirect('/users/:id/matches');
+        res.cookie('id', results[i].dataValues.id)
+        res.redirect(`/users/${results[i].dataValues.id}/matches`);
         break;
-      } else {
-        res.status(403).send('Email and/or password is incorrect').end();
-      }
-    }; 
+      } 
+    }
+    res.status(403).send('Email and/or password is incorrect').end();
   });
 });
 
@@ -66,6 +69,7 @@ router.post('/login', function(req, res, next) {
 router.post('/logout', function(req, res, next) {
   res.clearCookie('email');
   res.clearCookie('firstName');
+  res.clearCookie('id');
   res.redirect('/');
 })
 

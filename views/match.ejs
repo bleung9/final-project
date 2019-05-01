@@ -13,6 +13,7 @@
   <h1>Welcome to Matches Home</h1>
 
   <h2>Here are your matches!</h2>
+<<<<<<< HEAD
   <div>
     <h2>Chat: Work in Progress</h2>
     <!-- minified snippet to load TalkJS without delaying your page -->
@@ -62,7 +63,26 @@
       });
     </script>
     </div>
+=======
+  <table>
+    <tr>
+      <th>First Name</th>
+      <th>Gender</th>
+      <th>Percentage match</th>
+      <th>Link to profile</th>
+    </tr>
+    <% for (let i = 0; i < user.length; i++) { %>
+      <tr>
+        <td><%= user[i].user.firstName %></td>
+        <td><%= user[i].user.gender %></td>
+        <td><%= 100 - Math.floor((user[i].rank / 61 * 100) * 10) / 10 %>%</td>    
+        <td><%=  %>%</td>
+      </tr>
+>>>>>>> 07c5f659cf0a838ba30ddaa29d02729cdf931858
 
+    <% } %>
+    
+  </table>
 </body>
 
 </html>
