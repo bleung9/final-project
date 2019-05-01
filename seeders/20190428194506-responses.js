@@ -192,7 +192,7 @@ module.exports = {
       }
     }
     return queryInterface.bulkInsert('Responses', to_insert, {});
-  },
+  }
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('Responses', null, {});
