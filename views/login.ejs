@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login</title>
+  <link rel='stylesheet' href='/stylesheets/normalize.css' />
+</head>
+
+<body>
+  <nav>
+    <% include ./partials/_navbar %>
+  </nav>
+  <form method="POST" action="/login">
+    <h4>Login</h4>
+    <label>Email<input type="text" placeholder="Email" name="email"></label>
+    <label>Password<input type="password" placeholder="Password" name="password"></label>
+    <p><input type="submit" value="Login"></p>
+    <p>Not registered? Make an account now! <a href="/register">Register now</a></p>
+  </form>
+</body>
