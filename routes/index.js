@@ -28,7 +28,8 @@ router.post('/register', function(req, res) {
     email: req.body.email,
     password: req.body.password
   }
-
+  res.cookie('email', req.body.email);
+  res.cookie('firstName', req.body.firstName);
   console.log("am i being fucking called???")
   // store new user in database
   //retrieve that new user's id
@@ -55,12 +56,11 @@ router.post('/login', function(req, res, next) {
         console.log("Match found");
         res.cookie('email', req.body.email);
         res.cookie('firstName', results[i].firstName);
-        res.redirect('/users/:id/matches');
+        res.redirect(`/users/${results[i].dataValues.id}/matches`);
         break;
-      } else {
-        res.status(403).send('Email and/or password is incorrect').end();
-      }
-    }; 
+      } 
+    }
+    res.status(403).send('Email and/or password is incorrect').end();
   });
 });
 
