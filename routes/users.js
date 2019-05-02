@@ -38,7 +38,7 @@ router.post('/:id/create', function (req, res, next) {
 
 // User matches
 router.get('/:id/matches', async function (req, res, next) {
-  console.log(req.params.id);
+  console.log("User id", req.params.id);
   const answers_from_db = await models.Responses.findAll({
     where: {
       user_id: req.params.id
@@ -86,7 +86,12 @@ router.get('/:id/matches', async function (req, res, next) {
       }
     });
     to_sort.sort(helpers.sorting);
-    res.render('match', { user: to_sort, email: req.cookies.email, id: req.cookies.id});
+    res.render('match', { 
+      user: to_sort, 
+      email: req.cookies.email, 
+      id: req.cookies.id,
+      firstName: req.cookies.firstName
+    });
 
     // console.log("User is", user[0])
     // res.render('match', {

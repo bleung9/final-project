@@ -48,9 +48,9 @@
     <script>
     Talk.ready.then(function() {
         var me = new Talk.User({
-            id: "123456", // need to set to logged in user's id
-            name: "Hardcoded",
-            email: "hardcoded",
+            id: "<%= id %>", // need to set to logged in user's id
+            name: "<%= firstName %>",
+            email: "<%= email %>>",
             photoUrl: "https://demo.talkjs.com/img/alice.jpg",
             welcomeMessage: "Hey there! How are you? :-)"
         });
@@ -60,7 +60,7 @@
         });
         var other = new Talk.User({
             id: "654321", // need to set to matched user's id
-            name: "hardcode other",
+            name: "Test code",
             email: "hardcode other",
             photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
             welcomeMessage: "Hey, how can I help?"
@@ -80,6 +80,7 @@
     });
     </script>
     </div>
+    console.log("User ID", user_id);
 
 </body>
 
