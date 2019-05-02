@@ -13,28 +13,6 @@ router.get('/', function (req, res, next) {
   });
 });
 
-router.post('/', async function (req, res, next) {
-  let currentUser = await models.User.findOne({
-    where: {
-      id: req.body.id
-    }
-  })
-  currentUser.update({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    gender: req.body.gender,
-    email: req.body.email,
-    password: req.body.password
-  })
-    .then(function () {
-      res.render('index', {
-        title: 'Final Project',
-        email: req.cookies.email,
-        id: req.cookies.id
-      });
-    })
-});
-
 
 // Register page
 router.get('/register', function (req, res, next) {

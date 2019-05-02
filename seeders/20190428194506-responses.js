@@ -191,8 +191,9 @@ module.exports = {
           to_insert.push(insert(user_id, question_id, neigh));
         }
       }
+    }
       return queryInterface.bulkInsert('Responses', to_insert, {});
-    },
+  },
 
     down: (queryInterface, Sequelize) => {
       return queryInterface.bulkDelete('Responses', null, {});
