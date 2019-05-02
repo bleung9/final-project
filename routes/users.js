@@ -104,8 +104,12 @@ router.get('/:id/matches', async function (req, res, next) {
     });
   });
 
-  router.get('/:id/matches/:matchid', function (req, res, next) {
-    res.send('user profile match chat page');
+  router.get('/:id/url_hash', function (req, res, next) {
+    res.render('matchprofile', {
+      email: req.cookies.email, 
+      id: req.cookies.id,
+      firstName: req.cookies.firstName
+    });
   });
 
 module.exports = router;
