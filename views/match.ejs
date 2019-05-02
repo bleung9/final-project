@@ -11,25 +11,46 @@
     <% include ./partials/_navbar %>
   </nav>
   <h1>Welcome to Matches Home</h1>
+  <% if (user_same.length === 0) { %>
+    <h2>You indicated you want to live in <%= neigh %>.  Unfortunately, no one matches with you in this area!</h2>
+  <% } else { %>
+    <h2>You indicated you want to live in <%= neigh %>.  Here are your matches in that area! <%= user_same.length %></h2>
+    <table>
+      <tr>
+        <th>First Name</th>
+        <th>Gender</th>
+        <th>Percentage match</th>
+        <th>Link to profile</th>
+      </tr>
+      <% for (let i = 0; i < user_same.length; i++) { %>
+          <tr>
+            <td><%= user_same[i].user.firstName %></td>
+            <td><%= user_same[i].user.gender %></td>
+            <td><%= 100 - Math.floor((user_same[i].rank / 61 * 100) * 10) / 10 %>%</td>    
+            <td><%=  %></td>
+          </tr>
+      <% } %>
+    <% } %>
 
-  <h2>Here are your matches!</h2>
+  </table>
+
+  <h2>You indicated you want to live in <%= neigh %>.  Here are your matches in other areas!</h2>
   <table>
     <tr>
       <th>First Name</th>
       <th>Gender</th>
       <th>Percentage match</th>
+      <th>Neighbourhood</th>
       <th>Link to profile</th>
     </tr>
-    <% for (let i = 0; i < user.length; i++) { %>
-      <tr>
-        <td><%= user[i].user.firstName %></td>
-        <td><%= user[i].user.gender %></td>
-        <td><%= 100 - Math.floor((user[i].rank / 61 * 100) * 10) / 10 %>%</td>    
-        <td><%=  %>%</td>
-      </tr>
-
+    <% for (let i = 0; i < user_diff.length; i++) { %>
+        <tr>
+          <td><%= user_diff[i].user.firstName %></td>
+          <td><%= user_diff[i].user.gender %></td>
+          <td><%= 100 - Math.floor((user_diff[i].rank / 61 * 100) * 10) / 10 %>%</td>    
+          <td><%= user_diff[i].neigh %>%</td>
+        </tr>
     <% } %>
-    
   </table>
 </body>
 

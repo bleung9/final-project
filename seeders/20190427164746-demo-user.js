@@ -7,7 +7,9 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     let to_insert = [];
     let genders = ["M", "F", "other"];
-    for (let i = 0; i < 10; i++) {
+
+    // 200 random seed users
+    for (let i = 0; i < 4000; i++) {
       let name = chance.name();
       let firstName = name.split(" ")[0];
       let lastName = name.split(" ")[1];

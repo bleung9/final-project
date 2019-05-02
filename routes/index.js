@@ -16,7 +16,8 @@ router.get('/', function(req, res, next) {
 // Register page
 router.get('/register', function(req, res, next) {
   res.render('register', { 
-    title: 'Final Project'
+    title: 'Final Project',
+    id: req.cookies.id
   });
 });
 
@@ -26,11 +27,11 @@ router.post('/register', function(req, res) {
     lastName: req.body.lastName,
     gender: req.body.gender,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password, 
+    id: req.cookies.id
   }
   res.cookie('email', req.body.email);
   res.cookie('firstName', req.body.firstName);
-  console.log("am i being fucking called???")
   // store new user in database
   //retrieve that new user's id
   models.User.create(newUser).then(()=> {
@@ -57,7 +58,7 @@ router.post('/login', function(req, res, next) {
         res.cookie('email', req.body.email);
         res.cookie('firstName', results[i].firstName);
         res.cookie('id', results[i].dataValues.id)
-        res.redirect(`/users/${results[i].dataValues.id}/matches`);
+        res.redirect('/');
         break;
       } 
     }
@@ -77,7 +78,8 @@ router.post('/logout', function(req, res, next) {
 router.get('/questionnaire', function(req, res, next) {
   res.send('questionnaire view', { 
     title: 'Final Project',
-    email: null 
+    email: null, 
+    id: req.cookies.id
   });
 });
 

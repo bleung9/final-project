@@ -168,8 +168,8 @@ module.exports = {
     let hot_or_cold = ["h", "c"];
     let to_insert = [];
 
-    // 10 random seed users
-    for (let i = 0; i < 10; i++) {
+    // 200 random seed users
+    for (let i = 0; i < 4000; i++) {
       let user_id = i + 1;
       // 10 questions per user to generate random answers for
       for (let j = 1; j <= 11; j++) {
@@ -191,8 +191,9 @@ module.exports = {
           to_insert.push(insert(user_id, question_id, neigh));
         }
       }
-      return queryInterface.bulkInsert('Responses', to_insert, {});
-    },
+    }
+    return queryInterface.bulkInsert('Responses', to_insert, {});
+  },
 
     down: (queryInterface, Sequelize) => {
       return queryInterface.bulkDelete('Responses', null, {});
