@@ -104,7 +104,7 @@ router.get('/:id/matches', async function (req, res, next) {
     });
   });
 
-  router.get('/:id/url_hash', function (req, res, next) {
+  router.get('/:id/:url_hash', function (req, res, next) {
     res.render('matchprofile', {
       email: req.cookies.email, 
       id: req.cookies.id,
