@@ -36,6 +36,19 @@ router.post('/:id/create', function (req, res, next) {
   })
 });
 
+router.get('/:id/update', async function (req, res, next) {
+  let user_info = await models.User.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+  let tempVars = {
+    user: user_info
+  }
+  res.render('profile', tempVars);
+});
+
+
 // User matches
 router.get('/:id/matches', async function (req, res, next) {
   console.log(req.params.id);
@@ -49,7 +62,7 @@ router.get('/:id/matches', async function (req, res, next) {
   answers_from_db.forEach(answer => user_answers.push(answer.answer));
   // console.log(user_answers);
   let user_id = req.params.id;
-  models.Responses.findAll().then(async function(data) {
+  models.Responses.findAll().then(async function (data) {
     let rankings = {};
     for (let i = 0; i < data.length; i++) {
       if (data[i].user_id === user_id) {
@@ -60,7 +73,7 @@ router.get('/:id/matches', async function (req, res, next) {
       let rank_change = 0;
       if (question_id === 1) {
         rank_change += helpers.personality_check(user_answers[question_id - 1], data[i].answer);
-      } else if (question_id >= 2 && question_id <= 6) { 
+      } else if (question_id >= 2 && question_id <= 6) {
         rank_change += helpers.binaryOption(user_answers[question_id - 1], data[i].answer);
       } else if (question_id <= 10) {
         rank_change += helpers.distance(user_answers[question_id - 1], data[i].answer);
@@ -80,13 +93,13 @@ router.get('/:id/matches', async function (req, res, next) {
       promises.push(models.User.findOne({ where: { id: keys[i] } }))
     }
     let users = await Promise.all(promises);
-    users.forEach(function(user) {
+    users.forEach(function (user) {
       if (rankings[user.id] < 1000) {
         to_sort.push({ "user": user.dataValues, rank: rankings[user.id] });
       }
     });
     to_sort.sort(helpers.sorting);
-    res.render('match', { user: to_sort, email: req.cookies.email, id: req.cookies.id});
+    res.render('match', { user: to_sort, email: req.cookies.email, id: req.cookies.id });
 
     // console.log("User is", user[0])
     // res.render('match', {
@@ -96,8 +109,8 @@ router.get('/:id/matches', async function (req, res, next) {
     //   emailme: user[1].dataValues.email,
     //   email: req.cookies.email
 
-    });
   });
+});
 
 
 /*
