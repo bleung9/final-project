@@ -1,3 +1,11 @@
+.top-bar {
+  background-color: black; 
+}
+
+.top-bar ul {
+  background-color: black;
+}
+
 .hero-full-screen {
   height: 100vh;
   display: -webkit-flex;
