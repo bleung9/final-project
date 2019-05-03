@@ -8,11 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      first_user: {
-        type: Sequelize.STRING
+      cur_user_id: {
+        type: Sequelize.INTEGER
       },
-      matched_user: {
-        type: Sequelize.STRING
+      matched_user_id: {
+        type: Sequelize.INTEGER
       },
       url: {
         type: Sequelize.STRING
