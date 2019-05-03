@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <title>Roommate questionnaire</title>
+    <link rel='stylesheet' href='/stylesheets/foundation.css' />
+    <link rel='stylesheet' href='/stylesheets/app.css' />
+    <title>Roommate questionnaire</title>
   <style>
     /* Set the size of the div element that contains the map */
     #map {
@@ -20,7 +20,13 @@
   </style>
 </head>
 
-<body style="font-size:20px; padding:50px;">
+<body >
+    <div>
+        <nav id="navbar">
+          <% include ./partials/_navbar %>
+        </nav>
+      </div>
+      <div class='body-container' style="padding:20px;">
   <h1>Please tell us a little bit about you:</h1>
   <form action="/users/<%= id %>/create" method="POST">
     <div class="form-group">
@@ -190,6 +196,7 @@
       <button type="submit" class="btn btn-primary">Continue</button>
     </div>
   </form>
+</div>
 </body>
 <!--Load the API from the specified URL
           * The async attribute allows the browser to render the page while the API loads

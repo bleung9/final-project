@@ -20,9 +20,23 @@
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: url("https://images.pexels.com/photos/378273/pexels-photo-378273.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb") center center no-repeat;
+  background: url("/images/urban-city-40.jpg") center center no-repeat;
   background-size: cover;
 }
+
+.hero-full-screen .content {
+  background:rgb(2,3,4);
+  opacity: 0.6;
+  height: 14rem;
+  width: 56rem;
+  padding: 2rem;
+} 
+
+#cool {
+  color: white;
+  font-weight: bold;
+}
+
 
 .hero-full-screen .middle-content-section {
   text-align: center;
