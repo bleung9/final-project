@@ -41,6 +41,7 @@ router.post('/register', function (req, res) {
     }).then(user => {
       let userId = user.get('id')
       console.log('this is the userId', userId)
+      res.cookie('id', userId)
       res.redirect(`/users/${userId}/create`);
     })
   })
