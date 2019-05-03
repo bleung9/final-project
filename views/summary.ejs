@@ -1,115 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> Profile Summary</title>
 
-<style>
-
-.portfolio-resume-scrolling-container {
-  height: 400px;
-  border: 1px solid #cacaca;
-}
-
-.portfolio-resume-overview {
-  height: 400px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: relative;
-  opacity: 1;
-  z-index: 0;
-}
-
-.portfolio-resume-overview:after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url("https://placeimg.com/400/400/animals");
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.3;
-  z-index: 0;
-}
-
-.portfolio-resume-overview-content {
-  max-width: 300px;
-  z-index: 1;
-}
-
-.portfolio-resume-scrolling {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-@media print, screen and (min-width: 40em) {
-  .portfolio-resume-scrolling {
-    height: 400px;
-    overflow-y: auto;
-  }
-}
-
-
-
-</style>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title> Profile Summary</title>
+  <link rel='stylesheet' href='/stylesheets/foundation.css' />
+  <link rel='stylesheet' href='/stylesheets/summary.css' />
 </head>
+
 <body>
-    <div class="portfolio-resume-scrolling-container row">
-        <div class="columns small-12 medium-5 portfolio-resume-overview">
-          <div class="portfolio-resume-overview-content">
-            <h3 class="portfolio-resume-name"><%= user.firstName %> <%= user.lastName %></h3>
-            <p>I'm kind of awesome. No really.</p>
 
-          </div>
-        </div>
-        <div class="columns small-12 medium-7 portfolio-resume-scrolling">
-          <h3>Profile Summary</h3>
-          <ul class="portfolio-resume-side-list">
-            <li><b>Name:</b> <%= user.firstName %> <%= user.lastName %></li>
-            <li><b>Email: </b><%= user.email %></li>
-            <li><b>Gender:</b> <%= user.gender %></li>
-            <form method="GET" action="/users/<%=user.id%>/update">
-            <button class="button primary expanded" href="#">edit profile</button>
-              </form>
-          </ul>
+  <div>
+    <nav id="navbar">
+      <% include ./partials/_navbar %>
+    </nav>
+  </div>
+  <div class="card-profile-stats">
+    <div class="card-profile-stats-intro">
+      <img class="card-profile-stats-intro-pic"
+        src="https://pbs.twimg.com/profile_images/732634911761260544/OxHbNdTF.jpg" alt="profile-image" />
+      <div class="card-profile-stats-intro-content">
+        <h3><%= user.firstName %></h3>
+      </div> <!-- /.card-profile-stats-intro-content -->
+    </div> <!-- /.card-profile-stats-intro -->
+  </div>
 
-          <h3>Your Reponse to questionnaire: </h3>
-          <p>This is you: </p>
-          <ul>
-            <li><b>Yourr personality is :</b>   <%= response[0].answer %></li>
-            <li><b>Do you mind pets?</b>  : <%= response[1].answer %></li>
-            <li><b>Do you smoke?</b>  : <%= response[2].answer %></li>
-            <li><b>Are you a night owl?</b>  <%= response[3].answer %></li>
-            <li><b>Do you mind living with someone of the opposite gender? </b>  <%= response[4].answer %></li>
-            <li><b>Do you prefer to have the house at a warmer or colder temperature?</b>  <%= response[5].answer %></li>
-            <li><b>On a scale of 1-10, how important is it that your space is always kept
-                clean?:</b>  <%= response[6].answer %></li>
-            <li><b>On a scale of 1-10, how much do you mind that your roommate frequently has frds/SO</b>  <%= response[7].answer %></li>
-            <li><b> On a scale of 1-10, how much do you like the Avengers
-                ?</b>  <%= response[8].answer %></li>
-            <li><b>On a scale of 1-10, how much do you like the Pikas
-                ?:</b>  <%= response[9].answer %></li>
-            <li><b>Which neighbourhood do you want to live in?</b>  <%= response[10].answer %></li>
-          </ul>
+  <div class="profile">
+    <div class="profile-summary">
+      <h3>Profile Summary</h3>
+      <ul>
+        <li><b>Name:</b> <%= user.firstName %></li>
+        <li><b>Email: </b>Don't show this for privacy reasons</li>
+        <li><b>Gender:</b> <%= user.gender %></li>
+        <form method="GET" action="/users/<%=user.id%>/update">
+          <button class="button primary" href="#">edit profile</button>
+        </form>
+      </ul>
+    </div>
 
-          <form method="GET" action="/users/<%=user.id%>/questionnaire">
-            <button class="button primary expanded" href="#">edit profile</button>
-            </form>
-         
-        </div>
-      </div>
-      
-      
+    <hr>
+
+    <div class="profile-matchmaking">
+      <h3>Your matchmaking profile: </h3>
+      <ul>
+        <li><b>Personality:</b> <%= response[0].answer %></li>
+        <li><b>Do you mind living with pets?</b> <%= response[1].answer %></li>
+        <li><b>Do you smoke?</b> <%= response[2].answer %></li>
+        <li><b>Are you a night owl?</b> <%= response[3].answer %></li>
+        <li><b>Do you mind living with someone of the opposite gender? </b> <%= response[4].answer %></li>
+        <li><b>Do you prefer to have the house at a warmer or colder temperature?</b> <%= response[5].answer %></li>
+        <li><b>On a scale of 1-10, how important is it that your space is kept
+            clean?</b> <%= response[6].answer %></li>
+        <li><b>On a scale of 1-10, how much would you mind if your roommate had guests over often?</b>
+          <%= response[7].answer %></li>
+        <li><b> On a scale of 1-10, how much do you like The Avengers?</b> <%= response[8].answer %></li>
+        <li><b>On a scale of 1-10, how much do you like Pikachu?</b> <%= response[9].answer %></li>
+        <li><b>Preferred Neighbourhood:</b> <%= response[10].answer %></li>
+      </ul>
+
+      <form method="GET" action="/users/<%=user.id%>/questionnaire">
+        <button class="button primary" href="#">edit profile</button>
+      </form>
+    </div>
+    
+  </div>
+
 </body>
 
 </html>
