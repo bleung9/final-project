@@ -225,10 +225,10 @@ router.get("/:id/matches", async function(req, res, next) {
   });
 });
 
-
-/*
-To Do:
-chat routes using talkJS
-*/
+// Route for matched chat.
+router.get("/:id/matches/hash", function(req, res, next) {
+  console.log("req", req.params.id);
+  res.render("matchchat");
+});
 
 module.exports = router;
