@@ -24,42 +24,43 @@
         <h3><%= user.firstName %></h3>
       </div> <!-- /.card-profile-stats-intro-content -->
     </div> <!-- /.card-profile-stats-intro -->
+  </div>
 
-    <hr />
-
-    <h3>Profile Summary</h3>
-    <ul>
-      <li><b>Name:</b> <%= user.firstName %></li>
-      <li><b>Email: </b>Don't show this for privacy reasons</li>
-      <li><b>Gender:</b> <%= user.gender %></li>
-      <form method="GET" action="/users/<%=user.id%>/update">
-        <button class="button primary expanded" href="#">edit profile</button>
-      </form>
-    </ul>
-
-    <h3>Your Reponse to questionnaire: </h3>
-    <p>This is you: </p>
-    <ul>
-      <li><b>Yourr personality is :</b> <%= response[0].answer %></li>
-      <li><b>Do you mind pets?</b> : <%= response[1].answer %></li>
-      <li><b>Do you smoke?</b> : <%= response[2].answer %></li>
-      <li><b>Are you a night owl?</b> <%= response[3].answer %></li>
-      <li><b>Do you mind living with someone of the opposite gender? </b> <%= response[4].answer %></li>
-      <li><b>Do you prefer to have the house at a warmer or colder temperature?</b> <%= response[5].answer %></li>
-      <li><b>On a scale of 1-10, how important is it that your space is always kept
-          clean?:</b> <%= response[6].answer %></li>
-      <li><b>On a scale of 1-10, how much do you mind that your roommate frequently has frds/SO</b>
-        <%= response[7].answer %></li>
-      <li><b> On a scale of 1-10, how much do you like the Avengers
-          ?</b> <%= response[8].answer %></li>
-      <li><b>On a scale of 1-10, how much do you like the Pikas
-          ?:</b> <%= response[9].answer %></li>
-      <li><b>Which neighbourhood do you want to live in?</b> <%= response[10].answer %></li>
-    </ul>
-
-    <form method="GET" action="/users/<%=user.id%>/questionnaire">
+  <h3>Profile Summary</h3>
+  <ul>
+    <li><b>Name:</b> <%= user.firstName %></li>
+    <li><b>Email: </b>Don't show this for privacy reasons</li>
+    <li><b>Gender:</b> <%= user.gender %></li>
+    <form method="GET" action="/users/<%=user.id%>/update">
       <button class="button primary expanded" href="#">edit profile</button>
     </form>
+  </ul>
+
+  <hr>
+
+  <h3>Your Reponse to questionnaire: </h3>
+  <p>This is you: </p>
+  <ul>
+    <li><b>Yourr personality is :</b> <%= response[0].answer %></li>
+    <li><b>Do you mind pets?</b> : <%= response[1].answer %></li>
+    <li><b>Do you smoke?</b> : <%= response[2].answer %></li>
+    <li><b>Are you a night owl?</b> <%= response[3].answer %></li>
+    <li><b>Do you mind living with someone of the opposite gender? </b> <%= response[4].answer %></li>
+    <li><b>Do you prefer to have the house at a warmer or colder temperature?</b> <%= response[5].answer %></li>
+    <li><b>On a scale of 1-10, how important is it that your space is always kept
+        clean?:</b> <%= response[6].answer %></li>
+    <li><b>On a scale of 1-10, how much do you mind that your roommate frequently has frds/SO</b>
+      <%= response[7].answer %></li>
+    <li><b> On a scale of 1-10, how much do you like the Avengers
+        ?</b> <%= response[8].answer %></li>
+    <li><b>On a scale of 1-10, how much do you like the Pikas
+        ?:</b> <%= response[9].answer %></li>
+    <li><b>Which neighbourhood do you want to live in?</b> <%= response[10].answer %></li>
+  </ul>
+
+  <form method="GET" action="/users/<%=user.id%>/questionnaire">
+    <button class="button primary expanded" href="#">edit profile</button>
+  </form>
 
 
 
