@@ -8,36 +8,122 @@
 </head>
 
 <body>
-  
+
   <div>
     <nav id="navbar">
       <% include ./partials/_navbar %>
     </nav>
   </div>
-  
-  <h1>Welcome to <%= title %> Home</h1>
 
-  <h2>What is Final Project</h2>
-  <div class="description">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua.
-    Consectetur adipiscing elit pellentesque habitant morbi tristique senectus.
-    Condimentum lacinia quis vel eros donec. Eleifend donec pretium vulputate sapien nec sagittis.
-    Velit egestas dui id ornare arcu odio ut sem nulla.
+  <div class="hero-full-screen">
+
+    <div class="top-content-section">
+      <!-- <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li class="menu-text"><img src="http://placehold.it/75x30" alt="logo"></li>
+            <li><a href="#">One</a></li>
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+          </ul>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="middle-content-section">
+      <h1>World's best roomate finder </h1>
+      <button class="button large">make it go down</button>
+    </div>
+
+    <div class="bottom-content-section" data-magellan data-threshold="0">
+      <a href="#main-content-section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          viewBox="0 0 24 24">
+          <path
+            d="M24 12c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12zm-18.005-1.568l1.415-1.414 4.59 4.574 4.579-4.574 1.416 1.414-5.995 5.988-6.005-5.988z" />
+          </svg></a>
+    </div>
+
   </div>
 
-  <h2>Features</h2>
-  <div class="features">
-    List some features here:
-    connect by personality
-    filter by parameters
-    match by questions
+  <div id="main-content-section" data-magellan-target="main-content-section">
+      <div class="marketing-site-content-section">
+          <div class="marketing-site-content-section-img">
+            <img src="https://images.pexels.com/photos/256046/pexels-photo-256046.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" />
+          </div>
+          <div class="marketing-site-content-section-block">
+            <h3 class="marketing-site-content-section-block-header">Yeti Snowcone Agency</h3>
+            <p class="marketing-site-content-section-block-subheader subheader">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis, maxime libero natus qui minus!</p>
+            <a href="#" class="round button small">learn more</a>
+          </div>
+          <div class="marketing-site-content-section-block small-order-2 medium-order-1">
+            <h3 class="marketing-site-content-section-block-header">Yeti Snowcone Agency</h3>
+            <p class="marketing-site-content-section-block-subheader subheader">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis, maxime libero natus qui minus!</p>
+            <a href="#" class="round button small">learn more</a>
+          </div>
+          <div class="marketing-site-content-section-img small-order-1 medium-order-2">
+            <img src="https://images.pexels.com/photos/300857/pexels-photo-300857.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" />
+          </div>
+        </div>
+
+        <footer class="marketing-site-footer">
+            <div class="row medium-unstack">
+              <div class="medium-4 columns">
+                <h4 class="marketing-site-footer-name">Yeti Snowcone</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolorem accusantium architecto id quidem, itaque nesciunt quam ducimus atque.</p>
+                <ul class="menu marketing-site-footer-menu-social simple">
+                  <li><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
+                   <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                   <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                </ul>
+              </div>
+              <div class="medium-4 columns">
+                 <h4 class="marketing-site-footer-title">Contact Info</h4>
+                <div class="marketing-site-footer-block">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <p>100 W Rincon<br>San Francisco, CA 94015</p>
+                </div>
+                <div class="marketing-site-footer-block">
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                  <p>1 (800) 555-5555</p>
+                </div>
+                <div class="marketing-site-footer-block">
+                  <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                  <p>yetirules@fakeemail.com</p>
+                </div>
+              </div>
+            </div>
+            <div class="marketing-site-footer-bottom">
+              <div class="row large-unstack align-middle">
+                <div class="column">
+                  <p>&copy; 2017 No rights reserved</p>
+                </div>
+                <div class="column">
+                  <ul class="menu marketing-site-footer-bottom-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Works</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </footer>
+          
+          
+          
+          
+        
+        
   </div>
 
-<script src="/scripts/jquery.js"></script>
-<script src="/scripts/what-input.js"></script>
-<script src="/scripts/foundation.js"></script>
-<script src="/scripts/app.js"></script>
+
+
+  <script src="/scripts/jquery.js"></script>
+  <script src="/scripts/what-input.js"></script>
+  <script src="/scripts/foundation.js"></script>
+  <script src="/scripts/app.js"></script>
 </body>
 
 </html>
