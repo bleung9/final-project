@@ -22,12 +22,12 @@
         <th>Percentage match</th>
         <th>Link to profile</th>
       </tr>
-      <% for (let i = 0; i < user_same.length; i++) { %>
+      <% for (let i = 0; i < user_same.length && i < 25; i++) { %>
           <tr>
             <td><%= user_same[i].user.firstName %></td>
             <td><%= user_same[i].user.gender %></td>
             <td><%= 100 - Math.floor((user_same[i].rank / 61 * 100) * 10) / 10 %>%</td>    
-            <td><%=  %></td>
+            <td><%= user_same[i].url %></td>
           </tr>
       <% } %>
     <% } %>
@@ -43,12 +43,13 @@
       <th>Neighbourhood</th>
       <th>Link to profile</th>
     </tr>
-    <% for (let i = 0; i < user_diff.length; i++) { %>
+    <% for (let i = 0; i < user_diff.length && i < 25; i++) { %>
         <tr>
           <td><%= user_diff[i].user.firstName %></td>
           <td><%= user_diff[i].user.gender %></td>
           <td><%= 100 - Math.floor((user_diff[i].rank / 61 * 100) * 10) / 10 %>%</td>    
-          <td><%= user_diff[i].neigh %>%</td>
+          <td><%= user_diff[i].neigh %></td>
+          <td><%= user_diff[i].url %></td>
         </tr>
     <% } %>
   </table>
