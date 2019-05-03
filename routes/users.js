@@ -184,7 +184,7 @@ router.get("/:id/matches", async function(req, res, next) {
   });
   answers_from_db.forEach(answer => user_answers.push(answer.answer));
   console.log("user_answers", user_answers);
-  let user_id = req.params.id;
+  let user_id = Number(req.params.id);
   models.Responses.findAll().then(async function(data) {
     let rankings = {};
     let user_neigh;
@@ -221,7 +221,7 @@ router.get("/:id/matches", async function(req, res, next) {
     let users = await Promise.all(promises);
     let count = 1;
     for (let i = 0; i < users.length; i++) {
-      if (rankings[users[i].id] < 1000) {
+      if (rankings[users[i].id] < 1000 && user_id !== users[i].id) {
         const neigh_info = await models.Responses.findOne({
           where: {
             user_id: users[i].id,
@@ -229,30 +229,33 @@ router.get("/:id/matches", async function(req, res, next) {
           }
         });
         console.log("user_neigh", user_neigh)
-        let new_url = helpers.url_gen();
-        let cur_user_obj = { 
-          first_user: req.params.id, 
-          matched_user: neigh_info.user_id, 
-          url: new_url
-        };
-        let matched_user_obj = { 
-          first_user: neigh_info.user_id, 
-          matched_user: req.params.id,
-          url: new_url
-        };
-        let cur_user = await models.Matches.create(cur_user_obj);
-        let matched_user = await models.Matches.create(matched_user_obj);
+        let random_url = helpers.url_gen();
+        let cur_user_obj = await models.Matches.findOrCreate({
+          where: {
+            cur_user_id: req.params.id,
+            matched_user_id: neigh_info.user_id
+          }, 
+          defaults: {
+            url: random_url
+          }});
+        let matched_user_obj = await models.Matches.findOrCreate({
+          where: {
+            cur_user_id: neigh_info.user_id,
+            matched_user_id: req.params.id
+          }, 
+          defaults: {
+              url: random_url
+          }});
+        let url_insert = cur_user_obj[0].get({ plain: true });
         if (neigh_info.answer === user_neigh && rankings[users[i].id] < 18.3) {
-          to_sort_same_n.push({ user: users[i].dataValues, neigh: neigh_info.answer, url: new_url, rank: rankings[users[i].id] });
+          to_sort_same_n.push({ user: users[i].dataValues, neigh: neigh_info.answer, url: url_insert.url, rank: rankings[users[i].id] });
         } else if (rankings[users[i].id] < 18.3) {
-          to_sort_diff_n.push({ user: users[i].dataValues, neigh: neigh_info.answer, url: new_url, rank: rankings[users[i].id] });
+          to_sort_diff_n.push({ user: users[i].dataValues, neigh: neigh_info.answer, url: url_insert.url, rank: rankings[users[i].id] });
         }
-        console.log("user.id:", users[i].id, "has neigh_info:", neigh_info.answer);
       }
     }
     to_sort_same_n.sort(helpers.sorting);
     to_sort_diff_n.sort(helpers.sorting);
-    
     res.render("match", {
       user_same: to_sort_same_n,
       user_diff: to_sort_diff_n,
