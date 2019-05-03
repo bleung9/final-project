@@ -37,9 +37,9 @@
     <script>
       Talk.ready.then(function () {
         var me = new Talk.User({
-          id: "Hardcode me id",
-          name: "Hardcode me name",
-          email: "Hardcode me email",
+          id: "<%= me_id %>",
+          name: "<%= me_name %>",
+          email: "<%= me_email %>",
           photoUrl: "https://demo.talkjs.com/img/alice.jpg",
           welcomeMessage: "Hey there! How are you? :-)"
         });
@@ -48,9 +48,9 @@
           me: me
         });
         var other = new Talk.User({
-          id: "654321",
-          name: "Sebastian",
-          email: "Sebastian@example.com",
+          id: "<%= other_id %>",
+          name: "<%= other_name %>",
+          email: "<%= other_email %>",
           photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
           welcomeMessage: "Hey, how can I help?"
         });

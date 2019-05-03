@@ -3,7 +3,7 @@
 
 <head>
   <title>Matches</title>
-  <link rel='stylesheet' href='/stylesheets/normalize.css' />
+  <link rel='stylesheet' href='/stylesheets/foundation.css' />
 </head>
 
 <body>
@@ -27,7 +27,7 @@
             <td><%= user_same[i].user.firstName %></td>
             <td><%= user_same[i].user.gender %></td>
             <td><%= 100 - Math.floor((user_same[i].rank / 61 * 100) * 10) / 10 %>%</td>    
-            <td><%= user_same[i].url %></td>
+            <td><a href="/users/<%= id %>/matches/<%= user_same[i].url %>">LINK</a></td>
           </tr>
       <% } %>
     <% } %>
@@ -49,8 +49,7 @@
           <td><%= user_diff[i].user.gender %></td>
           <td><%= 100 - Math.floor((user_diff[i].rank / 61 * 100) * 10) / 10 %>%</td>    
           <td><%= user_diff[i].neigh %></td>
-          <td><%= user_diff[i].url %></td>
-        </tr>
+          <td><a href="/users/<%= id %>/matches/<%= user_diff[i].url %>">LINK</a></td>        </tr>
     <% } %>
   </table>
 </body>

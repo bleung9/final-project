@@ -267,9 +267,28 @@ router.get("/:id/matches", async function(req, res, next) {
 });
 
 // Route for matched chat.
-router.get("/:id/matches/:hash", function(req, res, next) {
+router.get("/:id/matches/:hash", async function(req, res, next) {
   console.log("req", req.params.id);
-  res.render("matchchat");
+  let other_user = await models.Matches.findOne({
+    where: {
+      url: req.params.hash
+    }
+  })
+  let other_user_id = other_user.matched_user_id;
+  other_user = await models.User.findOne({
+    where: {
+      id: other_user_id
+    }
+  });
+  let templateVars = {
+    me_id: req.params.id,
+    me_name: req.cookies.firstName,
+    me_email: req.cookies.email,
+    other_id: other_user.id,
+    other_name: other_user.firstName,
+    other_email: other_user.email
+  }
+  res.render("matchchat", templateVars);
 });
 
 module.exports = router;
