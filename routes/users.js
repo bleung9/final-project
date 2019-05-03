@@ -32,6 +32,13 @@ router.post('/:id/questionnaire', async function (req, res, next) {
       id: req.params.id
     }
   })
+  currentResponse.sort(function(a, b) {
+    if (a.dataValues.question_id > b.dataValues.question_id) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
   console.log(req.params.id)
   for (item of currentResponse) {
     console.log(item.question_id)
@@ -72,10 +79,19 @@ router.get('/:id', async function (req, res, next) {
   })
   console.log('his response', currentResponse)
 
+  currentResponse.sort(function(a, b) {
+    if (a.dataValues.question_id > b.dataValues.question_id) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+
   res.render('summary', {
     title: 'Final Project',
     user: currentUser,
-    response: currentResponse
+    response: currentResponse,
+    id: req.cookies.id
   });
 });
 
@@ -141,11 +157,11 @@ router.get('/:id/update', async function (req, res, next) {
     }
   })
   let tempVars = {
-    user: user_info
+    user: user_info,
+    id: req.cookies.id
   }
   res.render('profile', tempVars);
 });
-
 
 // User matches
 router.get("/:id/matches", async function(req, res, next) {
@@ -157,10 +173,19 @@ router.get("/:id/matches", async function(req, res, next) {
   });
   // console.log("matches screen", answers_from_db);
   let user_answers = [];
+  console.log("db", answers_from_db);
+  console.log("db[0]", answers_from_db[0].dataValues.question_id);
+  answers_from_db.sort(function(a, b) {
+    if (a.dataValues.question_id > b.dataValues.question_id) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
   answers_from_db.forEach(answer => user_answers.push(answer.answer));
-  // console.log(user_answers);
+  console.log("user_answers", user_answers);
   let user_id = req.params.id;
-  models.Responses.findAll().then(async function (data) {
+  models.Responses.findAll().then(async function(data) {
     let rankings = {};
     let user_neigh;
     for (let i = 0; i < data.length; i++) {
@@ -204,17 +229,30 @@ router.get("/:id/matches", async function(req, res, next) {
           }
         });
         console.log("user_neigh", user_neigh)
+        let new_url = helpers.url_gen();
+        let cur_user_obj = { 
+          first_user: req.params.id, 
+          matched_user: neigh_info.user_id, 
+          url: new_url
+        };
+        let matched_user_obj = { 
+          first_user: neigh_info.user_id, 
+          matched_user: req.params.id,
+          url: new_url
+        };
+        let cur_user = await models.Matches.create(cur_user_obj);
+        let matched_user = await models.Matches.create(matched_user_obj);
         if (neigh_info.answer === user_neigh && rankings[users[i].id] < 18.3) {
-          to_sort_same_n.push({ user: users[i].dataValues, neigh: neigh_info.answer, rank: rankings[users[i].id] });
+          to_sort_same_n.push({ user: users[i].dataValues, neigh: neigh_info.answer, url: new_url, rank: rankings[users[i].id] });
         } else if (rankings[users[i].id] < 18.3) {
-          to_sort_diff_n.push({ user: users[i].dataValues, neigh: neigh_info.answer, rank: rankings[users[i].id] });
+          to_sort_diff_n.push({ user: users[i].dataValues, neigh: neigh_info.answer, url: new_url, rank: rankings[users[i].id] });
         }
         console.log("user.id:", users[i].id, "has neigh_info:", neigh_info.answer);
       }
     }
     to_sort_same_n.sort(helpers.sorting);
     to_sort_diff_n.sort(helpers.sorting);
-
+    
     res.render("match", {
       user_same: to_sort_same_n,
       user_diff: to_sort_diff_n,
