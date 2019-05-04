@@ -127,7 +127,8 @@ router.post('/:id', async function (req, res, next) {
 
 // User logged in profile
 router.get("/:id/create", function(req, res, next) {
-  let tempVars = { id: req.params.id };
+  let tempVars = { id: req.params.id,
+                  email: req.params.email};
   console.log("req", req.params.id);
   res.render("questionnaire", tempVars);
 });
@@ -284,6 +285,7 @@ router.get("/:id/matches/:hash", async function(req, res, next) {
     me_id: req.params.id,
     me_name: req.cookies.firstName,
     me_email: req.cookies.email,
+    email: req.cookies.email,
     other_id: other_user.id,
     other_name: other_user.firstName,
     other_email: other_user.email
