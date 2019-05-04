@@ -286,6 +286,11 @@ router.get("/:id/matches/:hash", async function(req, res, next) {
       id: other_user_id
     }
   });
+  let otherResponse = await models.Responses.findAll({
+    where: {
+      user_id: other_user_id
+    }
+  })
   let templateVars = {
     me_id: req.params.id,
     me_name: req.cookies.firstName,
@@ -293,7 +298,8 @@ router.get("/:id/matches/:hash", async function(req, res, next) {
     email: req.cookies.email,
     other_id: other_user.id,
     other_name: other_user.firstName,
-    other_email: other_user.email
+    other_email: other_user.email,
+    other_response: otherResponse
   }
   res.render("matchchat", templateVars);
 });
