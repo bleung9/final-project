@@ -7,6 +7,15 @@
   background-color: black;
 }
 
+.button {
+  margin: 0.3rem;
+}
+
+#login.reveal {
+  background-color: black;
+  color: white;
+}
+
 .hero-full-screen {
   height: 100vh;
   font-family:'Roboto';
@@ -91,11 +100,6 @@
   font-family:'Roboto';
   font-weight:300;
   font-size:32px;
-
-  overflow:hidden;
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
-  -webkit-transform: translate3d(0,0,0);
 }
 
 .content .middle-content-section h1 {
@@ -315,16 +319,6 @@
     text-align: center;
   }
 }
-
-.button {
-  margin: 0.3rem;
-}
-
-#login.reveal {
-  background-color: black;
-  color: white;
-}
-
 
 .timeline .timeline-item::after, .timeline .timeline-item::before {
   clear: both;
