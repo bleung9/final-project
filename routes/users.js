@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var models = require("../models");
 var helpers = require("../helpers.js");
+var neigh_border = require("../neighbourhoods_share_border_data");
 
 /* GET users listing. */
 router.get("/", function(req, res, next) {
@@ -249,7 +250,7 @@ router.get("/:id/matches", async function(req, res, next) {
         let url_insert = cur_user_obj[0].get({ plain: true });
         if (neigh_info.answer === user_neigh && rankings[users[i].id] < 18.3) {
           to_sort_same_n.push({ user: users[i].dataValues, neigh: neigh_info.answer, url: url_insert.url, rank: rankings[users[i].id] });
-        } else if (rankings[users[i].id] < 18.3) {
+        } else if (rankings[users[i].id] < 18.3 && neigh_border[user_neigh].includes(neigh_info.answer)) {
           to_sort_diff_n.push({ user: users[i].dataValues, neigh: neigh_info.answer, url: url_insert.url, rank: rankings[users[i].id] });
         }
       }
