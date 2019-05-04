@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<%if (email) {%>
 <div class="top-bar">
   <div class="top-bar-left">
     <ul class="menu">
       <li style="font-size: 2rem" id="logo-text" class="menu-text"><a href="/">Final Project</a></li>
     </ul>
   </div>
-  <%if (email) {%>
   <div class="top-bar-right">
     <ul class="menu">
       <li>
@@ -17,32 +18,38 @@
     </ul>
   </div>
   <%} else {%>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <li>
-        <button class="button" data-open="login">Login</button>
-        <div class="reveal" id="login" data-reveal>
-          <form method="POST" action="/login">
-            <h4 class="text-center">Login</h4>
-            <label>Email<input type="text" placeholder="Email" name="email" /></label>
-            <label>Password<input type="password" placeholder="Password" name="password" /></label>
-            <p>
-              <input type="submit" class="button expanded" value="Login" />
-            </p>
-            <p>Need an account? Register now! <a href="/register">Register now</a></p>
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li style="font-size: 2rem" id="logo-text" class="menu-text"><a href="/">Final Project</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li>
+          <button class="button" data-open="login">Login</button>
+          <div class="reveal" id="login" data-reveal>
+            <form method="POST" action="/login">
+              <h4 class="text-center">Login</h4>
+              <label>Email<input type="text" placeholder="Email" name="email" /></label>
+              <label>Password<input type="password" placeholder="Password" name="password" /></label>
+              <p>
+                <input type="submit" class="button expanded" value="Login" />
+              </p>
+              <p>Need an account? Register now! <a href="/register">Register now</a></p>
+            </form>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </li>
+        <li>
+          <form method="GET" action="/register">
+            <button class="button">Register</button>
           </form>
-          <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      </li>
-      <li>
-        <form method="GET" action="/register">
-          <button class="button">Register</button>
-        </form>
-      </li>
-    </ul>
-  </div>
-  <%}%>
+        </li>
+      </ul>
+    </div>
+    <%}%>
 
 </html>
