@@ -15,7 +15,10 @@
   <nav id="navbar">
     <% include ./partials/_navbar %>
   </nav>
-  <h1>Welcome to Matches Chat</h1>
+  
+  <hr>
+  
+  <h2>Welcome to your inbox!</h2>
 
   <!-- minified snippet to load TalkJS without delaying your page -->
   <script>
@@ -53,4 +56,9 @@
       inbox.mount(document.getElementById("talkjs-container"));
     });
   </script>
+
+  <hr>
+  <footer id="footer">
+    <% include ./partials/_footer %>
+  </footer>
 </body>
