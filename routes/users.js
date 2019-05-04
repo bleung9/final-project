@@ -76,8 +76,7 @@ router.get('/:id', async function (req, res, next) {
     where: {
       user_id: req.params.id
     }
-  })
-  console.log('his response', currentResponse)
+  }) 
 
   currentResponse.sort(function(a, b) {
     if (a.dataValues.question_id > b.dataValues.question_id) {
@@ -89,6 +88,7 @@ router.get('/:id', async function (req, res, next) {
 
   res.render('summary', {
     title: 'Final Project',
+    email: req.cookies.email,
     user: currentUser,
     response: currentResponse,
     id: req.cookies.id
@@ -135,9 +135,9 @@ router.get("/:id/create", function(req, res, next) {
 
 router.post("/:id/create", function(req, res, next) {
   let rb = req.body;
-  let response = [rb.personality, rb.smoke, rb.pets, rb.night, rb.oppositeGender, rb.temperature, rb.cleanliness, rb.petScore, rb.avenger, rb.pika, rb.neighbourhood.substring(0, rb.neighbourhood.indexOf('(') - 1)];
+  let response = [rb.personality, rb.smoke, rb.pets, rb.night, rb.oppositeGender, rb.temperature, rb.cleanliness, rb.petScore, rb.avenger, rb.pika, rb.neighbourhood.substring(0, rb.neighbourhood.indexOf('(') - 1), rb.bio];
   const question_answer = [];
-  for (i = 0; i < 11; i++) {
+  for (i = 0; i < 12; i++) {
     question_answer.push({
       user_id: req.params.id,
       question_id: i + 1,
@@ -189,6 +189,7 @@ router.get("/:id/matches", async function(req, res, next) {
   models.Responses.findAll().then(async function(data) {
     let rankings = {};
     let user_neigh;
+    let user_bio;
     for (let i = 0; i < data.length; i++) {
       if (data[i].user_id === user_id) {
         continue;
@@ -200,10 +201,12 @@ router.get("/:id/matches", async function(req, res, next) {
         rank_change += helpers.personality_check(user_answers[question_id - 1], data[i].answer);
       } else if (question_id >= 2 && question_id <= 6) {
         rank_change += helpers.binaryOption(user_answers[question_id - 1], data[i].answer);
-      } else if (question_id <= 10) {
+      } else if (question_id >= 7 && question_id <= 10) {
         rank_change += helpers.distance(user_answers[question_id - 1], data[i].answer);
-      } else {
+      } else if (question_id === 11) {
         user_neigh = user_answers[question_id - 1];
+      } else if (question_id === 12) {
+        user_bio = user_answers[question_id - 1];
       }
       if (!rankings[other_user]) {
         rankings[other_user] = 0;
