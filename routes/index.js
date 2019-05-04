@@ -18,7 +18,8 @@ router.get('/', function (req, res, next) {
 router.get('/register', function(req, res, next) {
   res.render('register', { 
     title: 'Final Project',
-    id: req.cookies.id
+    id: req.cookies.id,
+    email: req.cookies.email,
   });
 });
 
