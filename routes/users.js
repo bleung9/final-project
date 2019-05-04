@@ -91,7 +91,8 @@ router.get('/:id', async function (req, res, next) {
     title: 'Final Project',
     user: currentUser,
     response: currentResponse,
-    id: req.cookies.id
+    id: req.cookies.id,
+    email: req.cookies.email
   });
 });
 
