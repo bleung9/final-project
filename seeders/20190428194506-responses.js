@@ -172,7 +172,7 @@ module.exports = {
     for (let i = 0; i < 4000; i++) {
       let user_id = i + 1;
       // 10 questions per user to generate random answers for
-      for (let j = 1; j <= 11; j++) {
+      for (let j = 1; j <= 12; j++) {
         let question_id = j;
         if (question_id === 1) {
           let personality = personalities[Math.floor(Math.random() * 16)];
@@ -189,6 +189,10 @@ module.exports = {
         } else if (question_id === 11) {
           let neigh = neighborhoods[Math.floor(Math.random() * 140)];
           to_insert.push(insert(user_id, question_id, neigh));
+        }
+        else if (question_id === 12) {
+          let bio = "you can't see me";
+          to_insert.push(insert(user_id, question_id, bio));
         }
       }
     }
