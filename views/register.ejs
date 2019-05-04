@@ -1,74 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel='stylesheet' href='/stylesheets/foundation.css' />
-    <link rel='stylesheet' href='/stylesheets/app.css' />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-    <title>User Register</title>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <body>
-      <div>
-          <nav id="navbar">
-            <% include ./partials/_navbar %>
-          </nav>
-        </div>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel='stylesheet' href='/stylesheets/foundation.css' />
+  <link rel='stylesheet' href='/stylesheets/app.css' />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+  <title>User Register</title>
+</head>
 
-<div style="font-size:20px; padding:25px; background: #E6E8EB">
+<body>
+  <div>
+    <nav id="navbar">
+      <% include ./partials/_navbar %>
+    </nav>
+  </div>
+
+  <div style="font-size:20px; padding:25px; background: #E6E8EB">
     <form action="/register" method="POST">
       <div class="form-icons">
-          <h4>Register for an account</h4>
-      
-          <div class="input-group">
-            <span class="input-group-label">
-              <i class="fa fa-user"></i>
-            </span>
-            <input name ="firstName" class="input-group-field" type="text" placeholder="First name">
-          </div>
-          
-          <div class="input-group">
-              <span class="input-group-label">
-                <i class="fa fa-user"></i>
-              </span>
-              <input  name ="lastName" class="input-group-field" type="text" placeholder="Last name">
-            </div>
-         
-          <div class="input-group">
-            <span class="input-group-label">
-              <i class="fa fa-envelope"></i>
-            </span>
-            <input name ="email" class="input-group-field" type="text" placeholder="Email">
-          </div>
-      
-          <div class="input-group">
-            <span class="input-group-label">
-              <i class="fa fa-key"></i>
-            </span>
-            <input name ="password" class="input-group-field" type="password" placeholder="Password">
-          </div>
-        </div>
-      <div class="input-group">
+        <h4>Register for an account</h4>
+
+        <div class="input-group">
           <span class="input-group-label">
-              Gender
-            </span>
-        <select class="select-group-field" name = "gender">
+            <i class="fa fa-user"></i>
+          </span>
+          <input name="firstName" class="input-group-field" type="text" placeholder="First name">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-label">
+            <i class="fa fa-user"></i>
+          </span>
+          <input name="lastName" class="input-group-field" type="text" placeholder="Last name">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-label">
+            <i class="fa fa-envelope"></i>
+          </span>
+          <input name="email" class="input-group-field" type="text" placeholder="Email">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-label">
+            <i class="fa fa-key"></i>
+          </span>
+          <input name="password" class="input-group-field" type="password" placeholder="Password">
+        </div>
+      </div>
+      <div class="input-group">
+        <span class="input-group-label">
+          Gender
+        </span>
+        <select class="select-group-field" name="gender">
           <option value="M">Male</option>
           <option value="F">Female</option>
-        </select>  
+        </select>
       </div>
-    
-    
-      
+
+
+
       <button class="button">Register</button>
     </form>
   </div>
-  <footer id="navbar">
+  <footer id="marketing-site-footer">
     <% include ./partials/_footer %>
   </footer>
-  </body>
+</body>
+
 </html>
