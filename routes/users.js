@@ -280,7 +280,12 @@ router.get("/:id/matches/:hash", async function(req, res, next) {
       url: req.params.hash
     }
   })
-  let other_user_id = other_user.matched_user_id;
+  console.log("other", other_user);
+  let other_user_id = other_user.cur_user_id;
+  if (other_user.cur_user_id === Number(req.params.id)) {
+    other_user_id = other_user.matched_user_id;
+  }
+  console.log("id", other_user_id);
   other_user = await models.User.findOne({
     where: {
       id: other_user_id
