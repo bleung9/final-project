@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
 .top-bar {
   background-color: black; 
 }
@@ -8,6 +9,7 @@
 
 .hero-full-screen {
   height: 100vh;
+  font-family:'Roboto';
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -32,15 +34,17 @@
   padding: 1.5rem;
 } 
 
-#cool {
-  color: white;
-  font-weight: bold;
-}
 
 
 .hero-full-screen .middle-content-section {
   text-align: center;
   color: #fefefe;
+}
+
+#dope {
+  color: white;
+  font-weight: bold;
+  opacity: 0.;
 }
 
 .hero-full-screen .top-content-section {
@@ -81,6 +85,66 @@
 .hero-full-screen .top-bar .menu a {
   color: #fefefe;
   font-weight: bold;
+}
+
+.content .middle-content-section .flow-animaite{
+  font-family:'Roboto';
+  font-weight:300;
+  font-size:32px;
+
+  overflow:hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0,0,0);
+}
+
+.content .middle-content-section h1 {
+  font-family:'Roboto';
+}
+
+.flow-animaite {
+  display:inline-block;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.flow-animaite:first-of-type {    /* For increasing performance 
+                       ID/Class should've been used. 
+                       For a small demo 
+                       it's okaish for now */
+  animation: showup 7s infinite;
+}
+
+.flow-animaite:last-of-type {
+  width:0px;
+  animation: reveal 7s infinite;
+}
+
+.content .middle-content-section .flow-animaite:last-of-type span {
+  margin-left: -500px;
+  animation: slidein 7s infinite;
+}
+
+@keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:0;}
+}
+
+@keyframes slidein {
+    0% { margin-left:-800px; }
+    20% { margin-left:-800px; }
+    35% { margin-left:0px; }
+    100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+    0% {opacity:0;width:0px;}
+    20% {opacity:1;width:0px;}
+    30% {width:355px;}
+    80% {opacity:1;}
+    100% {opacity:0;width:355px;}
 }
 
 
