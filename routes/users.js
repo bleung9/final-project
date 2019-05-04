@@ -294,4 +294,14 @@ router.get("/:id/matches/:hash", async function(req, res, next) {
   res.render("matchchat", templateVars);
 });
 
+router.get('/:id/inbox', function(req, res, next) {
+  res.render('inbox', {
+    me_id: req.params.id,
+    me_name: req.cookies.firstName,
+    me_email: req.cookies.email,
+    email: req.cookies.email,
+  });
+});
+
+
 module.exports = router;

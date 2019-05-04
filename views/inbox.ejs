@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel='stylesheet' href='/stylesheets/foundation.css' />
+  <link rel='stylesheet' href='/stylesheets/app.css' />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+  <title>Inbox: See all your messages here</title>
+</head>
+
+<body>
+  <nav id="navbar">
+    <% include ./partials/_navbar %>
+  </nav>
+  <h1>Welcome to Matches Chat</h1>
+
+  <!-- minified snippet to load TalkJS without delaying your page -->
+  <script>
+    (function (t, a, l, k, j, s) {
+      s = a.createElement('script'); s.async = 1; s.src = "https://cdn.talkjs.com/talk.js"; a.head.appendChild(s)
+        ; k = t.Promise; t.Talk = {
+          v: 1, ready: {
+            then: function (f) {
+              if (k) return new k(function (r, e) { l.push([f, r, e]) }); l
+                .push([f])
+            }, catch: function () { return k && new k() }, c: l
+          }
+        };
+    })(window, document, []);
+  </script>
+
+  <!-- container element in which TalkJS will display a chat UI -->
+  <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px"><i>Loading chat...</i></div>
+
+  <!-- TalkJS initialization code, which we'll customize in the next steps -->
+  <script>
+    Talk.ready.then(function () {
+      var me = new Talk.User({
+        id: "<%= me_id %>",
+        name: "<%= me_name %>",
+        email: "<%= me_email %>",
+        photoUrl: "https://demo.talkjs.com/img/alice.jpg",
+        welcomeMessage: "Hey there! How are you? :-)"
+      });
+      window.talkSession = new Talk.Session({
+        appId: "tCnvhS5o",
+        me: me
+      });
+      var inbox = talkSession.createInbox();
+      inbox.mount(document.getElementById("talkjs-container"));
+    });
+  </script>
+</body>
