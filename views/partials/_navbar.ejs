@@ -6,7 +6,17 @@
       <li style="font-size: 2rem" id="logo-text" class="menu-text"><a href="/">Final Project</a></li>
     </ul>
   </div>
-  <%if (!email) {%>
+  <%if (email) {%>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li>
+        <form method="POST" action="/logout">
+          <button class="button">Logout</button>
+        </form>
+      </li>
+    </ul>
+  </div>
+  <%} else {%>
   <div class="top-bar-right">
     <ul class="menu">
       <li>
@@ -27,18 +37,8 @@
         </div>
       </li>
       <li>
-        <form action="/register">
+        <form method="GET" action="/register">
           <button class="button">Register</button>
-        </form>
-      </li>
-    </ul>
-  </div>
-  <%} else {%>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <li>
-        <form method="POST" action="/logout">
-          <button class="button">Logout</button>
         </form>
       </li>
     </ul>

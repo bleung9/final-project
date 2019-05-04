@@ -252,3 +252,8 @@
 .button {
   margin: 0.3rem;
 }
+
+#login.reveal {
+  background-color: black;
+  color: white;
+}
