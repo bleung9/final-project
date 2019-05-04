@@ -15,9 +15,9 @@
   </nav>
   <h1>Welcome to Matches Home</h1>
   <% if (user_same.length === 0) { %>
-    <h2>You indicated you want to live in <%= neigh %>.  Unfortunately, no one matches with you in this area!</h2>
+    <h2>You've indicated you want to live in <%= neigh %>.  Unfortunately, no one matches with you in this area!</h2>
   <% } else { %>
-    <h2>You indicated you want to live in <%= neigh %>.  Here are your matches in that area! <%= user_same.length %></h2>
+    <h2>You've indicated you want to live in <%= neigh %>.  Here are your matches in that area!</h2>
     <table>
       <tr>
         <th>First Name</th>
@@ -37,7 +37,7 @@
 
   </table>
 
-  <h2>You indicated you want to live in <%= neigh %>.  Here are your matches in other areas!</h2>
+  <h2>Don't like your matches in <%= neigh %>?  Or didn't match with anyone?  Fear not!  Here are your matches in other neighbourhoods!</h2>
   <table>
     <tr>
       <th>First Name</th>

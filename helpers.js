@@ -1,3 +1,5 @@
+var neigh_border_data = require('./neighbourhoods_share_border_data');
+
 module.exports = {
 
   url_gen: function() {
@@ -13,11 +15,11 @@ module.exports = {
     return Math.abs(Number(user) - Number(db));
   },
 
-  binaryOption: function (user, db) {
+  binaryOption: function(user, db) {
     return user !== db ? 5 : 0;
   },
 
-  sorting: function (a, b) {
+  sorting: function(a, b) {
     if (a.rank < b.rank) {
       return -1;
     } else if (a.rank > b.rank) {
@@ -27,7 +29,7 @@ module.exports = {
     }
   }, 
 
-  personality_check: function (user, db) {
+  personality_check: function(user, db) {
     let compatibility_list = { "ESFP": ["ISFJ", "ISTJ"], 
                               "ESTP": ["ISFJ", "ISTJ"], 
                               "ESTJ": ["ISFP", "ISTP", "ISFJ", "ESFJ", "ISTJ", "ESTJ"], 
@@ -46,5 +48,9 @@ module.exports = {
                               "INFP": ["INFP", "ENFP", "INFJ", "ENFJ", "INTJ", "ENTJ", "INTP", "ENTP"],
                             }
     return compatibility_list[user].includes(db) ? 0 : 1000;
+  }, 
+
+  bordering_area: function() { 
+
   }
 }
