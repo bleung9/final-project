@@ -290,7 +290,7 @@ router.get("/:id/matches/:hash", async function(req, res, next) {
     where: {
       user_id: other_user_id
     }
-  })
+  }) 
   let templateVars = {
     me_id: req.params.id,
     me_name: req.cookies.firstName,
