@@ -260,6 +260,7 @@ router.get("/:id/matches", async function(req, res, next) {
       }
     }
     to_sort_same_n.sort(helpers.sorting);
+    console.log("same", to_sort_same_n);
     to_sort_diff_n.sort(helpers.sorting);
     res.render("match", {
       user_same: to_sort_same_n,
