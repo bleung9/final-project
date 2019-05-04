@@ -27,9 +27,9 @@
 .hero-full-screen .content {
   background:rgb(2,3,4);
   opacity: 0.6;
-  height: 14rem;
+  height: 16rem;
   width: 56rem;
-  padding: 2rem;
+  padding: 1.5rem;
 } 
 
 #cool {
