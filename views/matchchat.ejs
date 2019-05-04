@@ -5,6 +5,9 @@
   <title>Matches</title>
   <link rel='stylesheet' href='/stylesheets/foundation.css' />
   <link rel='stylesheet' href='/stylesheets/app.css' />
+  <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.8.1/css/all.css”
+    integrity=“sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf” crossorigin=“anonymous”>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body>
@@ -58,16 +61,24 @@
         var conversation = talkSession.getOrCreateConversation(hash)
         conversation.setParticipant(me);
         conversation.setParticipant(other);
-        var chatbox = talkSession.createChatbox(conversation );
+        var chatbox = talkSession.createChatbox(conversation);
         chatbox.mount(document.getElementById("talkjs-container"));
       });
     </script>
+
+    <hr>
+
+    <footer id="footer">
+      <% include ./partials/_footer %>
+    </footer>
   </div>
 
-<script src="/scripts/jquery.js"></script>
-<script src="/scripts/what-input.js"></script>
-<script src="/scripts/foundation.js"></script>
-<script src="/scripts/app.js"></script>
+
+
+  <script src="/scripts/jquery.js"></script>
+  <script src="/scripts/what-input.js"></script>
+  <script src="/scripts/foundation.js"></script>
+  <script src="/scripts/app.js"></script>
 </body>
 
 </html>
