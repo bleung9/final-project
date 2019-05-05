@@ -9,8 +9,7 @@ let names_of_neigh = [];
 let coords_tmp = [];
 for (let i = 0; i < geodata.features.length; i++) {
   let name = geodata.features[i].properties.AREA_NAME;
-  name = name.substring(0, name.indexOf("(") - 1);
-  names_of_neigh.push(name);
+  names_of_neigh.push(name.substring(0, name.indexOf("(") - 1));
   for (let j = 0; j < geodata.features[i].geometry.coordinates[0].length; j++) {
     let coord = String(geodata.features[i].geometry.coordinates[0][j][0]) + ", " + String(geodata.features[i].geometry.coordinates[0][j][1]);
     coords_tmp.push(coord);
@@ -18,6 +17,7 @@ for (let i = 0; i < geodata.features.length; i++) {
 }
 let set_of_coords = new Set(coords_tmp);
 
+// for each unique coordinate, generate a list of neighborhoods that coordinate delineates
 let border_coords = new Map();
 for (let item of set_of_coords) {
   border_coords.set(item, []);
@@ -31,6 +31,8 @@ for (let i = 0; i < geodata.features.length; i++) {
   }
 }
 
+// for each list of neighborhoods that a coordinate delineates, all of those neighborhoods
+// share a border with each other item in that list
 let result = {};
 for (let i = 0; i < names_of_neigh.length; i++) {
   result[names_of_neigh[i]] = [];
