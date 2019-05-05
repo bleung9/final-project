@@ -317,6 +317,7 @@ router.get('/:id/inbox', function(req, res, next) {
     me_name: req.cookies.firstName,
     me_email: req.cookies.email,
     email: req.cookies.email,
+    id: req.params.id
   });
 });
 
