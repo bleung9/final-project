@@ -161,7 +161,8 @@ router.get('/:id/update', async function (req, res, next) {
   })
   let tempVars = {
     user: user_info,
-    id: req.cookies.id
+    id: req.cookies.id,
+    email: req.cookies.email
   }
   res.render('profile', tempVars);
 });
