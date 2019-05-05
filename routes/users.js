@@ -305,7 +305,8 @@ router.get("/:id/matches/:hash", async function(req, res, next) {
     other_id: other_user.id,
     other_name: other_user.firstName,
     other_email: other_user.email,
-    other_response: otherResponse
+    other_response: otherResponse,
+    id: req.params.id
   }
   res.render("matchchat", templateVars);
 });
@@ -316,6 +317,7 @@ router.get('/:id/inbox', function(req, res, next) {
     me_name: req.cookies.firstName,
     me_email: req.cookies.email,
     email: req.cookies.email,
+    id: req.params.id
   });
 });
 
