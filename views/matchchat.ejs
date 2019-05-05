@@ -59,30 +59,28 @@
     <script>
       Talk.ready.then(function () {
         var me = new Talk.User({
-          id: "4002",
-          name: "Bosco",
-          email: "bleung9@gmail.com>",
+          id: "<%= me_id %>",
+          name: "<%= me_name %>",
+          email: "<%= me_email %>",
           photoUrl: "https://demo.talkjs.com/img/alice.jpg",
-          welcomeMessage: "Hey there! How are you? :-)",
-          role: "users"
+          welcomeMessage: "Hey there! How are you? :-)"
         });
         window.talkSession = new Talk.Session({
           appId: "tCnvhS5o",
           me: me
         });
         var other = new Talk.User({
-          id: "3000",
-          name: "Zeyu",
-          email: "haozai_03@hotmail.com",
+          id: "<%= other_id %>",
+          name: "<%= other_name %>",
+          email: "<%= other_email %>",
           photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
-          welcomeMessage: "Hey, how can I help?", 
-          role: "users"
+          welcomeMessage: "Hey, how can I help?"
         });
         let hash = Talk.oneOnOneId(me, other);
         var conversation = talkSession.getOrCreateConversation(hash)
         conversation.setParticipant(me);
         conversation.setParticipant(other);
-        var chatbox = talkSession.createChatbox(conversation);
+        var chatbox = talkSession.createChatbox(conversation );
         chatbox.mount(document.getElementById("talkjs-container"));
       });
     </script>
