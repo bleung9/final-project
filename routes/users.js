@@ -253,7 +253,7 @@ router.get("/:id/matches", async function(req, res, next) {
               url: random_url
           }});
         let url_insert = cur_user_obj[0].get({ plain: true });
-        if (neigh_info.answer === user_neigh && rankings[users[i].id] < 18.3) {
+        if (neigh_info.answer === user_neigh && rankings[users[i].id] < 18.3 && users[i].id !== user_id) {
           to_sort_same_n.push({ user: users[i].dataValues, neigh: neigh_info.answer, url: url_insert.url, rank: rankings[users[i].id] });
         } else if (rankings[users[i].id] < 18.3 && neigh_border[user_neigh].includes(neigh_info.answer)) {
           to_sort_diff_n.push({ user: users[i].dataValues, neigh: neigh_info.answer, url: url_insert.url, rank: rankings[users[i].id] });
