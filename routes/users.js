@@ -17,7 +17,8 @@ router.get('/:id/questionnaire', async function (req, res, next) {
   })
   res.render('update', {
     response: currentResponse,
-    id: req.params.id
+    id: req.params.id,
+    email: req.params.email
   });
 });
 

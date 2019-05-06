@@ -8,7 +8,15 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <title>Roommate questionnaire</title>
+        <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
+
+    <title>Roommate questionnaire</title>
+  
   <style>
     /* Set the size of the div element that contains the map */
     #map {
@@ -21,6 +29,7 @@
 </head>
 
 <body style="font-size:20px; padding:50px;">
+   
   <h1>Please tell us a little bit about you:</h1>
   <form action="/users/<%= id %>/questionnaire" method="POST">
     <div class="form-group">
@@ -190,6 +199,9 @@
       <button type="submit" class="btn btn-primary">Continue</button>
     </div>
   </form>
+  <footer id="footer">
+      <% include ./partials/_footer %>
+    </footer>
 </body>
 <!--Load the API from the specified URL
           * The async attribute allows the browser to render the page while the API loads
