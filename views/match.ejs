@@ -44,15 +44,14 @@
         <td><%= user_same[i].user.firstName %></td>
         <td><%= user_same[i].user.gender %></td>
         <td><%= 100 - Math.floor((user_same[i].rank / 61 * 100) * 10) / 10 %>%</td>
-        <td><a href="/users/<%= id %>/matches/<%= user_same[i].url %>"></a><button
-            class="btn btn-primary btn-sm">Profile</button></td>
+        <td><a href="/users/<%= id %>/matches/<%= user_same[i].url %>" class="btn btn-primary btn-sm">Profile</a></td>
       </tr>
       <% } %>
       <% } %>
 
     </table>
 
-    <button class="btn btn-primary btn-sm">Click to reveal</button>
+    <button class="btn btn-primary btn-sm" id="reveal">Click to reveal</button>
 
     <p>Here are some matches in neighbourhoods in close proximity to <%= neigh %>:</p>
     <hr>
@@ -70,8 +69,7 @@
         <td><%= user_diff[i].user.gender %></td>
         <td><%= 100 - Math.floor((user_diff[i].rank / 61 * 100) * 10) / 10 %>%</td>
         <td><%= user_diff[i].neigh %></td>
-        <td><a href="/users/<%= id %>/matches/<%= user_diff[i].url %>"><button
-              class="btn btn-primary btn-sm">Profile</button></a></td>
+        <td><a href="/users/<%= id %>/matches/<%= user_diff[i].url %>" class="btn btn-primary btn-sm">Profile</a></td>
       </tr>
       <% } %>
     </table>

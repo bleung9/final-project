@@ -1,3 +1,3 @@
-$("button").click(function () {
+$("#reveal").click(function () {
   $("#neighbours").toggle();
 });
