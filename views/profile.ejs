@@ -26,7 +26,7 @@
   </nav>
   <div style="font-size:20px; padding:15px;">
     <h1>Profile information:</h1>
-    <button class="btn btn-primary">Edit Profile</button>
+    <button class="btn btn-primary" id="edit">Edit Profile</button>
     <form action="/users/<%= user.id %>" method="POST">
 
       <div class="form-group">
@@ -70,7 +70,7 @@
 
       </div>
 
-      <button type="submit" class="btn btn-primary">Save Changes</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
   </div>
@@ -80,7 +80,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/scripts/profile.js"></script>
-
     <script src="/scripts/jquery.js"></script>
     <script src="/scripts/what-input.js"></script>
     <script src="/scripts/foundation.js"></script>
