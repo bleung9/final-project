@@ -1,5 +1,13 @@
 /* STYLING FOR MATCHES PAGE */
 
+body {
+  background: url(https://cdn.trendir.com/wp-content/uploads/2018/04/all-white-living-room.jpg) !important;
+  background-attachment: fixed !important;
+}
 .matches-content {
   padding: 2rem;
+  background-color: transparent;
 }
+ table {
+   opacity: 0.7;
+ }
