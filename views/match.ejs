@@ -12,6 +12,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel='stylesheet' href='/stylesheets/app.css' />
   <link rel='stylesheet' href='/stylesheets/match.css' />
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
@@ -48,7 +49,12 @@
 
     </table>
 
- 
+<button>Click Me</button> 
+<script>
+  $( "button" ).click(function() {
+    $( "#neighbours" ).toggle();
+  });
+  </script>
     <p>Here are some matches in neighbourhoods in close proximity to <%= neigh %>:</p>
     <hr>
     <table class="table table-striped table-dark" id="neighbours">
@@ -69,7 +75,6 @@
       </tr>
       <% } %>
     </table>
-    <button id="expand">Toggle slideUp() and slideDown()</button>
   </div>
   <% include ./partials/_footer %>
 
