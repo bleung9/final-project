@@ -8,11 +8,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <link rel='stylesheet' href='/stylesheets/foundation.css' />
   <link rel='stylesheet' href='/stylesheets/app.css' />
-  <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.8.1/css/all.css”
-    integrity=“sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf” crossorigin=“anonymous”>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
   <title>Profile Edit</title>
 
 </head>
@@ -23,7 +19,7 @@
   </nav>
   <div style="font-size:20px; padding:15px;">
     <h1>Profile information:</h1>
-    <button class="edit">Edit my profile</button>
+    <button class="btn btn-primary">Edit Profile</button>
     <form action="/users/<%= user.id %>" method="POST">
 
       <div class="form-group">

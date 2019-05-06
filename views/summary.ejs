@@ -54,7 +54,7 @@
               <li><b>Bio:</b> <%= response[11].answer %>.</li>
             </ul>
             <form method="GET" action="/users/<%=user.id%>/update">
-              <button class="button primary" href="#">Edit Profile Information</button>
+              <button class="btn btn-primary" href="#">Edit Profile Information</button>
             </form>
 
             <ul class="questionnaire-answers">
@@ -93,13 +93,12 @@
               <li><b> On a scale of 1-10, how much do you like The Avengers?:</b> <%= response[8].answer %></li>
               <li><b>On a scale of 1-10, how much do you like Pikachu?:</b> <%= response[9].answer %></li>
               <li><b>Preferred Neighbourhood:</b> <%= response[10].answer %></li>
-              <li><b>Bio:</b> <%= response[11].answer %></li>
-
             </ul>
 
             <form method="GET" action="/users/<%=user.id%>/questionnaire">
-              <button class="button primary" href="#">Change Questionnaire Answers</button>
+              <button class="btn btn-primary" href="#">Change Questionnaire Answers</button>
             </form>
+            <hr>
           </div>
         </div>
       </div>
