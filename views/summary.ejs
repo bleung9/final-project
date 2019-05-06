@@ -1,94 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel='stylesheet' href='/stylesheets/foundation.css' />
-        <link rel='stylesheet' href='/stylesheets/app.css' />
-               <!-- Font Awesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-<!-- Bootstrap core CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-<!-- Material Design Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
-
-        <title> Profile Summary</title>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title> Profile Summary</title>
   <link rel='stylesheet' href='/stylesheets/foundation.css' />
-  <link rel='stylesheet' href='/stylesheets/summary.css' />
-</head>
+  <link rel='stylesheet' href='/stylesheets/app.css' />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
+
+  <title> Profile Summary</title>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Profile Summary</title>
+    <link rel='stylesheet' href='/stylesheets/foundation.css' />
+    <link rel='stylesheet' href='/stylesheets/summary.css' />
+  </head>
 
 <body>
+
 
   <div>
     <nav id="navbar">
       <% include ./partials/_navbar %>
     </nav>
   </div>
-  <div class="card-profile-stats">
-    <div class="card-profile-stats-intro">
-      <img class="card-profile-stats-intro-pic"
-        src="https://i.kym-cdn.com/entries/icons/facebook/000/011/061/lelbron.jpg" alt="profile-image" />
-      <div class="card-profile-stats-intro-content">
-        <h3><%= user.firstName %></h3>
-      </div> <!-- /.card-profile-stats-intro-content -->
-    </div> <!-- /.card-profile-stats-intro -->
-  </div>
 
-  <div class="profile">
-    <div class="profile-summary">
-      <h3>Profile Summary</h3>
-      <ul>
-        <li><b>Name:</b> <%= user.firstName %></li>
-        <li><b>Email: </b>Don't show this for privacy reasons</li>
-        <li><b>Gender:</b> <%= user.gender %></li>
-        <form method="GET" action="/users/<%=user.id%>/update">
-          <button class="button primary" href="#">edit profile</button>
-        </form>
-      </ul>
+  <div class="row">
+    <!-- Column -->
+    <div class="col-lg-4 col-xlg-3 col-md-5">
+      <div class="card">
+        <div class="card-block">
+          <center class="m-t-30"> <img class="card-profile-stats-intro-pic"
+            src="https://i.kym-cdn.com/entries/icons/facebook/000/011/061/lelbron.jpg" alt="profile-image" />
+          <div class="card-profile-stats-intro-content">
+            <h4 class="card-title m-t-10"><%= user.firstName %></h4>
+          </center>
+        </div>
+      </div>
     </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-lg-8 col-xlg-9 col-md-7">
+      <div class="card">
+        <div class="card-block">
+          <form class="form-horizontal form-material">
+            <div class="form-group">
+              <label class="col-md-12">Full Name</label>
+              <div class="col-md-12">
+                <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="example-email" class="col-md-12">Email</label>
+              <div class="col-md-12">
+                <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line"
+                  name="example-email" id="example-email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-12">Password</label>
+              <div class="col-md-12">
+                <input type="password" value="password" class="form-control form-control-line">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-12">Phone No</label>
+              <div class="col-md-12">
+                <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-12">Message</label>
+              <div class="col-md-12">
+                <textarea rows="5" class="form-control form-control-line"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-12">Select Country</label>
+              <div class="col-sm-12">
+                <select class="form-control form-control-line">
+                  <option>London</option>
+                  <option>India</option>
+                  <option>Usa</option>
+                  <option>Canada</option>
+                  <option>Thailand</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12">
+                <button class="btn btn-success">Update Profile</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="card-profile-stats">
+        <div class="card-profile-stats-intro">
+          <img class="card-profile-stats-intro-pic"
+            src="https://i.kym-cdn.com/entries/icons/facebook/000/011/061/lelbron.jpg" alt="profile-image" />
+          <div class="card-profile-stats-intro-content">
+            <h3><%= user.firstName %></h3>
+          </div> <!-- /.card-profile-stats-intro-content -->
+        </div> <!-- /.card-profile-stats-intro -->
+      </div>
 
-    <hr>
+      <div class="profile">
+        <div class="profile-summary">
+          <h3>Profile Summary</h3>
+          <ul>
+            <li><b>Name:</b> <%= user.firstName %></li>
+            <li><b>Email: </b>Don't show this for privacy reasons</li>
+            <li><b>Gender:</b> <%= user.gender %></li>
+            <form method="GET" action="/users/<%=user.id%>/update">
+              <button class="button primary" href="#">edit profile</button>
+            </form>
+          </ul>
+        </div>
 
-    <div class="profile-matchmaking">
-      <h3>Your matchmaking profile: </h3>
-      <ul>
-        <li><b>Personality:</b> <%= response[0].answer %></li>
-        <li><b>Do you mind living with pets?</b> <%= response[1].answer %></li>
-        <li><b>Do you smoke?</b> <%= response[2].answer %></li>
-        <li><b>Are you a night owl?</b> <%= response[3].answer %></li>
-        <li><b>Do you mind living with someone of the opposite gender? </b> <%= response[4].answer %></li>
-        <li><b>Do you prefer to have the house at a warmer or colder temperature?</b> <%= response[5].answer %></li>
-        <li><b>On a scale of 1-10, how important is it that your space is kept
-            clean?</b> <%= response[6].answer %></li>
-        <li><b>On a scale of 1-10, how much would you mind if your roommate had guests over often?</b>
-          <%= response[7].answer %></li>
-        <li><b> On a scale of 1-10, how much do you like The Avengers?</b> <%= response[8].answer %></li>
-        <li><b>On a scale of 1-10, how much do you like Pikachu?</b> <%= response[9].answer %></li>
-        <li><b>Preferred Neighbourhood:</b> <%= response[10].answer %></li>
-        <li><b>Bio:</b> <%= response[11].answer %></li>
+        <hr>
 
-      </ul>
+        <div class="profile-matchmaking">
+          <h3>Your matchmaking profile: </h3>
+          <ul>
+            <li><b>Personality:</b> <%= response[0].answer %></li>
+            <li><b>Do you mind living with pets?</b> <%= response[1].answer %></li>
+            <li><b>Do you smoke?</b> <%= response[2].answer %></li>
+            <li><b>Are you a night owl?</b> <%= response[3].answer %></li>
+            <li><b>Do you mind living with someone of the opposite gender? </b> <%= response[4].answer %></li>
+            <li><b>Do you prefer to have the house at a warmer or colder temperature?</b> <%= response[5].answer %></li>
+            <li><b>On a scale of 1-10, how important is it that your space is kept
+                clean?</b> <%= response[6].answer %></li>
+            <li><b>On a scale of 1-10, how much would you mind if your roommate had guests over often?</b>
+              <%= response[7].answer %></li>
+            <li><b> On a scale of 1-10, how much do you like The Avengers?</b> <%= response[8].answer %></li>
+            <li><b>On a scale of 1-10, how much do you like Pikachu?</b> <%= response[9].answer %></li>
+            <li><b>Preferred Neighbourhood:</b> <%= response[10].answer %></li>
+            <li><b>Bio:</b> <%= response[11].answer %></li>
 
-      <form method="GET" action="/users/<%=user.id%>/questionnaire">
-        <button class="button primary" href="#">edit profile</button>
-      </form>
-    </div>
-   
+          </ul>
+
+          <form method="GET" action="/users/<%=user.id%>/questionnaire">
+            <button class="button primary" href="#">edit profile</button>
+          </form>
+        </div>
+
         <% include ./partials/_footer %>
 
-    
 
-  </div>
-  <script src="/scripts/profile.js"></script>
-  <script src="/scripts/jquery.js"></script>
-  <script src="/scripts/what-input.js"></script>
-  <script src="/scripts/foundation.js"></script>
-  <script src="/scripts/app.js"></script>
+
+      </div>
+      <script src="/scripts/profile.js"></script>
+      <script src="/scripts/jquery.js"></script>
+      <script src="/scripts/what-input.js"></script>
+      <script src="/scripts/foundation.js"></script>
+      <script src="/scripts/app.js"></script>
 </body>
 
 </html>
