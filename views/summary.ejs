@@ -58,57 +58,58 @@
             </form>
 
             <ul class="questionnaire-answers">
-                <li><b>Personality:</b> <%= response[0].answer %></li>
-                <li><b>Do you mind living with pets?:</b> <% if (response[1].answer === 'y') { %>
-                  Yes
-                  <% } else { %>
-                  No
-                  <% } %></li>
-                <li><b>Do you smoke?: </b> <% if (response[2].answer === 'y') { %>
-                  Yes
-                  <% } else { %>
-                  No
-                  <% } %></li>
-                <li><b>Are you a night owl?: </b><% if (response[3].answer === 'y') { %>
-                  Yes
-                  <% } else { %>
-                  No
-                  <% } %></li>
-                <li><b>Do you mind living with someone of the opposite gender?: </b>
-                  <% if (response[4].answer === 'y') { %>
-                  Yes
-                  <% } else { %>
-                  No
-                  <% } %></li>
-                <li><b>Do you prefer to have the house at a warmer or colder temperature?</b>
-                  <% if (response[5].answer === 'h') { %>
-                  Warmer
-                  <% } else { %>
-                  Cooler
-                  <% } %></li>
-                <li><b>On a scale of 1-10, how important is it that your space is kept
-                    clean?: </b> <%= response[6].answer %></li>
-                <li><b>On a scale of 1-10, how much would you mind if your roommate had guests over often?:</b>
-                  <%= response[7].answer %></li>
-                <li><b> On a scale of 1-10, how much do you like The Avengers?:</b> <%= response[8].answer %></li>
-                <li><b>On a scale of 1-10, how much do you like Pikachu?:</b> <%= response[9].answer %></li>
-                <li><b>Preferred Neighbourhood:</b> <%= response[10].answer %></li>
-                <li><b>Bio:</b> <%= response[11].answer %></li>
-      
-              </ul>
-      
-              <form method="GET" action="/users/<%=user.id%>/questionnaire">
-                <button class="button primary" href="#">Change Questionnaire Answers</button>
-              </form>
+              <li><b>Personality:</b> <%= response[0].answer %></li>
+              <li><b>Do you mind living with pets?:</b> <% if (response[1].answer === 'y') { %>
+                Yes
+                <% } else { %>
+                No
+                <% } %></li>
+              <li><b>Do you smoke?: </b> <% if (response[2].answer === 'y') { %>
+                Yes
+                <% } else { %>
+                No
+                <% } %></li>
+              <li><b>Are you a night owl?: </b><% if (response[3].answer === 'y') { %>
+                Yes
+                <% } else { %>
+                No
+                <% } %></li>
+              <li><b>Do you mind living with someone of the opposite gender?: </b>
+                <% if (response[4].answer === 'y') { %>
+                Yes
+                <% } else { %>
+                No
+                <% } %></li>
+              <li><b>Do you prefer to have the house at a warmer or colder temperature?</b>
+                <% if (response[5].answer === 'h') { %>
+                Warmer
+                <% } else { %>
+                Cooler
+                <% } %></li>
+              <li><b>On a scale of 1-10, how important is it that your space is kept
+                  clean?: </b> <%= response[6].answer %></li>
+              <li><b>On a scale of 1-10, how much would you mind if your roommate had guests over often?:</b>
+                <%= response[7].answer %></li>
+              <li><b> On a scale of 1-10, how much do you like The Avengers?:</b> <%= response[8].answer %></li>
+              <li><b>On a scale of 1-10, how much do you like Pikachu?:</b> <%= response[9].answer %></li>
+              <li><b>Preferred Neighbourhood:</b> <%= response[10].answer %></li>
+              <li><b>Bio:</b> <%= response[11].answer %></li>
+
+            </ul>
+
+            <form method="GET" action="/users/<%=user.id%>/questionnaire">
+              <button class="button primary" href="#">Change Questionnaire Answers</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-    <% include ./partials/_footer %>
+  <% include ./partials/_footer %>
 
   </div>
+
   <script src="/scripts/profile.js"></script>
   <script src="/scripts/jquery.js"></script>
   <script src="/scripts/what-input.js"></script>
