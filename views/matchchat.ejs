@@ -9,6 +9,7 @@
 
   <link rel='stylesheet' href='/stylesheets/foundation.css' />
   <link rel='stylesheet' href='/stylesheets/app.css' />
+  <link rel='stylesheet' href='/stylesheets/summary.css' />
   <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.8.1/css/all.css”
     integrity=“sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf” crossorigin=“anonymous”>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
@@ -22,107 +23,154 @@
 
   <% include ./partials/_navbar %>
 
-  <div class='profile'>
-    <h1><%= other_name %></h1>
-    <ul>
-      <li><b>Personality:</b> <%= other_response[0].answer %></li>
-      <li><b>Do you mind living with pets?: </b> <% if (other_response[1].answer === 'y') { %>
-        Yes
-        <% } else { %>
-        No
-        <% } %></li>
-      <li><b>Do you smoke?: </b> <% if (other_response[2].answer === 'y') { %>
-        Yes
-        <% } else { %>
-        No
-        <% } %></li>
-      <li><b>Are you a night owl?: </b> <% if (other_response[3].answer === 'y') { %>
-        Yes
-        <% } else { %>
-        No
-        <% } %></li>
-      <li><b>Do you mind living with someone of the opposite gender?:</b><% if (other_response[4].answer === 'y') { %>
-        Yes
-        <% } else { %>
-        No
-        <% } %></li>
-      <li><b>Do you prefer to have the house at a warmer or colder temperature?:</b>
-        <% if (other_response[5].answer === 'h') { %>
-        Warmer
-        <% } else { %>
-        Cooler
-        <% } %></li>
-      <li><b>On a scale of 1-10, how important is it that your space is kept
-          clean?</b> <%= other_response[6].answer %></li>
-      <li><b>On a scale of 1-10, how much would you mind if your roommate had guests over often?</b>
-        <%= other_response[7].answer %></li>
-      <li><b> On a scale of 1-10, how much do you like The Avengers?</b> <%= other_response[8].answer %></li>
-      <li><b>On a scale of 1-10, how much do you like Pikachu?</b> <%= other_response[9].answer %></li>
-      <li><b>Preferred Neighbourhood:</b> <%= other_response[10].answer %></li>
-      <li><b>Bio:</b> <%= other_response[11].answer %></li>
+  <div class="profile-page">
+    <div class="main main-raised">
+      <div class="profile-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 ml-auto mr-auto">
+              <div class="profile">
+                <div class="avatar">
+                  <img
+                    src="https://i0.wp.com/muslimgirl.com/wp-content/uploads/2017/04/5e5dc19577e7c6c5683dc83009848770_african-kid-meme-memesuper-skeptical-african-kid-meme_305-305.jpeg?fit=305%2C305"
+                    alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                </div>
+                <div class="name">
+                  <h3 class="title"><%= other_name %></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="description text-center">
+            <ul class="questionnaire-answers">
+              <li><b>Gender:</b> <%= other_gender %></li>
+              <li><b>Bio:</b> <%= other_response[11].answer %>.</li>
+            </ul>
 
-    </ul>
+            <hr>
+
+            <ul class="questionnaire-answers">
+              <li><b>Personality:</b> <%= other_response[0].answer %></li>
+              <hr>
+              <li><b>Do you mind living with pets?:</b> <% if (other_response[1].answer === 'y') { %>
+                Yes
+                <% } else { %>
+                No
+                <% } %></li>
+              <hr>
+              <li><b>Do you smoke?: </b> <% if (other_response[2].answer === 'y') { %>
+                Yes
+                <% } else { %>
+                No
+                <% } %></li>
+              <hr>
+              <li><b>Are you a night owl?: </b><% if (other_response[3].answer === 'y') { %>
+                Yes
+                <% } else { %>
+                No
+                <% } %></li>
+              <hr>
+              <li><b>Do you mind living with someone of the opposite gender?: </b>
+                <% if (other_response[4].answer === 'y') { %>
+                Yes
+                <% } else { %>
+                No
+                <% } %></li>
+              <hr>
+              <li><b>Do you prefer to have the house at a warmer or colder temperature?</b>
+                <% if (other_response[5].answer === 'h') { %>
+                Warmer
+                <% } else { %>
+                Cooler
+                <% } %></li>
+              <hr>
+              <li><b>On a scale of 1-10, how important is it that your space is kept
+                  clean?: </b> <%= other_response[6].answer %></li>
+              <hr>
+              <li><b>On a scale of 1-10, how much would you mind if your roommate had guests over often?:</b>
+                <%= other_response[7].answer %></li>
+              <hr>
+              <li><b> On a scale of 1-10, how much do you like The Avengers?:</b> <%= other_response[8].answer %></li>
+              <hr>
+              <li><b>On a scale of 1-10, how much do you like Pikachu?:</b> <%= other_response[9].answer %></li>
+              <hr>
+              <li><b>Preferred Neighbourhood:</b> <%= other_response[10].answer %></li>
+            </ul>
+
+
+            <hr>
+          </div>
+        </div>
+      </div>
+  
+      <hr class="style-eight"size="30">
+
+      <div class="chat-space">
+        <!-- minified snippet to load TalkJS without delaying your page -->
+        <script>
+          (function (t, a, l, k, j, s) {
+            s = a.createElement('script'); s.async = 1; s.src = "https://cdn.talkjs.com/talk.js"; a.head.appendChild(s)
+              ; k = t.Promise; t.Talk = {
+                v: 1, ready: {
+                  then: function (f) {
+                    if (k) return new k(function (r, e) { l.push([f, r, e]) }); l
+                      .push([f])
+                  }, catch: function () { return k && new k() }, c: l
+                }
+              };
+          })(window, document, []);
+        </script>
+
+        <!-- container element in which TalkJS will display a chat UI -->
+        <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px"><i>Loading chat...</i></div>
+
+        <!-- TalkJS initialization code, which we'll customize in the next steps -->
+        <script>
+          Talk.ready.then(function () {
+            var me = new Talk.User({
+              id: "<%= me_id %>",
+              name: "<%= me_name %>",
+              email: "<%= me_email %>",
+              photoUrl: "https://i.kym-cdn.com/entries/icons/facebook/000/011/061/lelbron.jpg",
+              welcomeMessage: "Hey there! How are you? :-)"
+            });
+            window.talkSession = new Talk.Session({
+              appId: "tCnvhS5o",
+              me: me
+            });
+            var other = new Talk.User({
+              id: "<%= other_id %>",
+              name: "<%= other_name %>",
+              email: "<%= other_email %>",
+              photoUrl: "https://i0.wp.com/muslimgirl.com/wp-content/uploads/2017/04/5e5dc19577e7c6c5683dc83009848770_african-kid-meme-memesuper-skeptical-african-kid-meme_305-305.jpeg?fit=305%2C305",
+              welcomeMessage: "Hey, how can I help?"
+            });
+            let hash = Talk.oneOnOneId(me, other);
+            var conversation = talkSession.getOrCreateConversation(hash)
+            conversation.setParticipant(me);
+            conversation.setParticipant(other);
+            var chatbox = talkSession.createChatbox(conversation);
+            chatbox.mount(document.getElementById("talkjs-container"));
+          });
+        </script>
+
+
+
+      </div>
+      <br>
+      <br>
+
+    </div>
   </div>
   <hr>
-  <div>
-    <h2>Chat: Work in Progress</h2>
-    <!-- minified snippet to load TalkJS without delaying your page -->
-    <script>
-      (function (t, a, l, k, j, s) {
-        s = a.createElement('script'); s.async = 1; s.src = "https://cdn.talkjs.com/talk.js"; a.head.appendChild(s)
-          ; k = t.Promise; t.Talk = {
-            v: 1, ready: {
-              then: function (f) {
-                if (k) return new k(function (r, e) { l.push([f, r, e]) }); l
-                  .push([f])
-              }, catch: function () { return k && new k() }, c: l
-            }
-          };
-      })(window, document, []);
-    </script>
 
-    <!-- container element in which TalkJS will display a chat UI -->
-    <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px"><i>Loading chat...</i></div>
-
-    <!-- TalkJS initialization code, which we'll customize in the next steps -->
-    <script>
-      Talk.ready.then(function () {
-        var me = new Talk.User({
-          id: "<%= me_id %>",
-          name: "<%= me_name %>",
-          email: "<%= me_email %>",
-          photoUrl: "https://demo.talkjs.com/img/alice.jpg",
-          welcomeMessage: "Hey there! How are you? :-)"
-        });
-        window.talkSession = new Talk.Session({
-          appId: "tCnvhS5o",
-          me: me
-        });
-        var other = new Talk.User({
-          id: "<%= other_id %>",
-          name: "<%= other_name %>",
-          email: "<%= other_email %>",
-          photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
-          welcomeMessage: "Hey, how can I help?"
-        });
-        let hash = Talk.oneOnOneId(me, other);
-        var conversation = talkSession.getOrCreateConversation(hash)
-        conversation.setParticipant(me);
-        conversation.setParticipant(other);
-        var chatbox = talkSession.createChatbox(conversation);
-        chatbox.mount(document.getElementById("talkjs-container"));
-      });
-    </script>
+  <!-- Chat scripts -->
 
 
+  <% include ./partials/_footer %>
 
 
-
-  </div>
-
-  <footer id="footer">
-    <% include ./partials/_footer %>
-  </footer>
+  <script src="/scripts/profile.js"></script>
 
   <script src="/scripts/jquery.js"></script>
   <script src="/scripts/what-input.js"></script>
