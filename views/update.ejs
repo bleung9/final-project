@@ -7,6 +7,9 @@
 
   <title>Roomer Questionnaire</title>
 
+  <link rel='stylesheet' href='/stylesheets/foundation.css' />
+  <link rel='stylesheet' href='/stylesheets/app.css' />
+  <link rel='stylesheet' href='/stylesheets/update.css' />
   <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.8.1/css/all.css”
     integrity=“sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf” crossorigin=“anonymous”>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
@@ -25,182 +28,203 @@
   </style>
 </head>
 
-<body style="font-size:20px; padding:50px;">
+<body>
 
-  <% include ./partials/_navbar %>
+    <% include ./partials/_navbar %>
+    <div class="update-content">
 
-  <h1>Please tell us a little bit about you:</h1>
-  <form action="/users/<%= id %>/questionnaire" method="POST">
-    <div class="form-group">
+    <form action="/users/<%= id %>/questionnaire" method="POST">
+      <div class="border border-light p-5">
+        <h3>Please tell us a little bit about yourself:</h3>
 
-      <label for="exampleFormControlSelect2">Q1: Choose your MBTI personality profile</label>
-      <p>If you don't know, please take this test:</p>
-      <a href="https://www.16personalities.com/free-personality-test">16 Personalities' test</a>
+        <label for="exampleFormControlSelect2">Q1: Choose your MBTI personality profile</label>
+        <p>If you don't know, please take this test:</p>
+        <a href="https://www.16personalities.com/free-personality-test">16 Personalities' test</a>
 
-      <select multiple class="form-control" id="exampleFormControlSelect2" name="personality">
-        <option value="INTJ">INTJ</option>
-        <option value="INTP">INTP</option>
-        <option value="ENTJ">ENTJ</option>
-        <option value="ENTP">ENTP</option>
-        <option value="INFJ">INFJ</option>
-        <option value="INFP">INFP</option>
-        <option value="ENFJ">ENFJ</option>
-        <option value="ENFP">ENFP</option>
-        <option value="ISTJ">ISTJ</option>
-        <option value="ISFJ">ISFJ</option>
-        <option value="ESTJ">ESTJ</option>
-        <option value="ESFJ">ESFJ</option>
-        <option value="ISTP">ISTP</option>
-        <option value="ISFP">ISFP</option>
-        <option value="ESTP">ESTP</option>
-        <option value="ESFP">ESFP</option>
-      </select>
-
-      <div>
-        <p>Q2: Do you smoke?</p>
-        <div>
-          <input type="radio" id="Yes" name="smoke" value="y" checked>
-          <label for="smoke">Yes</label>
-        </div>
-
-        <div>
-          <input type="radio" id="No" name="smoke" value="n">
-          <label for="smoke">No</label>
-        </div>
-      </div>
-
-      <div>
-        <p>Q3: Do you mind pets? </p>
-        <div>
-          <input type="radio" id="Yes" name="pets" value="y" checked>
-          <label for="pets?">Yes</label>
-        </div>
-
-        <div>
-          <input type="radio" id="No" name="pets" value="n">
-          <label for="pets?">No</label>
-        </div>
-      </div>
-
-      <div>
-        <p>Q4: Are you a night owl? </p>
-        <div>
-          <input type="radio" id="Yes" name="night" value="y" checked>
-          <label for="night?">Yes</label>
-        </div>
-
-        <div>
-          <input type="radio" id="No" name="night" value="n">
-          <label for="night?">No</label>
-        </div>
-      </div>
-
-      <div>
-        <p>Q5: Do you mind living with someone of the opposite gender? </p>
-        <div>
-          <input type="radio" id="Yes" name="oppositeGender" value="y" checked>
-          <label for="gender?">Yes</label>
-        </div>
-
-        <div>
-          <input type="radio" id="No" name="oppositeGender" value="n">
-          <label for="gender?">No</label>
-        </div>
-      </div>
-
-      <div>
-        <p>Q6: Do you prefer to have the house at a warmer or colder temperature?</p>
-        <div>
-          <input type="radio" id="Yes" name="temperature" value="h" checked>
-          <label for="hot?">warmer</label>
-        </div>
-
-        <div>
-          <input type="radio" id="No" name="temperature" value="c">
-          <label for="hot?">colder</label>
-        </div>
-      </div>
-
-      <div>
-
-        <label for="cleanliness-select">Q7: On a scale of 1-10, how important is it that your space is always kept
-          clean?:</label>
-
-        <select id="cleanliness-select" name="cleanliness">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
+        <select multiple class="form-control" id="exampleFormControlSelect2" name="personality">
+          <option value="INTJ">INTJ</option>
+          <option value="INTP">INTP</option>
+          <option value="ENTJ">ENTJ</option>
+          <option value="ENTP">ENTP</option>
+          <option value="INFJ">INFJ</option>
+          <option value="INFP">INFP</option>
+          <option value="ENFJ">ENFJ</option>
+          <option value="ENFP">ENFP</option>
+          <option value="ISTJ">ISTJ</option>
+          <option value="ISFJ">ISFJ</option>
+          <option value="ESTJ">ESTJ</option>
+          <option value="ESFJ">ESFJ</option>
+          <option value="ISTP">ISTP</option>
+          <option value="ISFP">ISFP</option>
+          <option value="ESTP">ESTP</option>
+          <option value="ESFP">ESFP</option>
         </select>
+
+        <hr>
+
+        <div>
+          <p>Q2: Do you smoke?</p>
+          <div>
+            <input type="radio" id="Yes" name="smoke" value="y" checked>
+            <label for="smoke">Yes</label>
+          </div>
+
+          <div>
+            <input type="radio" id="No" name="smoke" value="n">
+            <label for="smoke">No</label>
+          </div>
+        </div>
+        
+        <hr>
+
+        <div>
+          <p>Q3: Do you mind pets? </p>
+          <div>
+            <input type="radio" id="Yes" name="pets" value="y" checked>
+            <label for="pets?">Yes</label>
+          </div>
+
+          <div>
+            <input type="radio" id="No" name="pets" value="n">
+            <label for="pets?">No</label>
+          </div>
+        </div>
+
+        <hr>
+
+        <div>
+          <p>Q4: Are you a night owl? </p>
+          <div>
+            <input type="radio" id="Yes" name="night" value="y" checked>
+            <label for="night?">Yes</label>
+          </div>
+
+          <div>
+            <input type="radio" id="No" name="night" value="n">
+            <label for="night?">No</label>
+          </div>
+        </div>
+
+        <hr>
+
+        <div>
+          <p>Q5: Do you mind living with someone of the opposite gender? </p>
+          <div>
+            <input type="radio" id="Yes" name="oppositeGender" value="y" checked>
+            <label for="gender?">Yes</label>
+          </div>
+
+          <div>
+            <input type="radio" id="No" name="oppositeGender" value="n">
+            <label for="gender?">No</label>
+          </div>
+        </div>
+
+        <hr>
+
+        <div>
+          <p>Q6: Do you prefer to have the house at a warmer or colder temperature?</p>
+          <div>
+            <input type="radio" id="Yes" name="temperature" value="h" checked>
+            <label for="hot?">warmer</label>
+          </div>
+
+          <div>
+            <input type="radio" id="No" name="temperature" value="c">
+            <label for="hot?">colder</label>
+          </div>
+        </div>
+
+        <hr>
+
+        <div>
+
+          <label for="cleanliness-select"><p>Q7: On a scale of 1-10, how important is it that your space is always kept
+            clean?:</p></label>
+
+          <select id="cleanliness-select" name="cleanliness">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+
+        <hr>
+
+        <div>
+
+          <label for="petScore">Q8: On a scale of 1-10, how much do you mind that your roommate frequently has frds/SO
+            over?:</label>
+          <select id="petScore" name="petScore">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+
+        <hr>
+
+        <div>
+
+          <label for="avenger">Q9: On a scale of 1-10, how much do you like the Avengers
+            ?:</label>
+          <select id="avenger" name="avenger">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+
+        <hr>
+
+        <div>
+
+          <label for="Pika-select">Q10: On a scale of 1-10, how much do you like the Pikas
+            ?:</label>
+          <select id="Pika-select" name="pika">
+            <option value="10">10</option>
+          </select>
+        </div>
+
+        <hr>
+
+        <div class="desiredPlaces">
+          <h1>Which neighbourhood do you want to live in?</h1>
+          <select class="browser-default custom-select mb-4" id="desired" name="neighbourhood">
+          </select>
+        </div>
+
+
+        <div id="map">
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm">Continue</button>
       </div>
-
-      <div>
-
-        <label for="petScore">Q8: On a scale of 1-10, how much do you mind that your roommate frequently has frds/SO
-          over?:</label>
-        <select id="petScore" name="petScore">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
-      </div>
-
-      <div>
-
-        <label for="avenger">Q8: On a scale of 1-10, how much do you like the Avengers
-          ?:</label>
-        <select id="avenger" name="avenger">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
-      </div>
-
-      <div>
-
-        <label for="Pika-select">Q8: On a scale of 1-10, how much do you like the Pikas
-          ?:</label>
-        <select id="Pika-select" name="pika">
-          <option value="10">10</option>
-        </select>
-      </div>
+    </form>
+  </div>
+  <% include ./partials/_footer %>
 
 
-      <div class="desiredPlaces">
-        <h1>Which neighbourhood do you want to live in?</h1>
-        <select class="form-control" id="desired" name="neighbourhood">
-        </select>
-      </div>
-
-
-      <div id="map">
-      </div>
-      <button type="submit" class="btn btn-primary">Continue</button>
-    </div>
-  </form>
-  <footer id="footer">
-    <% include ./partials/_footer %>
-  </footer>
 </body>
 <!--Load the API from the specified URL
           * The async attribute allows the browser to render the page while the API loads

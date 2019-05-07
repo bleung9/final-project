@@ -9,6 +9,7 @@
 
   <link rel='stylesheet' href='/stylesheets/foundation.css' />
   <link rel='stylesheet' href='/stylesheets/app.css' />
+  <link rel='stylesheet' href='/stylesheets/register.css' />
   <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.8.1/css/all.css”
     integrity=“sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf” crossorigin=“anonymous”>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
@@ -22,57 +23,38 @@
 
   <% include ./partials/_navbar %>
 
-  <div style="font-size:20px; padding:25px; background: #E6E8EB">
-    <form action="/register" method="POST">
-      <div class="form-icons">
-        <h4>Register for an account</h4>
+  <div class="register-form" style="font-size:20px; padding:25px; background: #E6E8EB">
+    <form class="border border-light p-5" action="/register" method="POST">
 
-        <div class="input-group">
-          <span class="input-group-label">
-            <i class="fa fa-user"></i>
-          </span>
-          <input name="firstName" class="input-group-field" type="text" placeholder="First name">
-        </div>
+      <p class="h4 mb-4 text-center">Register for an account!</p>
 
-        <div class="input-group">
-          <span class="input-group-label">
-            <i class="fa fa-user"></i>
-          </span>
-          <input name="lastName" class="input-group-field" type="text" placeholder="Last name">
-        </div>
+      <input type="text" name="firstName" id="defaultRegisterFormFirstName" class="form-control"
+        placeholder="First name">
 
-        <div class="input-group">
-          <span class="input-group-label">
-            <i class="fa fa-envelope"></i>
-          </span>
-          <input name="email" class="input-group-field" type="text" placeholder="Email">
-        </div>
+      <input type="text" name="lastName" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
 
-        <div class="input-group">
-          <span class="input-group-label">
-            <i class="fa fa-key"></i>
-          </span>
-          <input name="password" class="input-group-field" type="password" placeholder="Password">
-        </div>
-      </div>
-      <div class="input-group">
-        <span class="input-group-label">
-          Gender
-        </span>
-        <select class="select-group-field" name="gender">
-          <option value="M">Male</option>
-          <option value="F">Female</option>
-        </select>
-      </div>
+      <input type="email" name="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
 
+      <input type="password" name="password" id="defaultRegisterFormPassword" class="form-control"
+        placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
 
+      <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">Minimum 8 characters</small>
 
-      <button class="button">Register</button>
+      <select class="browser-default custom-select mb-4" id="select" name="gender">
+        <option value="" disabled="" selected="">Gender</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+        <option value="O">Other</option>
+      </select>
+
+      <button class="btn btn-info my-4 btn-block" type="submit">Register</button>
+
     </form>
+
   </div>
-  <footer id="marketing-site-footer">
-    <% include ./partials/_footer %>
-  </footer>
+
+  <% include ./partials/_footer %>
+
 
   <script src="/scripts/jquery.js"></script>
   <script src="/scripts/what-input.js"></script>
