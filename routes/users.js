@@ -1,8 +1,8 @@
 var express = require("express");
 var router = express.Router();
 var models = require("../models");
-var helpers = require("../helpers.js");
-var neigh_border = require("../neighbourhoods_share_border_data");
+var helpers = require("../helpers/helpers.js");
+var neigh_border = require("../helpers/neighbourhoods_share_border_data");
 
 /* GET users listing. */
 router.get("/", function(req, res, next) {

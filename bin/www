@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('final-project:server');
 var http = require('http');
-var startDB = require('../sequelize_test')
+var startDB = require('../helpers/sequelize_test.js')
 /**
  * Get port from environment and store in Express.
  */
