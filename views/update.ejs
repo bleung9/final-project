@@ -30,12 +30,12 @@
 
 <body>
 
-  <div class="update-content">
     <% include ./partials/_navbar %>
+    <div class="update-content">
 
-    <h1>Please tell us a little bit about you:</h1>
     <form action="/users/<%= id %>/questionnaire" method="POST">
-      <div class="form-group">
+      <div class="border border-light p-5">
+        <h3>Please tell us a little bit about yourself:</h3>
 
         <label for="exampleFormControlSelect2">Q1: Choose your MBTI personality profile</label>
         <p>If you don't know, please take this test:</p>
@@ -60,6 +60,8 @@
           <option value="ESFP">ESFP</option>
         </select>
 
+        <hr>
+
         <div>
           <p>Q2: Do you smoke?</p>
           <div>
@@ -72,6 +74,8 @@
             <label for="smoke">No</label>
           </div>
         </div>
+        
+        <hr>
 
         <div>
           <p>Q3: Do you mind pets? </p>
@@ -86,6 +90,8 @@
           </div>
         </div>
 
+        <hr>
+
         <div>
           <p>Q4: Are you a night owl? </p>
           <div>
@@ -98,6 +104,8 @@
             <label for="night?">No</label>
           </div>
         </div>
+
+        <hr>
 
         <div>
           <p>Q5: Do you mind living with someone of the opposite gender? </p>
@@ -112,6 +120,8 @@
           </div>
         </div>
 
+        <hr>
+
         <div>
           <p>Q6: Do you prefer to have the house at a warmer or colder temperature?</p>
           <div>
@@ -125,10 +135,12 @@
           </div>
         </div>
 
+        <hr>
+
         <div>
 
-          <label for="cleanliness-select">Q7: On a scale of 1-10, how important is it that your space is always kept
-            clean?:</label>
+          <label for="cleanliness-select"><p>Q7: On a scale of 1-10, how important is it that your space is always kept
+            clean?:</p></label>
 
           <select id="cleanliness-select" name="cleanliness">
             <option value="1">1</option>
@@ -143,6 +155,8 @@
             <option value="10">10</option>
           </select>
         </div>
+
+        <hr>
 
         <div>
 
@@ -162,9 +176,11 @@
           </select>
         </div>
 
+        <hr>
+
         <div>
 
-          <label for="avenger">Q8: On a scale of 1-10, how much do you like the Avengers
+          <label for="avenger">Q9: On a scale of 1-10, how much do you like the Avengers
             ?:</label>
           <select id="avenger" name="avenger">
             <option value="1">1</option>
@@ -180,26 +196,29 @@
           </select>
         </div>
 
+        <hr>
+
         <div>
 
-          <label for="Pika-select">Q8: On a scale of 1-10, how much do you like the Pikas
+          <label for="Pika-select">Q10: On a scale of 1-10, how much do you like the Pikas
             ?:</label>
           <select id="Pika-select" name="pika">
             <option value="10">10</option>
           </select>
         </div>
 
+        <hr>
 
         <div class="desiredPlaces">
           <h1>Which neighbourhood do you want to live in?</h1>
-          <select class="form-control" id="desired" name="neighbourhood">
+          <select class="browser-default custom-select mb-4" id="desired" name="neighbourhood">
           </select>
         </div>
 
 
         <div id="map">
         </div>
-        <button type="submit" class="btn btn-primary">Continue</button>
+        <button type="submit" class="btn btn-primary btn-sm">Continue</button>
       </div>
     </form>
   </div>
