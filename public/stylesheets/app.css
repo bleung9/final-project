@@ -93,7 +93,7 @@
   font-weight: bold;
 }
 
-.content .middle-content-section .flow-animaite{
+.content .middle-content-section .flow-animate{
   font-family:'Roboto';
   font-weight:300;
   font-size:32px;
@@ -103,25 +103,25 @@
   font-family:'Roboto';
 }
 
-.flow-animaite {
+.flow-animate {
   display:inline-block;
   overflow:hidden;
   white-space:nowrap;
 }
 
-.flow-animaite:first-of-type {    /* For increasing performance 
+.flow-animate:first-of-type {    /* For increasing performance 
                        ID/Class should've been used. 
                        For a small demo 
                        it's okaish for now */
   animation: showup 7s infinite;
 }
 
-.flow-animaite:last-of-type {
-  width:0px;
+.flow-animate:last-of-type {
+  width: 0px;
   animation: reveal 7s infinite;
 }
 
-.content .middle-content-section .flow-animaite:last-of-type span {
+.content .middle-content-section .flow-animate:last-of-type span {
   margin-left: -500px;
   animation: slidein 7s infinite;
 }
@@ -143,9 +143,9 @@
 @keyframes reveal {
     0% {opacity:0;width:0px;}
     20% {opacity:1;width:0px;}
-    30% {width:355px;}
+    30% {width:150px;}
     80% {opacity:1;}
-    100% {opacity:0;width:355px;}
+    100% {opacity:0;width:150px;}
 }
 
 
