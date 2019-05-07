@@ -169,7 +169,7 @@ module.exports = {
     let to_insert = [];
 
     // 200 random seed users
-    for (let i = 0; i < 4000; i++) {
+    for (let i = 0; i < 2500; i++) {
       let user_id = i + 1;
       // 10 questions per user to generate random answers for
       for (let j = 1; j <= 12; j++) {
