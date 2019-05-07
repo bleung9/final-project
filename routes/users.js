@@ -306,6 +306,7 @@ router.get("/:id/matches/:hash", async function(req, res, next) {
     email: req.cookies.email,
     other_id: other_user.id,
     other_name: other_user.firstName,
+    other_gender: other_user.gender,
     other_email: other_user.email,
     other_response: otherResponse,
     id: req.params.id
