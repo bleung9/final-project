@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Profile Summary</title>
+
+  <link rel='stylesheet' href='/stylesheets/foundation.css' />
   <link rel='stylesheet' href='/stylesheets/app.css' />
   <link rel='stylesheet' href='/stylesheets/summary.css' />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.8.1/css/all.css”
+    integrity=“sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf” crossorigin=“anonymous”>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
-
-  <title> Profile Summary</title>
-  </head>
+</head>
 
 <body>
 
-  <div>
-    <nav id="navbar">
-      <% include ./partials/_navbar %>
-    </nav>
-  </div>
+  <% include ./partials/_navbar %>
 
   <div class="profile-page">
     <div class="main main-raised">
@@ -59,39 +58,39 @@
                 <% } else { %>
                 No
                 <% } %></li>
-                <hr>
+              <hr>
               <li><b>Do you smoke?: </b> <% if (response[2].answer === 'y') { %>
                 Yes
                 <% } else { %>
                 No
                 <% } %></li>
-                <hr>
+              <hr>
               <li><b>Are you a night owl?: </b><% if (response[3].answer === 'y') { %>
                 Yes
                 <% } else { %>
                 No
                 <% } %></li>
-                <hr>
+              <hr>
               <li><b>Do you mind living with someone of the opposite gender?: </b>
                 <% if (response[4].answer === 'y') { %>
                 Yes
                 <% } else { %>
                 No
                 <% } %></li>
-                <hr>
+              <hr>
               <li><b>Do you prefer to have the house at a warmer or colder temperature?</b>
                 <% if (response[5].answer === 'h') { %>
                 Warmer
                 <% } else { %>
                 Cooler
                 <% } %></li>
-                <hr>
+              <hr>
               <li><b>On a scale of 1-10, how important is it that your space is kept
                   clean?: </b> <%= response[6].answer %></li>
-                  <hr>
+              <hr>
               <li><b>On a scale of 1-10, how much would you mind if your roommate had guests over often?:</b>
                 <%= response[7].answer %></li>
-                <hr>
+              <hr>
               <li><b> On a scale of 1-10, how much do you like The Avengers?:</b> <%= response[8].answer %></li>
               <hr>
               <li><b>On a scale of 1-10, how much do you like Pikachu?:</b> <%= response[9].answer %></li>

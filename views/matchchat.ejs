@@ -2,64 +2,66 @@
 <html>
 
 <head>
-  <title>Matches</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Match Profile Chat</title>
+
   <link rel='stylesheet' href='/stylesheets/foundation.css' />
   <link rel='stylesheet' href='/stylesheets/app.css' />
   <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.8.1/css/all.css”
     integrity=“sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf” crossorigin=“anonymous”>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-         <!-- Font Awesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-<!-- Bootstrap core CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-<!-- Material Design Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
-
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav id="navbar">
-    <% include ./partials/_navbar %>
-  </nav>
+
+  <% include ./partials/_navbar %>
+
   <div class='profile'>
-      <h1><%= other_name %></h1>
-      <ul>
-          <li><b>Personality:</b> <%= other_response[0].answer %></li>
-          <li><b>Do you mind living with pets?: </b> <% if (other_response[1].answer === 'y') { %>
-            Yes
-          <% } else { %>
-            No
-          <% } %></li>
-          <li><b>Do you smoke?: </b> <% if (other_response[2].answer === 'y') { %>
-            Yes
-          <% } else { %>
-            No
-          <% } %></li>
-          <li><b>Are you a night owl?: </b> <% if (other_response[3].answer === 'y') { %>
-            Yes
-          <% } else { %>
-            No
-          <% } %></li>
-          <li><b>Do you mind living with someone of the opposite gender?:</b><% if (other_response[4].answer === 'y') { %>
-            Yes
-          <% } else { %>
-            No
-          <% } %></li>
-          <li><b>Do you prefer to have the house at a warmer or colder temperature?:</b> <% if (other_response[5].answer === 'h') { %>
-            Warmer
-          <% } else { %>
-            Cooler
-          <% } %></li>
-          <li><b>On a scale of 1-10, how important is it that your space is kept
-              clean?</b> <%= other_response[6].answer %></li>
-          <li><b>On a scale of 1-10, how much would you mind if your roommate had guests over often?</b>
-            <%= other_response[7].answer %></li>
-          <li><b> On a scale of 1-10, how much do you like The Avengers?</b> <%= other_response[8].answer %></li>
-          <li><b>On a scale of 1-10, how much do you like Pikachu?</b> <%= other_response[9].answer %></li>
-          <li><b>Preferred Neighbourhood:</b> <%= other_response[10].answer %></li>
-          <li><b>Bio:</b> <%= other_response[11].answer %></li>
-  
-        </ul>
+    <h1><%= other_name %></h1>
+    <ul>
+      <li><b>Personality:</b> <%= other_response[0].answer %></li>
+      <li><b>Do you mind living with pets?: </b> <% if (other_response[1].answer === 'y') { %>
+        Yes
+        <% } else { %>
+        No
+        <% } %></li>
+      <li><b>Do you smoke?: </b> <% if (other_response[2].answer === 'y') { %>
+        Yes
+        <% } else { %>
+        No
+        <% } %></li>
+      <li><b>Are you a night owl?: </b> <% if (other_response[3].answer === 'y') { %>
+        Yes
+        <% } else { %>
+        No
+        <% } %></li>
+      <li><b>Do you mind living with someone of the opposite gender?:</b><% if (other_response[4].answer === 'y') { %>
+        Yes
+        <% } else { %>
+        No
+        <% } %></li>
+      <li><b>Do you prefer to have the house at a warmer or colder temperature?:</b>
+        <% if (other_response[5].answer === 'h') { %>
+        Warmer
+        <% } else { %>
+        Cooler
+        <% } %></li>
+      <li><b>On a scale of 1-10, how important is it that your space is kept
+          clean?</b> <%= other_response[6].answer %></li>
+      <li><b>On a scale of 1-10, how much would you mind if your roommate had guests over often?</b>
+        <%= other_response[7].answer %></li>
+      <li><b> On a scale of 1-10, how much do you like The Avengers?</b> <%= other_response[8].answer %></li>
+      <li><b>On a scale of 1-10, how much do you like Pikachu?</b> <%= other_response[9].answer %></li>
+      <li><b>Preferred Neighbourhood:</b> <%= other_response[10].answer %></li>
+      <li><b>Bio:</b> <%= other_response[11].answer %></li>
+
+    </ul>
   </div>
   <hr>
   <div>
@@ -107,20 +109,20 @@
         var conversation = talkSession.getOrCreateConversation(hash)
         conversation.setParticipant(me);
         conversation.setParticipant(other);
-        var chatbox = talkSession.createChatbox(conversation );
+        var chatbox = talkSession.createChatbox(conversation);
         chatbox.mount(document.getElementById("talkjs-container"));
       });
     </script>
 
-  
- 
 
-   
+
+
+
   </div>
 
   <footer id="footer">
-      <% include ./partials/_footer %>
-    </footer>
+    <% include ./partials/_footer %>
+  </footer>
 
   <script src="/scripts/jquery.js"></script>
   <script src="/scripts/what-input.js"></script>

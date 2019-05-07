@@ -1,22 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <!-- Font Awesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-<!-- Bootstrap core CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-<!-- Material Design Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
+  <title>Roomer Questionnaire</title>
 
-    <title>Roommate questionnaire</title>
-  
+  <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.8.1/css/all.css”
+    integrity=“sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf” crossorigin=“anonymous”>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
   <style>
     /* Set the size of the div element that contains the map */
     #map {
@@ -29,7 +26,9 @@
 </head>
 
 <body style="font-size:20px; padding:50px;">
-   
+
+  <% include ./partials/_navbar %>
+
   <h1>Please tell us a little bit about you:</h1>
   <form action="/users/<%= id %>/questionnaire" method="POST">
     <div class="form-group">
@@ -200,8 +199,8 @@
     </div>
   </form>
   <footer id="footer">
-      <% include ./partials/_footer %>
-    </footer>
+    <% include ./partials/_footer %>
+  </footer>
 </body>
 <!--Load the API from the specified URL
           * The async attribute allows the browser to render the page while the API loads

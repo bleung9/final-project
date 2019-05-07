@@ -2,28 +2,25 @@
 <html>
 
 <head>
-  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Register</title>
+
   <link rel='stylesheet' href='/stylesheets/foundation.css' />
   <link rel='stylesheet' href='/stylesheets/app.css' />
   <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.8.1/css/all.css”
     integrity=“sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf” crossorigin=“anonymous”>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-    <!-- Font Awesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-<!-- Bootstrap core CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-<!-- Material Design Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
-
-  <title>User Register</title>
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
 </head>
 
 <body>
-  <div>
-    <nav id="navbar">
-      <% include ./partials/_navbar %>
-    </nav>
-  </div>
+
+  <% include ./partials/_navbar %>
 
   <div style="font-size:20px; padding:25px; background: #E6E8EB">
     <form action="/register" method="POST">
@@ -76,7 +73,7 @@
   <footer id="marketing-site-footer">
     <% include ./partials/_footer %>
   </footer>
-  
+
   <script src="/scripts/jquery.js"></script>
   <script src="/scripts/what-input.js"></script>
   <script src="/scripts/foundation.js"></script>

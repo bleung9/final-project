@@ -1,17 +1,3 @@
-.top-bar {
-  background-color: black; 
-  border: 0;
-  border-radius: 3px;
-  padding: .625rem 0;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 18px 0 rgba(0,0,0,.12), 0 7px 10px -5px rgba(0,0,0,.15) !important;
-  z-index: 1000 !important;
-  transition: all 150ms ease 0s;
-}
-
-.top-bar ul {
-  background-color: black;
-}
 
 .button {
   margin: 0.3rem;
@@ -36,46 +22,6 @@ html *{
 .name h6 {
   margin-top: 10px;
   margin-bottom: 10px;
-}
-
-.navbar .navbar-brand {
-  position: relative;
-  color: inherit;
-  height: 50px;
-  font-size: 1.125rem;
-  line-height: 30px;
-  padding: .625rem 0;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-}
-
-.navbar .navbar-nav .nav-item .nav-link:not(.btn) .material-icons {
-  margin-top: -7px;
-  top: 3px;
-  position: relative;
-  margin-right: 3px;
-}
-
-.navbar .navbar-nav .nav-item .nav-link .material-icons {
-  font-size: 1.25rem;
-  max-width: 24px;
-  margin-top: -1.1em;
-}
-
-.navbar .navbar-nav .nav-item .nav-link .fa, .navbar .navbar-nav .nav-item .nav-link .material-icons {
-  font-size: 1.25rem;
-  max-width: 24px;
-  margin-top: -1.1em;
-}
-
-.navbar .navbar-nav .nav-item .nav-link {
-  position: relative;
-  color: inherit;
-  padding: .9375rem;
-  font-weight: 400;
-  font-size: 12px;
-  border-radius: 3px;
-  line-height: 20px;
 }
 
 a .material-icons {
