@@ -27,13 +27,17 @@
         <button class="btn btn-primary btn-sm" data-open="login">Login</button>
         <div class="reveal" id="login" data-reveal>
           <form method="POST" action="/login">
-            <h4 class="text-center">Login</h4>
-            <label>Email<input type="text" placeholder="Email" name="email" /></label>
-            <label>Password<input type="password" placeholder="Password" name="password" /></label>
-            <p>
-              <input type="submit" class="btn btn-primary" value="Login" />
-            </p>
-            <p>Need an account? Register now! <a href="/register">Register now</a></p>
+            <h4 class="text-center">Login to Roomer</h4>
+            <hr>
+            <div class="login">
+                <form method="post">
+                  <input type="text" placeholder="Email" required="required" />
+                  <input type="password" placeholder="Password" required="required" />
+                  <button type="submit" class="btn btn-primary btn-block" value="Login">Login</button>
+                </form>
+              </div>
+              <hr>
+            <p>Need an account? Register for Roomer now! <a href="/register">Register now</a></p>
           </form>
           <button class="close-button" data-close aria-label="Close modal" type="button">
             <span aria-hidden="true">&times;</span>
