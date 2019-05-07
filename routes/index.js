@@ -23,6 +23,14 @@ router.get('/register', function(req, res, next) {
   });
 });
 
+router.get('/review', function(req, res, next) {
+  res.render('review', { 
+    title: 'Final Project',
+    id: req.cookies.id,
+    email: req.cookies.email
+  });
+});
+
 router.post('/register', function (req, res) {
   let newUser = {
     firstName: req.body.firstName,
