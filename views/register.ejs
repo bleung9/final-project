@@ -9,6 +9,7 @@
 
   <link rel='stylesheet' href='/stylesheets/foundation.css' />
   <link rel='stylesheet' href='/stylesheets/app.css' />
+  <link rel='stylesheet' href='/stylesheets/register.css' />
   <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.8.1/css/all.css”
     integrity=“sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf” crossorigin=“anonymous”>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
@@ -22,8 +23,32 @@
 
   <% include ./partials/_navbar %>
 
-  <div style="font-size:20px; padding:25px; background: #E6E8EB">
-    <form action="/register" method="POST">
+  <div class="register-form" style="font-size:20px; padding:25px; background: #E6E8EB">
+    <form class="border border-light p-5" action="/register" method="POST">
+
+    <p class="h4 mb-4 text-center">Register for an account!</p>
+
+    <input type="text" name="firstName" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+
+    <input type="text" name="lastName" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+
+    <input type="email" name="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+    <input type="password" name="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+
+    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">Minimum 8 characters</small>
+
+    <select class="browser-default custom-select mb-4" id="select" name="gender">
+        <option value="" disabled="" selected="">Gender</option>
+        <option value="1">Male</option>
+        <option value="2">Female</option>
+        <option value="3">Other</option>
+    </select>
+
+    <button class="btn btn-info my-4 btn-block" type="submit">Register</button>
+
+</form>
+
       <div class="form-icons">
         <h4>Register for an account</h4>
 

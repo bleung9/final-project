@@ -7,6 +7,7 @@ body {
 .matches-content {
   padding: 2rem;
   background-color: transparent;
+  margin: 4rem;
 }
  table {
    opacity: 0.7;
