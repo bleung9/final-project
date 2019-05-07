@@ -12,3 +12,7 @@ body {
  table {
    opacity: 0.7;
  }
+
+ #neighbours {
+   display: none;
+ }
