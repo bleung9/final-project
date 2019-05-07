@@ -28,10 +28,12 @@ function initMap() {
     } else {
       let places = document.getElementById('desired')
       var place = document.createElement('option');
+      let area_name = event.feature.l.AREA_NAME;
+      area_name = area_name.substring(0, area_name.indexOf('(') - 1)
       place.setAttribute('id', event.feature.l.AREA_NAME);
       place.setAttribute('value', event.feature.l.AREA_NAME);
       places.appendChild(place);
-      place.innerText = event.feature.l.AREA_NAME
+      place.innerText = area_name
       event.feature.setProperty('isColorful', true);
       id = "exampleFormControlSelect2"
     }
