@@ -4,6 +4,11 @@
   color: white;
 }
 
+.navbar-dark .navbar-brand {
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 2rem;
+}
+
 .button {
   margin: 0.3rem;
 }
@@ -43,8 +48,6 @@
   width: 56rem;
   padding: 1.5rem;
 } 
-
-
 
 .hero-full-screen .middle-content-section {
   text-align: center;
@@ -232,7 +235,6 @@
 .marketing-site-content-section-block-subheader {
   font-size: 13px;
 }
-
 
 .marketing-site-footer {
   background: #2c3840;
