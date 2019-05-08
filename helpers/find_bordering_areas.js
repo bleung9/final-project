@@ -6,28 +6,27 @@ var geodata = require("./toronto_crs84");
 // generate a set of all unique coordinates
 let n = 0;
 let names_of_neigh = [];
-let coords_tmp = [];
+let set_of_coords = new Set();
 for (let i = 0; i < geodata.features.length; i++) {
   let name = geodata.features[i].properties.AREA_NAME;
   names_of_neigh.push(name.substring(0, name.indexOf("(") - 1));
   for (let j = 0; j < geodata.features[i].geometry.coordinates[0].length; j++) {
     let coord = String(geodata.features[i].geometry.coordinates[0][j][0]) + ", " + String(geodata.features[i].geometry.coordinates[0][j][1]);
-    coords_tmp.push(coord);
+    set_of_coords.add(coord);
   }
 }
-let set_of_coords = new Set(coords_tmp);
 
 // for each unique coordinate, generate a list of neighborhoods that coordinate delineates
-let border_coords = new Map();
+let border_coords = {};
 for (let item of set_of_coords) {
-  border_coords.set(item, []);
+  border_coords[item] = new Set();
 }
 for (let i = 0; i < geodata.features.length; i++) {
   let name = geodata.features[i].properties.AREA_NAME;
   name = name.substring(0, name.indexOf("(") - 1);
   for (let j = 0; j < geodata.features[i].geometry.coordinates[0].length; j++) {
     let coord = String(geodata.features[i].geometry.coordinates[0][j][0]) + ", " + String(geodata.features[i].geometry.coordinates[0][j][1]);
-    border_coords.get(coord).push(name);
+    border_coords[coord].add(name);
   }
 }
 
@@ -35,15 +34,18 @@ for (let i = 0; i < geodata.features.length; i++) {
 // share a border with each other item in that list
 let result = {};
 for (let i = 0; i < names_of_neigh.length; i++) {
-  result[names_of_neigh[i]] = [];
+  result[names_of_neigh[i]] = new Set();
 }
 
 let check = [];
-for (let [coordinates, neighs] of border_coords) {
-  for (let i = 0; i < neighs.length; i++) {
-    for (let j = i + 1; j < neighs.length; j++) {
-      result[neighs[i]].push(neighs[j]);
-      result[neighs[j]].push(neighs[i]);
+for (let item in border_coords) {
+  if (border_coords[item].size > 1) {
+    let arr = Array.from(border_coords[item]);
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = i + 1; j < arr.length; j++) {
+        result[arr[i]].add(arr[j]);
+        result[arr[j]].add(arr[i]);
+      }
     }
   }
 }
