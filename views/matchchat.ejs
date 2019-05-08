@@ -128,22 +128,22 @@
         <script>
           Talk.ready.then(function () {
             var me = new Talk.User({
-              id: "1",
-              name: "<%= me_name %>",
+              id: "2502",
+              name: "Bosco",
               email: "<%= me_email %>",
               photoUrl: "https://i.kym-cdn.com/entries/icons/facebook/000/011/061/lelbron.jpg",
-              welcomeMessage: "Hey there! How are you? :-)"
+              role: "users"
             });
             window.talkSession = new Talk.Session({
               appId: "tCnvhS5o",
               me: me
             });
             var other = new Talk.User({
-              id: "2",
-              name: "<%= other_name %>",
-              email: "<%= other_email %>",
+              id: "2501",
+              name: "Hark",
+              email: "khabra07@gmail.com",
               photoUrl: "https://i0.wp.com/muslimgirl.com/wp-content/uploads/2017/04/5e5dc19577e7c6c5683dc83009848770_african-kid-meme-memesuper-skeptical-african-kid-meme_305-305.jpeg?fit=305%2C305",
-              welcomeMessage: "Hey, how can I help?"
+              role: "users"
             });
             let hash = Talk.oneOnOneId(me, other);
             var conversation = talkSession.getOrCreateConversation(hash)
