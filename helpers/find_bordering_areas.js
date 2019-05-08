@@ -50,6 +50,8 @@ for (let item in border_coords) {
   }
 }
 
+// result is now { a: [a,b,c,d]} where a is bordered by a,b,c,d, so now filter out "a"
+// from the array
 for (item in result) {
   result[item] = Array.from(new Set(result[item]));
   let remove = result[item].filter((element) => element !== item);
