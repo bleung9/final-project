@@ -24,16 +24,16 @@
   <% include ./partials/_navbar %>
 
   <div class="matches-content">
-    <h1>Matches</h1>
+    <h1><b>Matches</b></h1>
     <% if (user_same.length === 0) { %>
     <p>Unfortunately, there are no matches in <%= neigh %>. Be sure to checkout your matches in nearyby neighbourhoods
       below!</p>
     <% } else { %>
-    <p>Here are your matches in <%= neigh %>:</p>
+    <p><b>Here are your matches in <%= neigh %>:</b></p>
 
     <hr>
 
-    <table class="table">
+    <table class="table table-bordered">
       <tr>
         <th>First Name</th>
         <th>Gender</th>
@@ -54,9 +54,9 @@
 
     <button class="btn btn-primary btn-sm" id="reveal">Click to reveal</button>
 
-    <p>Here are some matches in neighbourhoods in close proximity to <%= neigh %>:</p>
+    <p><b>Here are some matches in neighbourhoods in close proximity to <%= neigh %>:</b></p>
     <hr>
-    <table class="table" id="neighbours">
+    <table class="table table-bordered" id="neighbours">
       <tr>
         <th>First Name</th>
         <th>Gender</th>

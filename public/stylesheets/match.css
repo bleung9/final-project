@@ -1,8 +1,9 @@
 /* STYLING FOR MATCHES PAGE */
 
 body {
-  background: url(https://cdn.trendir.com/wp-content/uploads/2018/04/all-white-living-room.jpg) !important;
+  background: url(../images/loft.jpg) !important;
   background-attachment: fixed !important;
+  background-size: 50% 50%;
 }
 .matches-content {
   padding: 2rem;
@@ -10,7 +11,7 @@ body {
   margin: 4rem;
 }
  table {
-   opacity: 0.7;
+   opacity: 0.8;
  }
 
  #neighbours {
