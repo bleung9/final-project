@@ -4,6 +4,12 @@
   color: white;
 }
 
+.navbar-dark .navbar-brand {
+  font-family: 'Nothing You Could Do', cursive;
+  font-size: 2rem;
+  margin-right: 0;
+}
+
 .button {
   margin: 0.3rem;
 }
@@ -43,8 +49,6 @@
   width: 56rem;
   padding: 1.5rem;
 } 
-
-
 
 .hero-full-screen .middle-content-section {
   text-align: center;
@@ -232,7 +236,6 @@
 .marketing-site-content-section-block-subheader {
   font-size: 13px;
 }
-
 
 .marketing-site-footer {
   background: #2c3840;

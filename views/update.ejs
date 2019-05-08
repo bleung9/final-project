@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Roomer Questionnaire</title>
+  <title>roomR Questionnaire</title>
 
   <link rel='stylesheet' href='/stylesheets/foundation.css' />
   <link rel='stylesheet' href='/stylesheets/app.css' />
@@ -36,6 +36,7 @@
     <form action="/users/<%= id %>/questionnaire" method="POST">
       <div class="border border-light p-5">
         <h3>Please tell us a little bit about yourself:</h3>
+        <hr>
 
         <label for="exampleFormControlSelect2">Q1: Choose your MBTI personality profile</label>
         <p>If you don't know, please take this test: <a href="https://www.16personalities.com/free-personality-test">16 Personalities' test</a></p>
@@ -138,11 +139,10 @@
         <hr>
 
         <div>
-
-          <label for="cleanliness-select"><p>Q7: On a scale of 1-10, how important is it that your space is always kept
-            clean?:</p></label>
-
-          <select id="cleanliness-select" name="cleanliness">
+          <p>Q7: On a scale of 1-10, how important is it that your space is always kept
+            clean?:</p>
+          <label for="cleanliness-select"></label>
+          <select class="browser-default custom-select mb-4" id="cleanliness-select" name="cleanliness">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -159,10 +159,9 @@
         <hr>
 
         <div>
-
-          <label for="petScore">Q8: On a scale of 1-10, how much do you mind that your roommate frequently has frds/SO
-            over?:</label>
-          <select id="petScore" name="petScore">
+          <p>Q8: On a scale of 1-10, how much would you mind if your roommate frequently has guests over?:</p>
+          <label for="petScore"></label>
+          <select class="browser-default custom-select mb-4" id="petScore" name="petScore">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -179,10 +178,10 @@
         <hr>
 
         <div>
-
-          <label for="avenger">Q9: On a scale of 1-10, how much do you like the Avengers
-            ?:</label>
-          <select id="avenger" name="avenger">
+          <p>Q9: On a scale of 1-10, how much do you like the Avengers
+            ?:</p>
+          <label for="avenger"></label>
+          <select class="browser-default custom-select mb-4" id="avenger" name="avenger">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -199,10 +198,9 @@
         <hr>
 
         <div>
-
-          <label for="Pika-select">Q10: On a scale of 1-10, how much do you like the Pikas
-            ?:</label>
-          <select id="Pika-select" name="pika">
+          <p>Q10: On a scale of 1-10, how much do you like the Pikachu?:</p>
+          <label for="Pika-select"></label>
+          <select class="browser-default custom-select mb-4" id="Pika-select" name="pika">
             <option value="10">10</option>
           </select>
         </div>

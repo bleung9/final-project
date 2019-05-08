@@ -1,1 +1,10 @@
 /* Style for inbox */
+
+body {
+  background: url(../images/sofa.jpg);
+}
+
+.inbox-content {
+  margin: 5rem 4rem 0 4rem;
+  background-color: transparent;
+}

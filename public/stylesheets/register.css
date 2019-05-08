@@ -1,4 +1,13 @@
 
 .register-form {
-  margin-top: 3rem;
+  margin: 6rem 8rem 0 8rem;
+  background-color: transparent;
+}
+
+#defaultRegisterFormPassword {
+  margin-bottom: 0;
+}
+
+#submit-button {
+  margin-bottom: 2rem;
 }
