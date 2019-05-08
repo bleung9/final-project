@@ -5,8 +5,9 @@
 }
 
 .navbar-dark .navbar-brand {
-  font-family: 'Covered By Your Grace', cursive;
+  font-family: 'Nothing You Could Do', cursive;
   font-size: 2rem;
+  margin-right: 0;
 }
 
 .button {
