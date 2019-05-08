@@ -26,10 +26,10 @@
   <div class="matches-content">
     <h1><b>Matches</b></h1>
     <% if (user_same.length === 0) { %>
-    <p>Unfortunately, there are no matches in <%= neigh %>. Be sure to checkout your matches in nearyby neighbourhoods
-      below!</p>
+    <h4>Unfortunately, there are no matches in <%= neigh %>. Be sure to checkout your matches in nearyby neighbourhoods
+      below!</h4>
     <% } else { %>
-    <p><b>Here are your matches in <%= neigh %>:</b></p>
+    <h4><b>Here are your matches in <%= neigh %>:</b></h4>
 
     <hr>
 
@@ -54,7 +54,7 @@
 
     <button class="btn btn-primary btn-sm" id="reveal">Click to reveal</button>
 
-    <p><b>Here are some matches in neighbourhoods in close proximity to <%= neigh %>:</b></p>
+    <h4><b>Here are some matches in neighbourhoods in close proximity to <%= neigh %>:</b></h4>
     <hr>
     <table class="table table-bordered" id="neighbours">
       <tr>
