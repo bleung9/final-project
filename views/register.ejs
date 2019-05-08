@@ -23,20 +23,20 @@
 
   <% include ./partials/_navbar %>
 
-  <div class="register-form" style="font-size:20px; padding:25px; background: #E6E8EB">
-    <form class="border border-light p-5" action="/register" method="POST">
+  <div class="register-form">
+    <form action="/register" method="POST">
 
       <p class="h4 mb-4 text-center">Register for an account!</p>
 
       <input type="text" name="firstName" id="defaultRegisterFormFirstName" class="form-control"
-        placeholder="First name">
+        placeholder="First name" required>
 
-      <input type="text" name="lastName" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+      <input type="text" name="lastName" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name" required>
 
-      <input type="email" name="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+      <input type="email" name="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" required>
 
       <input type="password" name="password" id="defaultRegisterFormPassword" class="form-control"
-        placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" required>
 
       <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">Minimum 8 characters</small>
 
