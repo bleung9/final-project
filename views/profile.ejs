@@ -8,6 +8,7 @@
   <title>Profile Edit</title>
 
   <link rel='stylesheet' href='/stylesheets/app.css' />
+  <link rel='stylesheet' href='/stylesheets/register.css' />
   <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.8.1/css/all.css”
     integrity=“sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf” crossorigin=“anonymous”>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
@@ -21,53 +22,43 @@
 
   <% include ./partials/_navbar %>
 
-  <div style="font-size:20px; padding:15px;">
-    <h1>Profile information:</h1>
-    <button class="btn btn-primary" id="edit">Edit Profile</button>
+  <div class="register-form">
+    <h3>Update your profile information:</h3>
+    <button class="btn btn-primary btn-sm" id="edit">Click here to unlock profile editing</button>
     <form action="/users/<%= user.id %>" method="POST">
 
       <div class="form-group">
-        <label class="name" for="first_name">User id</label>
+        <label class="name" for="first_name">First Name:</label>
         <input id="hidden" type="text" style="display:none" name="id" value=<%= user.id %>>
-
         <input id="first_name" type="text" disabled="disabled" class="form-control edit" name="firstName"
           value=<%= user.firstName %>>
       </div>
 
       <div class="form-group">
-        <label for="last_name">Last Name</label>
+        <label for="last_name">Last Name:</label>
         <input type="text" disabled="disabled" class="form-control" name="lastName" value=<%= user.lastName %>>
       </div>
 
       <div class="form-group">
-        <label for="last_name"> Gender</label>
-        <input type="text" disabled="disabled" class="form-control" name="gender" value=<%= user.gender %>>
-      </div>
-
-      <!-- <div class="form-group">
-        <label for="gender">Gender</label>
-        <select multiple class="form-control" id="exampleFormControlSelect2" value= <%= user.gender %>>
-          <option value="M">Male</option>
-          <option value="F">Female</option>
-        </select>  
-      </div> -->
-
-      <div class="form-group">
-        <label for="email">Email address:</label>
+        <label for="email">Email:</label>
         <input type="email" disabled="disabled" class="form-control" name="email" id="exampleInputEmail1"
           aria-describedby="emailHelp" value=<%= user.email %>>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
 
       <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">Password:</label>
         <input type="password" disabled="disabled" class="form-control" name="password" id="exampleInputPassword1"
           value="Set a Password">
         <small id="emailHelp" class="form-text text-muted">We'll also never share your password either...</small>
-
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <input type="text" disabled="disabled" class="form-control" name="gender" value=<%= user.gender %>>
+      </div>
+
+      <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
     </form>
 
   </div>
