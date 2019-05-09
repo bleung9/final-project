@@ -7,4 +7,5 @@ body {
 .inbox-content {
   margin: 5rem 4rem 0 4rem;
   background-color: transparent;
+  padding: 2rem;
 }
