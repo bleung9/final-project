@@ -30,6 +30,9 @@ This project uses port 3000 (<http://localhost:3000/> in your browser.).
 !["Neighborhood selection"](https://i.imgur.com/qJW5Wds.png)
 !["Matches page"](https://i.imgur.com/4vweQUe.jpg)
 !["Matches personality page"](https://i.imgur.com/gnnTtFR.png)
+!["matches profile page"](https://i.imgur.com/gnnTtFR.png)
+!["matches profile page - chat"](https://i.imgur.com/oMXXco8.png)
+!["edit profile/questionnaire page"](https://i.imgur.com/8BFBTU2.png)
 
 ## Getting Started
 
