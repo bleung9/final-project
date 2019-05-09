@@ -3,10 +3,9 @@
 body {
   background: url(../images/loft.jpg) !important;
   background-attachment: fixed !important;
-  background-size: 50% 50%;
 }
 .matches-content {
-  padding: 2rem;
+  padding: 3.5rem;
   background-color: transparent;
   margin: 4rem;
 }
