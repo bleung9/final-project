@@ -1,6 +1,6 @@
 # roomR - Lighthouse Labs Final Project
 
-roomR is a web app that is designed to be a comprehensive roommate finding app.  Current alternatives out there just aren't the full package right now, and that's what roomR aspires to be.  Our app asks a bunch of profile questions to better match registrants with other users who are looking for roommates.  Notably, we ask about personality profile to help weed out people who might not be good matches.  In addition, we ask about what neighborhood people want to live in, and we provide matches in that neighborhood as well as adjacent neighborhoods.
+roomR is a web app that is designed to be a comprehensive roommate finding app.  Current alternatives out there just aren't the full package right now, and that's what roomR aspires to be.  Our app asks a bunch of profile questions to better match registrants with other users who are looking for roommates.  Notably, we ask about personality profile to help weed out people who might not be good matches.  You can change your profile and answers to the questions at any time to get new matches.  In addition, we ask about what neighborhood people want to live in (also changeable), and we provide matches in that neighborhood as well as adjacent neighborhoods.
 
 My teammates on this project are Zeyu Liu (<https://github.com/z79liu/>) and Hark Khabra (<https://github.com/harkk/>).  
 
