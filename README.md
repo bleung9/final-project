@@ -43,4 +43,15 @@ This project uses port 3000 (<http://localhost:3000/> in your browser.).
 ## Future Goals
 ### Short term
 
+- implement more questions for personality matching
+- manual "importance" ranking for each question
+- delve more deeply into psychology (big 5 perhaps)
+- allow selection of multiple neighborhoods
+- get more real/realistic estate data (scrape Kijiji)
+
+
+### Long term
+
+- solicit feedback from users; use that information to improve matching algorithm, perhaps use ML
+- implement filtering options for users on results page (make it more dynamic)
 
