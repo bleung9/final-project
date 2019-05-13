@@ -40,3 +40,7 @@ This project uses port 3000 (<http://localhost:3000/> in your browser.).
 - Run the development web server using the `npm run devstart` (or `npm run dev-w` if you use vagrant on Windows) command.
 - Run the app at <http://localhost:3000/> in your browser.
 
+## Future Goals
+### Short term
+
+
