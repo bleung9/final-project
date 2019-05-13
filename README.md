@@ -47,7 +47,7 @@ This project uses port 3000 (<http://localhost:3000/> in your browser.).
 - manual "importance" ranking for each question
 - delve more deeply into psychology (big 5 perhaps)
 - allow selection of multiple neighborhoods
-- get more real/realistic estate data (scrape Kijiji)
+- get more real/realistic estate data (e.g. scrape Kijiji)
 
 
 ### Long term
