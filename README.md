@@ -43,6 +43,7 @@ This project uses port 3000 (<http://localhost:3000/> in your browser.).
 ## Future Goals
 ### Short term
 
+- refactor code, make more DRY
 - implement more questions for personality matching
 - manual "importance" ranking for each question
 - delve more deeply into psychology (big 5 perhaps)
